@@ -1,0 +1,1241 @@
+     VMA      LMA     Size Align Out     In      Symbol
+       0        0        0     1 RAM_START = 0x20004000
+       0        0        0     1 RAM_LENGTH = 0x00004000
+       0        0        0     1 FLASH_START = 0x00000440
+       0        0        0     1 FLASH_LENGTH = 0x0000fbc0
+       0        0        0     1 DATA_FLASH_START = 0x40100000
+       0        0        0     1 DATA_FLASH_LENGTH = 0x00000800
+       0        0        0     1 OPTION_SETTING_OFS0_START = 0x00000400
+       0        0        0     1 OPTION_SETTING_OFS0_LENGTH = 0x00000004
+       0        0        0     1 OPTION_SETTING_OFS1_START = 0x00000404
+       0        0        0     1 OPTION_SETTING_OFS1_LENGTH = 0x00000004
+       0        0        0     1 OPTION_SETTING_SECMPU_START = 0x00000408
+       0        0        0     1 OPTION_SETTING_SECMPU_LENGTH = 0x00000034
+       0        0        0     1 OPTION_SETTING_OSIS_START = 0x01010018
+       0        0        0     1 OPTION_SETTING_OSIS_LENGTH = 0x00000020
+       0        0        0     1 FLASH_GAP_START = 0x00000000
+       0        0        0     1 FLASH_GAP_LENGTH = 0x00000400
+40100000 40100000        0     1 .data_flash.startof
+40100000 40100000        0     1         __ddsc_DATA_FLASH_START = .
+20004000 20004000        0     1 .ram.startof
+20004000 20004000        0     1         __ddsc_RAM_START = .
+20004000 20004000        0     1 __ram_dtc_vector$$
+20004000 20004000        0     1         __ram_dtc_vector$$Base = .
+20004000 20004000        0     1         __ram_dtc_vector$$Limit = .
+20004000 20004000        0     1 __ram_from_data_flash$$
+20004000 20004000        0     1         __ram_from_data_flash$$Base = .
+20004000 20004000        0     1         __ram_from_data_flash$$Load = LOADADDR(__ram_from_data_flash$$)
+20004000 20004000        0     1         __ram_from_data_flash$$Limit = .
+40100000 40100000        0     1 __data_flash_readonly$$
+40100000 40100000        0     1         __data_flash_readonly$$Base = .
+40100000 40100000        0     1         __data_flash_readonly$$Limit = .
+40100000 40100000        0     1 __data_flash_noinit$$
+40100000 40100000        0     1         __data_flash_noinit$$Base = .
+40100000 40100000        0     1         __data_flash_noinit$$Limit = .
+40100000 40100000        0     1 .data_flash.endof
+40100000 40100000        0     1         __ddsc_DATA_FLASH_END = .
+       0        0        0     1 .flash.startof
+       0        0        0     1         __ddsc_FLASH_START = .
+       0        0       80     4 __flash_vectors$$
+       0        0        0     1         __flash_vectors$$Base = .
+       0        0        0     1         _VECTORS = .
+       0        0       40     4         nfc_read_205.elf.lto.o:(.fixed_vectors)
+       0        0       40     1                 __Vectors
+      40       40       40     4         nfc_read_205.elf.lto.o:(.application_vectors)
+      40       40       40     1                 g_vector_table
+      80       80        0     1         __flash_vectors$$Limit = .
+      80       80        0     1 __flash_readonly_gap$$
+      80       80        0     1         __flash_readonly_gap$$Base = .
+      80       80        0     1         __flash_readonly_gap$$Limit = .
+     440      440        0     1 __flash_noinit$$
+     440      440        0     1         __flash_noinit$$Base = .
+     440      440        0     1         __flash_noinit$$Limit = .
+20004000      440      23c     4 __ram_from_flash$$
+20004000      440        0     1         __ram_from_flash$$Base = .
+20004000      440        0     1         __ram_from_flash$$Load = LOADADDR(__ram_from_flash$$)
+20004000      440       2f     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollA106)
+20004000      440       2f     1                 ptx_NSC_RfConfig_PollA106
+2000402f      46f       30     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollA212)
+2000402f      46f       30     1                 ptx_NSC_RfConfig_PollA212
+2000405f      49f       30     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollA424)
+2000405f      49f       30     1                 ptx_NSC_RfConfig_PollA424
+2000408f      4cf       30     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollA848)
+2000408f      4cf       30     1                 ptx_NSC_RfConfig_PollA848
+200040bf      4ff       2f     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollB106)
+200040bf      4ff       2f     1                 ptx_NSC_RfConfig_PollB106
+200040ee      52e       2f     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollB212)
+200040ee      52e       2f     1                 ptx_NSC_RfConfig_PollB212
+2000411d      55d       2f     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollB424)
+2000411d      55d       2f     1                 ptx_NSC_RfConfig_PollB424
+2000414c      58c       2f     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_PollB848)
+2000414c      58c       2f     1                 ptx_NSC_RfConfig_PollB848
+2000417b      5bb        7     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_ListenA212)
+2000417b      5bb        7     1                 ptx_NSC_RfConfig_ListenA212
+20004182      5c2        7     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_ListenA424)
+20004182      5c2        7     1                 ptx_NSC_RfConfig_ListenA424
+20004189      5c9        7     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_ListenA848)
+20004189      5c9        7     1                 ptx_NSC_RfConfig_ListenA848
+20004190      5d0       1f     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_Listen)
+20004190      5d0       1f     1                 ptx_NSC_RfConfig_Listen
+200041af      5ef       20     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_Wavepattern)
+200041af      5ef       20     1                 ptx_NSC_RfConfig_Wavepattern
+200041cf      60f       10     1         nfc_read_205.elf.lto.o:(.data.ptx_NSC_RfConfig_Poll)
+200041cf      60f       10     1                 ptx_NSC_RfConfig_Poll
+200041df      61f        4     1         nfc_read_205.elf.lto.o:(.data.ptx_uart_dbg_baud_setting)
+200041df      61f        4     1                 ptx_uart_dbg_baud_setting
+200041e4      624       58     4         nfc_read_205.elf.lto.o:(.data..L_MergedGlobals)
+200041e4      624        4     1                 gDrvGpioPortConfig
+200041e8      628        f     1                 gTagCcFile
+200041f8      638       1c     1                 gDrvSpiPortConfigs
+20004214      654       28     1                 gDrvTimerPortConfigs
+2000423c      67c        0     1         __ram_from_flash$$Limit = .
+20004240 20004240     1014     8 __ram_noinit$$
+20004240 20004240        0     1         __ram_noinit$$Base = .
+20004240 20004240     1000     8         nfc_read_205.elf.lto.o:(.bss.g_main_stack)
+20004240 20004240     1000     1                 g_main_stack
+20005240 20005240       14     4         nfc_read_205.elf.lto.o:(.ram_noinit)
+20005240 20005240       14     1                 g_clock_freq
+20005254 20005254        0     1         __ram_noinit$$Limit = .
+20005254 20005254      cf4     4 __ram_zero$$
+20005254 20005254        0     1         __ram_zero$$Base = .
+20005254 20005254        4     4         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_machine_arm_tls.c.o):(.bss.__tls)
+20005254 20005254        4     1                 __tls
+20005258 20005258       7a     4         nfc_read_205.elf.lto.o:(.bss.gPendingText)
+20005258 20005258       7a     1                 gPendingText
+200052d4 200052d4       7a     4         nfc_read_205.elf.lto.o:(.bss.gTagText)
+200052d4 200052d4       7a     1                 gTagText
+2000534e 2000534e      100     1         nfc_read_205.elf.lto.o:(.bss.gTagNdefFile)
+2000534e 2000534e      100     1                 gTagNdefFile
+20005450 20005450      100     4         nfc_read_205.elf.lto.o:(.bss.gTagRxBuffer)
+20005450 20005450      100     1                 gTagRxBuffer
+20005550 20005550      330     4         nfc_read_205.elf.lto.o:(.bss.gTagHce)
+20005550 20005550      330     1                 gTagHce
+20005880 20005880      100     4         nfc_read_205.elf.lto.o:(.bss.gTagTxBuffer)
+20005880 20005880      100     1                 gTagTxBuffer
+20005980 20005980       80     1         nfc_read_205.elf.lto.o:(.bss.sCliRxBuf)
+20005980 20005980       80     1                 sCliRxBuf
+20005a00 20005a00       10     4         nfc_read_205.elf.lto.o:(.bss.ptx_pmod2_irq_ctrl)
+20005a00 20005a00       10     1                 ptx_pmod2_irq_ctrl
+20005a10 20005a10        8     4         nfc_read_205.elf.lto.o:(.bss.g_ioport_ctrl)
+20005a10 20005a10        8     1                 g_ioport_ctrl
+20005a18 20005a18       20     4         nfc_read_205.elf.lto.o:(.bss.ptx_tmr1_ctrl)
+20005a18 20005a18       20     1                 ptx_tmr1_ctrl
+20005a38 20005a38       20     4         nfc_read_205.elf.lto.o:(.bss.ptx_tmr0_ctrl)
+20005a38 20005a38       20     1                 ptx_tmr0_ctrl
+20005a58 20005a58       2c     4         nfc_read_205.elf.lto.o:(.bss.ptx_pmod2_spi_ctrl)
+20005a58 20005a58       2c     1                 ptx_pmod2_spi_ctrl
+20005a84 20005a84       48     4         nfc_read_205.elf.lto.o:(.bss.g_fsp_common_initialized_semaphore_memory)
+20005a84 20005a84       48     1                 g_fsp_common_initialized_semaphore_memory
+20005acc 20005acc       60     4         nfc_read_205.elf.lto.o:(.bss.vApplicationGetIdleTaskMemory.xIdleTaskTCB)
+20005acc 20005acc       60     1                 vApplicationGetIdleTaskMemory.xIdleTaskTCB
+20005b2c 20005b2c      200     4         nfc_read_205.elf.lto.o:(.bss.vApplicationGetIdleTaskMemory.uxIdleTaskStack)
+20005b2c 20005b2c      200     1                 vApplicationGetIdleTaskMemory.uxIdleTaskStack
+20005d2c 20005d2c       60     4         nfc_read_205.elf.lto.o:(.bss.nfc_thread_memory)
+20005d2c 20005d2c       60     1                 nfc_thread_memory
+20005d8c 20005d8c        4     4         nfc_read_205.elf.lto.o:(.bss.SystemCoreClock)
+20005d8c 20005d8c        4     1                 SystemCoreClock
+20005d90 20005d90        4     4         nfc_read_205.elf.lto.o:(.bss.pxCurrentTCB)
+20005d90 20005d90        4     1                 pxCurrentTCB
+20005d94 20005d94       64     4         nfc_read_205.elf.lto.o:(.bss.pxReadyTasksLists)
+20005d94 20005d94       64     1                 pxReadyTasksLists
+20005df8 20005df8       7c     4         nfc_read_205.elf.lto.o:(.bss..L_MergedGlobals.505)
+20005df8 20005df8        1     1                 gTagRequested
+20005df9 20005df9        1     1                 sUartState
+20005dfa 20005dfa        1     1                 sCliLastWasCr
+20005dfb 20005dfb        1     1                 sCliLineReady
+20005dfc 20005dfc        1     1                 g_fsp_common_initialized
+20005e00 20005e00        4     1                 gExit
+20005e04 20005e04        4     1                 gPendingTextLen
+20005e08 20005e08        4     1                 gTagTextLen
+20005e0c 20005e0c        4     1                 sCliRxLen
+20005e10 20005e10        4     1                 sCliEchoLen
+20005e14 20005e14        4     1                 g_fsp_common_initialized_semaphore
+20005e18 20005e18        4     1                 g_fsp_common_thread_count
+20005e1c 20005e1c        4     1                 uxCriticalNesting
+20005e20 20005e20        4     1                 g_mask_level_before_disable
+20005e24 20005e24        4     1                 g_protect_pfswe_counter
+20005e28 20005e28        4     1                 uxTaskNumber
+20005e2c 20005e2c        4     1                 xSchedulerRunning
+20005e30 20005e30        4     1                 uxDeletedTasksWaitingCleanUp
+20005e34 20005e34        4     1                 uxCurrentNumberOfTasks
+20005e38 20005e38        4     1                 uxSchedulerSuspended
+20005e3c 20005e3c        4     1                 xTickCount
+20005e40 20005e40        4     1                 uxTopReadyPriority
+20005e44 20005e44        4     1                 xYieldPendings
+20005e48 20005e48        4     1                 xNextTaskUnblockTime
+20005e4c 20005e4c        4     1                 xIdleTaskHandles.0
+20005e50 20005e50        4     1                 xPendedTicks
+20005e54 20005e54        4     1                 pxDelayedTaskList
+20005e58 20005e58        4     1                 pxOverflowDelayedTaskList
+20005e5c 20005e5c        4     1                 xNumOfOverflows
+20005e60 20005e60       14     1                 gTagT4t
+20005e74 20005e74       64     4         nfc_read_205.elf.lto.o:(.bss..L_MergedGlobals.506)
+20005e74 20005e74       14     1                 xTasksWaitingTermination
+20005e88 20005e88       14     1                 xSuspendedTaskList
+20005e9c 20005e9c       14     1                 xPendingReadyList
+20005eb0 20005eb0       14     1                 xDelayedTaskList1
+20005ec4 20005ec4       14     1                 xDelayedTaskList2
+20005ed8 20005ed8       70     4         nfc_read_205.elf.lto.o:(.bss..L_MergedGlobals.507)
+20005ed8 20005ed8       30     1                 ptx_uart_dbg_ctrl
+20005f08 20005f08       40     1                 gp_renesas_isr_context
+20005f48 20005f48        0     1         __ram_zero$$Limit = .
+20005f48 20005f48        0     1 __ram_tdata$$
+20005f48 20005f48        0     1         __ram_tdata$$Base = .
+20005f48 20005f48        0     1         __ram_tdata$$Load = LOADADDR(__ram_tdata$$)
+20005f48 20005f48        0     1         __ram_tdata$$Limit = .
+20005f48 20005f48        0     1 __ram_tbss$$
+20005f48 20005f48        0     1         __ram_tbss$$Base = .
+20005f48 20005f48        0     1         __ram_tbss$$Limit = .
+20005f48 20005f48     1c00     8 __ram_thread_stack$$
+20005f48 20005f48        0     1         __ram_thread_stack$$Base = .
+20005f48 20005f48     1c00     8         nfc_read_205.elf.lto.o:(.stack.nfc_thread)
+20005f48 20005f48     1c00     1                 nfc_thread_stack
+20007b48 20007b48        0     1         __ram_thread_stack$$Limit = .
+20007c00 20007c00        0     1 .ram.endof
+20007c00 20007c00        0     1         __ddsc_RAM_END = .
+     67c      67c     f8e2     4 __flash_readonly$$
+     67c      67c        0     1         __flash_readonly$$Base = .
+     67c      67c       12     2         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memcpy.c.o):(.text.memcpy)
+     67c      67c        0     1                 $t
+     67d      67d       12     1                 memcpy
+     67d      67d       12     1                 __aeabi_memcpy4
+     67d      67d       12     1                 __aeabi_memcpy8
+     67d      67d       12     1                 __aeabi_memcpy
+     68e      68e        e     2         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memset.c.o):(.text.memset)
+     68e      68e        0     1                 $t
+     68f      68f        e     1                 memset
+     69c      69c        e     4         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(strlen.S.o):(.text)
+     69c      69c        0     1                 $t
+     69d      69d        e     1                 strlen
+     6aa      6aa       1e     2         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_string_memcmp.c.o):(.text.memcmp)
+     6aa      6aa        0     1                 $t
+     6ab      6ab       1e     1                 memcmp
+     6c8      6c8       28     4         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o):(.text._init_tls)
+     6c8      6c8        0     1                 $t
+     6c9      6c9       28     1                 _init_tls
+     6e0      6e0        0     1                 $d
+     6f0      6f0        c     2         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(bzero.c.o):(.text.bzero)
+     6f0      6f0        0     1                 $t
+     6f1      6f1        c     1                 bzero
+     6f1      6f1        c     1                 __aeabi_memclr4
+     6f1      6f1        c     1                 __aeabi_memclr8
+     6f1      6f1        c     1                 __aeabi_memclr
+     6fc      6fc       14     4         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_machine_arm_set_tls.c.o):(.text._set_tls)
+     6fc      6fc        0     1                 $t
+     6fd      6fd       14     1                 _set_tls
+     708      708        0     1                 $d
+     710      710       34     2         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libclang_rt.builtins.a(muldi3.c.obj):(.text.__muldi3)
+     710      710        0     1                 $t
+     711      711       34     1                 __muldi3
+     711      711       34     1                 __aeabi_lmul
+     744      744       30     2         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memmove.c.o):(.text.memmove)
+     744      744        0     1                 $t
+     745      745       30     1                 memmove
+     745      745       30     1                 __aeabi_memmove4
+     745      745       30     1                 __aeabi_memmove8
+     745      745       30     1                 __aeabi_memmove
+     774      774       80     4         nfc_read_205.elf.lto.o:(.text.ptx_Demo_LedSet)
+     774      774        0     1                 $t
+     775      775       80     1                 ptx_Demo_LedSet
+     7e0      7e0        0     1                 $d
+     7f4      7f4        c     4         nfc_read_205.elf.lto.o:(.text.ptx_Demo_CliHelp)
+     7f4      7f4        0     1                 $t
+     7f5      7f5        c     1                 ptx_Demo_CliHelp
+     7fc      7fc        0     1                 $d
+     800      800        c     4         nfc_read_205.elf.lto.o:(.text.ptx_Demo_CliPrompt)
+     800      800        0     1                 $t
+     801      801        c     1                 ptx_Demo_CliPrompt
+     808      808        0     1                 $d
+     80c      80c      350     4         nfc_read_205.elf.lto.o:(.text.ptx_Utils_Print)
+     80c      80c        0     1                 $t
+     80d      80d      350     1                 ptx_Utils_Print
+     b20      b20        0     1                 $d
+     b5c      b5c       7c     4         nfc_read_205.elf.lto.o:(.text.ptx_Utils_Print_Callback)
+     b5c      b5c        0     1                 $t
+     b5d      b5d       7c     1                 ptx_Utils_Print_Callback
+     bd0      bd0        0     1                 $d
+     bd8      bd8       20     4         nfc_read_205.elf.lto.o:(.text.ptx_Utils_Cli_AnyKey)
+     bd8      bd8        0     1                 $t
+     bd9      bd9       20     1                 ptx_Utils_Cli_AnyKey
+     bf4      bf4        0     1                 $d
+     bf8      bf8      108     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RUL_FetchMsg)
+     bf8      bf8        0     1                 $t
+     bf9      bf9      108     1                 ptx_NSC_RUL_FetchMsg
+     d00      d00       4e     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RUL_NewMsgReceived)
+     d00      d00        0     1                 $t
+     d01      d01       4e     1                 ptx_NSC_RUL_NewMsgReceived
+     d50      d50       7c     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RUL_RfConfig_LoadParam)
+     d50      d50        0     1                 $t
+     d51      d51       7c     1                 ptx_NSC_RUL_RfConfig_LoadParam
+     dbc      dbc        0     1                 $d
+     dcc      dcc       54     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_GetResetNtf)
+     dcc      dcc        0     1                 $t
+     dcd      dcd       54     1                 ptx_NSC_GetResetNtf
+     e20      e20       46     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_CmdProcessor_DispatchMsg)
+     e20      e20        0     1                 $t
+     e21      e21       46     1                 ptx_NSC_CmdProcessor_DispatchMsg
+     e68      e68      8c8     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_CmdProcessor_GetPendingMsg)
+     e68      e68        0     1                 $t
+     e69      e69      8c8     1                 ptx_NSC_CmdProcessor_GetPendingMsg
+    1318     1318        0     1                 $d
+    131c     131c        0     1                 $t
+    132c     132c        0     1                 $d
+    1330     1330        0     1                 $t
+    1730     1730       9e     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_CmdProcessor_FetchMsg)
+    1730     1730        0     1                 $t
+    1731     1731       9e     1                 ptx_NSC_CmdProcessor_FetchMsg
+    17d0     17d0       b8     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_CmdProcessor_ProcessRsp)
+    17d0     17d0        0     1                 $t
+    17d1     17d1       b8     1                 ptx_NSC_CmdProcessor_ProcessRsp
+    1888     1888      10c     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_DataTx)
+    1888     1888        0     1                 $t
+    1889     1889      10c     1                 ptx_NSC_DataTx
+    198c     198c        0     1                 $d
+    1994     1994       4a     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_UDiv64By32)
+    1994     1994        0     1                 $t
+    1995     1995       4a     1                 ptx_NSC_UDiv64By32
+    19e0     19e0      218     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RfActivate_Process)
+    19e0     19e0        0     1                 $t
+    19e1     19e1      218     1                 ptx_NSC_RfActivate_Process
+    1bf8     1bf8       70     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RfActivateNtf_CheckProtLen)
+    1bf8     1bf8        0     1                 $t
+    1bf9     1bf9       70     1                 ptx_NSC_RfActivateNtf_CheckProtLen
+    1c68     1c68       46     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RfConfig_AddToCmd)
+    1c68     1c68        0     1                 $t
+    1c69     1c69       46     1                 ptx_NSC_RfConfig_AddToCmd
+    1cae     1cae       5e     2         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RfConfig_Dispatch)
+    1cae     1cae        0     1                 $t
+    1caf     1caf       5e     1                 ptx_NSC_RfConfig_Dispatch
+    1d0c     1d0c      10c     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_RfDeactivate)
+    1d0c     1d0c        0     1                 $t
+    1d0d     1d0d      10c     1                 ptx_NSC_RfDeactivate
+    1e14     1e14        0     1                 $d
+    1e18     1e18      4b0     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_GetRfDiscoveryParam)
+    1e18     1e18        0     1                 $t
+    1e19     1e19      4b0     1                 ptx_NSC_GetRfDiscoveryParam
+    22c0     22c0        0     1                 $d
+    22c8     22c8      108     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_SetDefaultDiscParams)
+    22c8     22c8        0     1                 $t
+    22c9     22c9      108     1                 ptx_NSC_SetDefaultDiscParams
+    23c8     23c8        0     1                 $d
+    23d0     23d0       bc     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_SetDefaultDiscParams.109)
+    23d0     23d0        0     1                 $t
+    23d1     23d1       bc     1                 ptx_NSC_SetDefaultDiscParams.109
+    248c     248c       a4     4         nfc_read_205.elf.lto.o:(.text.ptx_NSC_CheckRfStateCmdExecution)
+    248c     248c        0     1                 $t
+    248d     248d       a4     1                 ptx_NSC_CheckRfStateCmdExecution
+    2528     2528        0     1                 $d
+    2530     2530      174     4         nfc_read_205.elf.lto.o:(.text.ptx_HIP_Frame_TRx)
+    2530     2530        0     1                 $t
+    2531     2531      174     1                 ptx_HIP_Frame_TRx
+    26a0     26a0        0     1                 $d
+    26a4     26a4       2c     4         nfc_read_205.elf.lto.o:(.text.ptx_HIP_Frame_CalcCRC16)
+    26a4     26a4        0     1                 $t
+    26a5     26a5       2c     1                 ptx_HIP_Frame_CalcCRC16
+    26cc     26cc        0     1                 $d
+    26d0     26d0       90     2         nfc_read_205.elf.lto.o:(.text.ptx_HIP_Frame_Encode_SPI)
+    26d0     26d0        0     1                 $t
+    26d1     26d1       90     1                 ptx_HIP_Frame_Encode_SPI
+    2760     2760       28     2         nfc_read_205.elf.lto.o:(.text.ptx_HIP_SysRst)
+    2760     2760        0     1                 $t
+    2761     2761       28     1                 ptx_HIP_SysRst
+    2788     2788       64     2         nfc_read_205.elf.lto.o:(.text.ptx_HIP_WrCMem)
+    2788     2788        0     1                 $t
+    2789     2789       64     1                 ptx_HIP_WrCMem
+    27ec     27ec        c     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_GPIO_Close)
+    27ec     27ec        0     1                 $t
+    27ed     27ed        c     1                 ptx_HAL_DRV_GPIO_Close
+    27f8     27f8       38     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_GPIO_Open)
+    27f8     27f8        0     1                 $t
+    27f9     27f9       38     1                 ptx_HAL_DRV_GPIO_Open
+    2828     2828        0     1                 $d
+    2830     2830       2a     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_GPIO_SetCfgPin)
+    2830     2830        0     1                 $t
+    2831     2831       2a     1                 ptx_HAL_DRV_GPIO_SetCfgPin
+    285c     285c       24     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_GPIO_ReadPin)
+    285c     285c        0     1                 $t
+    285d     285d       24     1                 ptx_HAL_DRV_GPIO_ReadPin
+    287c     287c        0     1                 $d
+    2880     2880        a     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_GPIO_WritePin)
+    2880     2880        0     1                 $t
+    2881     2881        a     1                 ptx_HAL_DRV_GPIO_WritePin
+    288c     288c       1c     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_GPIO_ReadPort)
+    288c     288c        0     1                 $t
+    288d     288d       1c     1                 ptx_HAL_DRV_GPIO_ReadPort
+    28a4     28a4        0     1                 $d
+    28a8     28a8        c     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_GPIO_WritePort)
+    28a8     28a8        0     1                 $t
+    28a9     28a9        c     1                 ptx_HAL_DRV_GPIO_WritePort
+    28b4     28b4       d8     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Interface_SPI_Open)
+    28b4     28b4        0     1                 $t
+    28b5     28b5       d8     1                 ptx_HAL_DRV_Interface_SPI_Open
+    2978     2978        0     1                 $d
+    298c     298c       1e     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Interface_SPI_TransferCallback)
+    298c     298c        0     1                 $t
+    298d     298d       1e     1                 ptx_HAL_DRV_Interface_SPI_TransferCallback
+    29aa     29aa        2     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Interface_SPI_IrqCallback)
+    29aa     29aa        0     1                 $t
+    29ab     29ab        2     1                 ptx_HAL_DRV_Interface_SPI_IrqCallback
+    29ac     29ac       3c     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Interface_SPI_Wait4TransferDone)
+    29ac     29ac        0     1                 $t
+    29ad     29ad       3c     1                 ptx_HAL_DRV_Interface_SPI_Wait4TransferDone
+    29e8     29e8        8     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Interface_SPI_ResetNss)
+    29e8     29e8        0     1                 $t
+    29e9     29e9        8     1                 ptx_HAL_DRV_Interface_SPI_ResetNss
+    29f0     29f0       24     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_Open)
+    29f0     29f0        0     1                 $t
+    29f1     29f1       24     1                 ptx_HAL_DRV_Tmr_Open
+    2a10     2a10        0     1                 $d
+    2a14     2a14       24     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_ISR)
+    2a14     2a14        0     1                 $t
+    2a15     2a15       24     1                 ptx_HAL_DRV_Tmr_ISR
+    2a38     2a38       10     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_Close)
+    2a38     2a38        0     1                 $t
+    2a39     2a39       10     1                 ptx_HAL_DRV_Tmr_Close
+    2a48     2a48       16     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_Start)
+    2a48     2a48        0     1                 $t
+    2a49     2a49       16     1                 ptx_HAL_DRV_Tmr_Start
+    2a5e     2a5e       10     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_Stop)
+    2a5e     2a5e        0     1                 $t
+    2a5f     2a5f       10     1                 ptx_HAL_DRV_Tmr_Stop
+    2a6e     2a6e       10     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_IsElapsed)
+    2a6e     2a6e        0     1                 $t
+    2a6f     2a6f       10     1                 ptx_HAL_DRV_Tmr_IsElapsed
+    2a7e     2a7e       14     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_RegExecCb)
+    2a7e     2a7e        0     1                 $t
+    2a7f     2a7f       14     1                 ptx_HAL_DRV_Tmr_RegExecCb
+    2a94     2a94       bc     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_Cfg)
+    2a94     2a94        0     1                 $t
+    2a95     2a95       bc     1                 ptx_HAL_DRV_Tmr_Cfg
+    2b44     2b44        0     1                 $d
+    2b50     2b50       68     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_DRV_Tmr_Sleep)
+    2b50     2b50        0     1                 $t
+    2b51     2b51       68     1                 ptx_HAL_DRV_Tmr_Sleep
+    2bb8     2bb8       1c     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_Interface_SPI_Open)
+    2bb8     2bb8        0     1                 $t
+    2bb9     2bb9       1c     1                 ptx_HAL_Interface_SPI_Open
+    2bd4     2bd4       40     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_Interface_SPI_Close)
+    2bd4     2bd4        0     1                 $t
+    2bd5     2bd5       40     1                 ptx_HAL_Interface_SPI_Close
+    2c10     2c10        0     1                 $d
+    2c14     2c14       f0     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_Interface_SPI_TRx)
+    2c14     2c14        0     1                 $t
+    2c15     2c15       f0     1                 ptx_HAL_Interface_SPI_TRx
+    2d00     2d00        0     1                 $d
+    2d04     2d04       20     4         nfc_read_205.elf.lto.o:(.text.ptx_HAL_Interface_SPI_RxPending)
+    2d04     2d04        0     1                 $t
+    2d05     2d05       20     1                 ptx_HAL_Interface_SPI_RxPending
+    2d20     2d20        0     1                 $d
+    2d24     2d24       34     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_Interface_SPI_SetParameter)
+    2d24     2d24        0     1                 $t
+    2d25     2d25       34     1                 ptx_HAL_Interface_SPI_SetParameter
+    2d58     2d58       1a     2         nfc_read_205.elf.lto.o:(.text.ptx_HAL_Interface_SPI_GetParameter)
+    2d58     2d58        0     1                 $t
+    2d59     2d59       1a     1                 ptx_HAL_Interface_SPI_GetParameter
+    2d72     2d72       7c     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_ProcessDataMsg)
+    2d72     2d72        0     1                 $t
+    2d73     2d73       7c     1                 ptx_RUL_HCE_ProcessDataMsg
+    2dee     2dee       4a     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_ProcessError)
+    2dee     2dee        0     1                 $t
+    2def     2def       4a     1                 ptx_RUL_HCE_ProcessError
+    2e38     2e38       2c     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_ProcessReset)
+    2e38     2e38        0     1                 $t
+    2e39     2e39       2c     1                 ptx_RUL_HCE_ProcessReset
+    2e64     2e64       68     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_ProcessRfActivate)
+    2e64     2e64        0     1                 $t
+    2e65     2e65       68     1                 ptx_RUL_HCE_ProcessRfActivate
+    2ecc     2ecc       48     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_ProcessRfField)
+    2ecc     2ecc        0     1                 $t
+    2ecd     2ecd       48     1                 ptx_RUL_HCE_ProcessRfField
+    2f14     2f14       72     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_ProcessRfDeactivate)
+    2f14     2f14        0     1                 $t
+    2f15     2f15       72     1                 ptx_RUL_HCE_ProcessRfDeactivate
+    2f86     2f86       2c     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_ReserveEventRecord)
+    2f86     2f86        0     1                 $t
+    2f87     2f87       2c     1                 ptx_RUL_HCE_ReserveEventRecord
+    2fb2     2fb2       24     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_HCE_AddNewEventPending)
+    2fb2     2fb2        0     1                 $t
+    2fb3     2fb3       24     1                 ptx_RUL_HCE_AddNewEventPending
+    2fd8     2fd8      438     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_InitHardware)
+    2fd8     2fd8        0     1                 $t
+    2fd9     2fd9      438     1                 ptx_RUL_InitHardware
+    33e0     33e0        0     1                 $d
+    3410     3410       b4     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_Deactivate)
+    3410     3410        0     1                 $t
+    3411     3411       b4     1                 ptx_RUL_Deactivate
+    34b4     34b4        0     1                 $d
+    34c4     34c4       84     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_GetStatusInfo)
+    34c4     34c4        0     1                 $t
+    34c5     34c5       84     1                 ptx_RUL_GetStatusInfo
+    3544     3544        0     1                 $d
+    3548     3548      16e     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_Exchange)
+    3548     3548        0     1                 $t
+    3549     3549      16e     1                 ptx_RUL_Exchange
+    36b8     36b8       8c     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_AddToCardRegistry)
+    36b8     36b8        0     1                 $t
+    36b9     36b9       8c     1                 ptx_RUL_AddToCardRegistry
+    373c     373c        0     1                 $d
+    3744     3744       68     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_DetermineProtocol)
+    3744     3744        0     1                 $t
+    3745     3745       68     1                 ptx_RUL_DetermineProtocol
+    37ac     37ac      118     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessRfDiscoverNtf)
+    37ac     37ac        0     1                 $t
+    37ad     37ad      118     1                 ptx_RUL_ProcessRfDiscoverNtf
+    38b8     38b8        0     1                 $d
+    38c4     38c4       40     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessRfLpcdNtf)
+    38c4     38c4        0     1                 $t
+    38c5     38c5       40     1                 ptx_RUL_ProcessRfLpcdNtf
+    3900     3900        0     1                 $d
+    3904     3904       80     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessResetNtf)
+    3904     3904        0     1                 $t
+    3905     3905       80     1                 ptx_RUL_ProcessResetNtf
+    3974     3974        0     1                 $d
+    3984     3984      3f0     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessRfActivateNtf)
+    3984     3984        0     1                 $t
+    3985     3985      3f0     1                 ptx_RUL_ProcessRfActivateNtf
+    3d5c     3d5c        0     1                 $d
+    3d74     3d74       98     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessRfDeactivateNtf)
+    3d74     3d74        0     1                 $t
+    3d75     3d75       98     1                 ptx_RUL_ProcessRfDeactivateNtf
+    3dfc     3dfc        0     1                 $d
+    3e0c     3e0c      128     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessErrorNtf)
+    3e0c     3e0c        0     1                 $t
+    3e0d     3e0d      128     1                 ptx_RUL_ProcessErrorNtf
+    3f2c     3f2c        0     1                 $d
+    3f34     3f34       3e     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessRfFieldNtf)
+    3f34     3f34        0     1                 $t
+    3f35     3f35       3e     1                 ptx_RUL_ProcessRfFieldNtf
+    3f72     3f72       24     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessWlcWptStopNtf)
+    3f72     3f72        0     1                 $t
+    3f73     3f73       24     1                 ptx_RUL_ProcessWlcWptStopNtf
+    3f96     3f96       14     2         nfc_read_205.elf.lto.o:(.text.ptx_RUL_ProcessDataMsg)
+    3f96     3f96        0     1                 $t
+    3f97     3f97       14     1                 ptx_RUL_ProcessDataMsg
+    3fac     3fac      836     4         nfc_read_205.elf.lto.o:(.text.ptx_RUL_InitiateDiscovery)
+    3fac     3fac        0     1                 $t
+    3fad     3fad      836     1                 ptx_RUL_InitiateDiscovery
+    42d0     42d0        0     1                 $d
+    42dc     42dc        0     1                 $t
+    473c     473c        0     1                 $d
+    4744     4744        0     1                 $t
+    47e4     47e4       50     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T4T_CheckSelectResponse)
+    47e4     47e4        0     1                 $t
+    47e5     47e5       50     1                 ptx_NDEF_T4T_CheckSelectResponse
+    4830     4830        0     1                 $d
+    4834     4834      106     2         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T4T_ReadBinary)
+    4834     4834        0     1                 $t
+    4835     4835      106     1                 ptx_NDEF_T4T_ReadBinary
+    493c     493c       84     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T4T_UpdateLength)
+    493c     493c        0     1                 $t
+    493d     493d       84     1                 ptx_NDEF_T4T_UpdateLength
+    49bc     49bc        0     1                 $d
+    49c0     49c0       f8     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T4T_UpdateBinary)
+    49c0     49c0        0     1                 $t
+    49c1     49c1       f8     1                 ptx_NDEF_T4T_UpdateBinary
+    4ab4     4ab4        0     1                 $d
+    4ab8     4ab8      680     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T2T_CheckMessage)
+    4ab8     4ab8        0     1                 $t
+    4ab9     4ab9      680     1                 ptx_NDEF_T2T_CheckMessage
+    4ed0     4ed0        0     1                 $d
+    4ed4     4ed4        0     1                 $t
+    4ef0     4ef0        0     1                 $d
+    4f00     4f00        0     1                 $t
+    5134     5134        0     1                 $d
+    5138     5138       44     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T2T_ReadBlocks)
+    5138     5138        0     1                 $t
+    5139     5139       44     1                 ptx_NDEF_T2T_ReadBlocks
+    5178     5178        0     1                 $d
+    517c     517c       a8     2         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T2T_SectorSelect)
+    517c     517c        0     1                 $t
+    517d     517d       a8     1                 ptx_NDEF_T2T_SectorSelect
+    5224     5224       7e     2         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T2T_AreaChecker)
+    5224     5224        0     1                 $t
+    5225     5225       7e     1                 ptx_NDEF_T2T_AreaChecker
+    52a4     52a4       a0     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T2T_TLVProtection)
+    52a4     52a4        0     1                 $t
+    52a5     52a5       a0     1                 ptx_NDEF_T2T_TLVProtection
+    5340     5340        0     1                 $d
+    5344     5344      240     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T2T_UpdateLength)
+    5344     5344        0     1                 $t
+    5345     5345      240     1                 ptx_NDEF_T2T_UpdateLength
+    5580     5580        0     1                 $d
+    5584     5584       6c     4         nfc_read_205.elf.lto.o:(.text.ptx_NDEF_T2T_WriteBlock)
+    5584     5584        0     1                 $t
+    5585     5585       6c     1                 ptx_NDEF_T2T_WriteBlock
+    55ec     55ec        0     1                 $d
+    55f0     55f0       28     2         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T4T_Select_File)
+    55f0     55f0        0     1                 $t
+    55f1     55f1       28     1                 ptx_NativeTag_T4T_Select_File
+    5618     5618       90     2         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T4T_Select)
+    5618     5618        0     1                 $t
+    5619     5619       90     1                 ptx_NativeTag_T4T_Select
+    56a8     56a8       32     2         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T4T_SetCommandAPDU)
+    56a8     56a8        0     1                 $t
+    56a9     56a9       32     1                 ptx_NativeTag_T4T_SetCommandAPDU
+    56dc     56dc       1c     4         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T4T_Transceive)
+    56dc     56dc        0     1                 $t
+    56dd     56dd       1c     1                 ptx_NativeTag_T4T_Transceive
+    56f4     56f4        0     1                 $d
+    56f8     56f8       b8     4         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T4T_ParsePayload)
+    56f8     56f8        0     1                 $t
+    56f9     56f9       b8     1                 ptx_NativeTag_T4T_ParsePayload
+    57ac     57ac        0     1                 $d
+    57b0     57b0       30     2         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T4T_SetODOCommandAPDU)
+    57b0     57b0        0     1                 $t
+    57b1     57b1       30     1                 ptx_NativeTag_T4T_SetODOCommandAPDU
+    57e0     57e0       6c     2         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T4T_UpdateBinary)
+    57e0     57e0        0     1                 $t
+    57e1     57e1       6c     1                 ptx_NativeTag_T4T_UpdateBinary
+    584c     584c       1e     2         nfc_read_205.elf.lto.o:(.text.ptx_NativeTag_T2T_Transceive)
+    584c     584c        0     1                 $t
+    584d     584d       1e     1                 ptx_NativeTag_T2T_Transceive
+    586c     586c     2248     4         nfc_read_205.elf.lto.o:(.text.nfc_thread_entry)
+    586c     586c        0     1                 $t
+    586d     586d     2248     1                 nfc_thread_entry
+    5c24     5c24        0     1                 $d
+    5ce8     5ce8        0     1                 $t
+    602c     602c        0     1                 $d
+    60b4     60b4        0     1                 $t
+    6498     6498        0     1                 $d
+    64a8     64a8        0     1                 $t
+    64bc     64bc        0     1                 $d
+    64fc     64fc        0     1                 $t
+    6834     6834        0     1                 $d
+    683c     683c        0     1                 $t
+    6914     6914        0     1                 $d
+    6954     6954        0     1                 $t
+    6d40     6d40        0     1                 $d
+    6d48     6d48        0     1                 $t
+    6d68     6d68        0     1                 $d
+    6d8c     6d8c        0     1                 $t
+    7154     7154        0     1                 $d
+    7170     7170        0     1                 $t
+    75b0     75b0        0     1                 $d
+    75e0     75e0        0     1                 $t
+    7948     7948        0     1                 $d
+    794c     794c        0     1                 $t
+    79e0     79e0        0     1                 $d
+    79e8     79e8        0     1                 $t
+    7a88     7a88        0     1                 $d
+    7ab4     7ab4      238     4         nfc_read_205.elf.lto.o:(.text.rtos_startup_common_init)
+    7ab4     7ab4        0     1                 $t
+    7ab5     7ab5      238     1                 rtos_startup_common_init
+    7ce0     7ce0        0     1                 $d
+    7cec     7cec       ec     4         nfc_read_205.elf.lto.o:(.text.main)
+    7cec     7cec        0     1                 $t
+    7ced     7ced       ec     1                 main
+    7dac     7dac        0     1                 $d
+    7dd8     7dd8        8     2         nfc_read_205.elf.lto.o:(.text.nfc_thread_func)
+    7dd8     7dd8        0     1                 $t
+    7dd9     7dd9        8     1                 nfc_thread_func
+    7de0     7de0       18     2         nfc_read_205.elf.lto.o:(.text.vPortSVCHandler_C)
+    7de0     7de0        0     1                 $t
+    7de1     7de1       18     1                 vPortSVCHandler_C
+    7df8     7df8       28     4         nfc_read_205.elf.lto.o:(.text.rm_freertos_port_restore_task_stackless)
+    7df8     7df8        0     1                 $t
+    7df9     7df9       1e     1                 rm_freertos_port_restore_task_stackless
+    7e0a     7e0a        0     1                 _skip_restore_ns_context
+    7e18     7e18        0     1                 $d
+    7e20     7e20       1c     4         nfc_read_205.elf.lto.o:(.text.SVC_Handler)
+    7e20     7e20        0     1                 $t
+    7e21     7e21       16     1                 SVC_Handler
+    7e30     7e30        0     1                 _stacking_used_msp
+    7e38     7e38        0     1                 $d
+    7e3c     7e3c       28     4         nfc_read_205.elf.lto.o:(.text.PendSV_Handler)
+    7e3c     7e3c        0     1                 $t
+    7e3d     7e3d       24     1                 PendSV_Handler
+    7e60     7e60        0     1                 $d
+    7e64     7e64       24     4         nfc_read_205.elf.lto.o:(.text.SysTick_Handler)
+    7e64     7e64        0     1                 $t
+    7e65     7e65       24     1                 SysTick_Handler
+    7e84     7e84        0     1                 $d
+    7e88     7e88        4     2         nfc_read_205.elf.lto.o:(.text.prvTaskExitError)
+    7e88     7e88        0     1                 $t
+    7e89     7e89        4     1                 prvTaskExitError
+    7e8c     7e8c       58     4         nfc_read_205.elf.lto.o:(.text.xPortStartScheduler)
+    7e8c     7e8c        0     1                 $t
+    7e8d     7e8d       58     1                 xPortStartScheduler
+    7ed4     7ed4        0     1                 $d
+    7ee4     7ee4       2c     4         nfc_read_205.elf.lto.o:(.text.vPortEnterCritical)
+    7ee4     7ee4        0     1                 $t
+    7ee5     7ee5       2c     1                 vPortEnterCritical
+    7f08     7f08        0     1                 $d
+    7f10     7f10       20     4         nfc_read_205.elf.lto.o:(.text.vPortExitCritical)
+    7f10     7f10        0     1                 $t
+    7f11     7f11       20     1                 vPortExitCritical
+    7f2c     7f2c        0     1                 $d
+    7f30     7f30       24     2         nfc_read_205.elf.lto.o:(.text.r_sci_irq_cfg)
+    7f30     7f30        0     1                 $t
+    7f31     7f31       24     1                 r_sci_irq_cfg
+    7f54     7f54       28     4         nfc_read_205.elf.lto.o:(.text.R_BSP_PinWrite)
+    7f54     7f54        0     1                 $t
+    7f55     7f55       28     1                 R_BSP_PinWrite
+    7f74     7f74        0     1                 $d
+    7f7c     7f7c       7c     4         nfc_read_205.elf.lto.o:(.text.sci_uart_txi_isr)
+    7f7c     7f7c        0     1                 $t
+    7f7d     7f7d       7c     1                 sci_uart_txi_isr
+    7ff4     7ff4        0     1                 $d
+    7ff8     7ff8       44     2         nfc_read_205.elf.lto.o:(.text.r_sci_uart_call_callback)
+    7ff8     7ff8        0     1                 $t
+    7ff9     7ff9       44     1                 r_sci_uart_call_callback
+    803c     803c       e4     4         nfc_read_205.elf.lto.o:(.text.sci_uart_rxi_isr)
+    803c     803c        0     1                 $t
+    803d     803d       e4     1                 sci_uart_rxi_isr
+    810c     810c        0     1                 $d
+    8120     8120       38     4         nfc_read_205.elf.lto.o:(.text.sci_uart_tei_isr)
+    8120     8120        0     1                 $t
+    8121     8121       38     1                 sci_uart_tei_isr
+    8154     8154        0     1                 $d
+    8158     8158       64     4         nfc_read_205.elf.lto.o:(.text.sci_uart_eri_isr)
+    8158     8158        0     1                 $t
+    8159     8159       64     1                 sci_uart_eri_isr
+    81b4     81b4        0     1                 $d
+    81bc     81bc      140     4         nfc_read_205.elf.lto.o:(.text.R_SCI_SPI_Open)
+    81bc     81bc        0     1                 $t
+    81bd     81bd      140     1                 R_SCI_SPI_Open
+    82ec     82ec        0     1                 $d
+    82fc     82fc        a     2         nfc_read_205.elf.lto.o:(.text.R_SCI_SPI_Read)
+    82fc     82fc        0     1                 $t
+    82fd     82fd        a     1                 R_SCI_SPI_Read
+    8306     8306       78     2         nfc_read_205.elf.lto.o:(.text.r_sci_spi_write_read_common)
+    8306     8306        0     1                 $t
+    8307     8307       78     1                 r_sci_spi_write_read_common
+    837e     837e       1e     2         nfc_read_205.elf.lto.o:(.text.r_sci_spi_transmit)
+    837e     837e        0     1                 $t
+    837f     837f       1e     1                 r_sci_spi_transmit
+    839c     839c        8     2         nfc_read_205.elf.lto.o:(.text.R_SCI_SPI_Write)
+    839c     839c        0     1                 $t
+    839d     839d        8     1                 R_SCI_SPI_Write
+    83a4     83a4        4     2         nfc_read_205.elf.lto.o:(.text.R_SCI_SPI_WriteRead)
+    83a4     83a4        0     1                 $t
+    83a5     83a5        4     1                 R_SCI_SPI_WriteRead
+    83a8     83a8        a     2         nfc_read_205.elf.lto.o:(.text.R_SCI_SPI_CallbackSet)
+    83a8     83a8        0     1                 $t
+    83a9     83a9        a     1                 R_SCI_SPI_CallbackSet
+    83b4     83b4       74     4         nfc_read_205.elf.lto.o:(.text.R_SCI_SPI_Close)
+    83b4     83b4        0     1                 $t
+    83b5     83b5       74     1                 R_SCI_SPI_Close
+    8420     8420        0     1                 $d
+    8428     8428       40     4         nfc_read_205.elf.lto.o:(.text.sci_spi_txi_isr)
+    8428     8428        0     1                 $t
+    8429     8429       40     1                 sci_spi_txi_isr
+    8464     8464        0     1                 $d
+    8468     8468       4c     4         nfc_read_205.elf.lto.o:(.text.sci_spi_rxi_isr)
+    8468     8468        0     1                 $t
+    8469     8469       4c     1                 sci_spi_rxi_isr
+    84b0     84b0        0     1                 $d
+    84b4     84b4       34     4         nfc_read_205.elf.lto.o:(.text.sci_spi_tei_isr)
+    84b4     84b4        0     1                 $t
+    84b5     84b5       34     1                 sci_spi_tei_isr
+    84e4     84e4        0     1                 $d
+    84e8     84e8       2e     2         nfc_read_205.elf.lto.o:(.text.r_sci_spi_call_callback)
+    84e8     84e8        0     1                 $t
+    84e9     84e9       2e     1                 r_sci_spi_call_callback
+    8518     8518       3c     4         nfc_read_205.elf.lto.o:(.text.sci_spi_eri_isr)
+    8518     8518        0     1                 $t
+    8519     8519       3c     1                 sci_spi_eri_isr
+    8550     8550        0     1                 $d
+    8554     8554       14     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_Open)
+    8554     8554        0     1                 $t
+    8555     8555       14     1                 R_IOPORT_Open
+    8564     8564        0     1                 $d
+    8568     8568       2e     2         nfc_read_205.elf.lto.o:(.text.r_ioport_pins_config)
+    8568     8568        0     1                 $t
+    8569     8569       2e     1                 r_ioport_pins_config
+    8598     8598       30     4         nfc_read_205.elf.lto.o:(.text.R_BSP_PinAccessEnable.331)
+    8598     8598        0     1                 $t
+    8599     8599       30     1                 R_BSP_PinAccessEnable.331
+    85c0     85c0        0     1                 $d
+    85c8     85c8       34     4         nfc_read_205.elf.lto.o:(.text.r_ioport_pfs_write)
+    85c8     85c8        0     1                 $t
+    85c9     85c9       34     1                 r_ioport_pfs_write
+    85f4     85f4        0     1                 $d
+    85fc     85fc       34     4         nfc_read_205.elf.lto.o:(.text.R_BSP_PinAccessDisable.332)
+    85fc     85fc        0     1                 $t
+    85fd     85fd       34     1                 R_BSP_PinAccessDisable.332
+    8628     8628        0     1                 $d
+    8630     8630        8     2         nfc_read_205.elf.lto.o:(.text.R_IOPORT_Close)
+    8630     8630        0     1                 $t
+    8631     8631        8     1                 R_IOPORT_Close
+    8638     8638        c     2         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PinsCfg)
+    8638     8638        0     1                 $t
+    8639     8639        c     1                 R_IOPORT_PinsCfg
+    8644     8644       1a     2         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PinCfg)
+    8644     8644        0     1                 $t
+    8645     8645       1a     1                 R_IOPORT_PinCfg
+    8660     8660       28     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PinEventInputRead)
+    8660     8660        0     1                 $t
+    8661     8661       28     1                 R_IOPORT_PinEventInputRead
+    8680     8680        0     1                 $d
+    8688     8688       30     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PinEventOutputWrite)
+    8688     8688        0     1                 $t
+    8689     8689       30     1                 R_IOPORT_PinEventOutputWrite
+    86b4     86b4        0     1                 $d
+    86b8     86b8       1c     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PinRead)
+    86b8     86b8        0     1                 $t
+    86b9     86b9       1c     1                 R_IOPORT_PinRead
+    86d0     86d0        0     1                 $d
+    86d4     86d4       24     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PinWrite)
+    86d4     86d4        0     1                 $t
+    86d5     86d5       24     1                 R_IOPORT_PinWrite
+    86f4     86f4        0     1                 $d
+    86f8     86f8       20     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PortDirectionSet)
+    86f8     86f8        0     1                 $t
+    86f9     86f9       20     1                 R_IOPORT_PortDirectionSet
+    8714     8714        0     1                 $d
+    8718     8718       18     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PortEventInputRead)
+    8718     8718        0     1                 $t
+    8719     8719       18     1                 R_IOPORT_PortEventInputRead
+    872c     872c        0     1                 $d
+    8730     8730       20     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PortEventOutputWrite)
+    8730     8730        0     1                 $t
+    8731     8731       20     1                 R_IOPORT_PortEventOutputWrite
+    874c     874c        0     1                 $d
+    8750     8750       18     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PortRead)
+    8750     8750        0     1                 $t
+    8751     8751       18     1                 R_IOPORT_PortRead
+    8764     8764        0     1                 $d
+    8768     8768       20     4         nfc_read_205.elf.lto.o:(.text.R_IOPORT_PortWrite)
+    8768     8768        0     1                 $t
+    8769     8769       20     1                 R_IOPORT_PortWrite
+    8784     8784        0     1                 $d
+    8788     8788       60     4         nfc_read_205.elf.lto.o:(.text.R_ICU_ExternalIrqOpen)
+    8788     8788        0     1                 $t
+    8789     8789       60     1                 R_ICU_ExternalIrqOpen
+    87dc     87dc        0     1                 $d
+    87e8     87e8        e     2         nfc_read_205.elf.lto.o:(.text.R_ICU_ExternalIrqEnable)
+    87e8     87e8        0     1                 $t
+    87e9     87e9        e     1                 R_ICU_ExternalIrqEnable
+    87f6     87f6        e     2         nfc_read_205.elf.lto.o:(.text.R_ICU_ExternalIrqDisable)
+    87f6     87f6        0     1                 $t
+    87f7     87f7        e     1                 R_ICU_ExternalIrqDisable
+    8804     8804        8     2         nfc_read_205.elf.lto.o:(.text.R_ICU_ExternalIrqCallbackSet)
+    8804     8804        0     1                 $t
+    8805     8805        8     1                 R_ICU_ExternalIrqCallbackSet
+    880c     880c       28     4         nfc_read_205.elf.lto.o:(.text.R_ICU_ExternalIrqClose)
+    880c     880c        0     1                 $t
+    880d     880d       28     1                 R_ICU_ExternalIrqClose
+    8830     8830        0     1                 $d
+    8834     8834       4c     4         nfc_read_205.elf.lto.o:(.text.r_icu_isr)
+    8834     8834        0     1                 $t
+    8835     8835       4c     1                 r_icu_isr
+    8878     8878        0     1                 $d
+    8880     8880      194     4         nfc_read_205.elf.lto.o:(.text.R_GPT_Open)
+    8880     8880        0     1                 $t
+    8881     8881      194     1                 R_GPT_Open
+    8a04     8a04        0     1                 $d
+    8a14     8a14       1c     2         nfc_read_205.elf.lto.o:(.text.gpt_hardware_events_disable)
+    8a14     8a14        0     1                 $t
+    8a15     8a15       1c     1                 gpt_hardware_events_disable
+    8a30     8a30        a     2         nfc_read_205.elf.lto.o:(.text.r_gpt_enable_irq)
+    8a30     8a30        0     1                 $t
+    8a31     8a31        a     1                 r_gpt_enable_irq
+    8a3a     8a3a        a     2         nfc_read_205.elf.lto.o:(.text.R_GPT_Start)
+    8a3a     8a3a        0     1                 $t
+    8a3b     8a3b        a     1                 R_GPT_Start
+    8a44     8a44        a     2         nfc_read_205.elf.lto.o:(.text.R_GPT_Stop)
+    8a44     8a44        0     1                 $t
+    8a45     8a45        a     1                 R_GPT_Stop
+    8a4e     8a4e        a     2         nfc_read_205.elf.lto.o:(.text.R_GPT_Reset)
+    8a4e     8a4e        0     1                 $t
+    8a4f     8a4f        a     1                 R_GPT_Reset
+    8a58     8a58       30     2         nfc_read_205.elf.lto.o:(.text.R_GPT_Enable)
+    8a58     8a58        0     1                 $t
+    8a59     8a59       30     1                 R_GPT_Enable
+    8a88     8a88        a     2         nfc_read_205.elf.lto.o:(.text.R_GPT_Disable)
+    8a88     8a88        0     1                 $t
+    8a89     8a89        a     1                 R_GPT_Disable
+    8a92     8a92       1a     2         nfc_read_205.elf.lto.o:(.text.R_GPT_PeriodSet)
+    8a92     8a92        0     1                 $t
+    8a93     8a93       1a     1                 R_GPT_PeriodSet
+    8aac     8aac        4     2         nfc_read_205.elf.lto.o:(.text.R_GPT_DutyCycleSet)
+    8aac     8aac        0     1                 $t
+    8aad     8aad        4     1                 R_GPT_DutyCycleSet
+    8ab0     8ab0       1e     2         nfc_read_205.elf.lto.o:(.text.R_GPT_CompareMatchSet)
+    8ab0     8ab0        0     1                 $t
+    8ab1     8ab1       1e     1                 R_GPT_CompareMatchSet
+    8ad0     8ad0       3c     4         nfc_read_205.elf.lto.o:(.text.R_GPT_InfoGet)
+    8ad0     8ad0        0     1                 $t
+    8ad1     8ad1       3c     1                 R_GPT_InfoGet
+    8b04     8b04        0     1                 $d
+    8b0c     8b0c       14     2         nfc_read_205.elf.lto.o:(.text.R_GPT_StatusGet)
+    8b0c     8b0c        0     1                 $t
+    8b0d     8b0d       14     1                 R_GPT_StatusGet
+    8b20     8b20        a     2         nfc_read_205.elf.lto.o:(.text.R_GPT_CallbackSet)
+    8b20     8b20        0     1                 $t
+    8b21     8b21        a     1                 R_GPT_CallbackSet
+    8b2c     8b2c       4c     4         nfc_read_205.elf.lto.o:(.text.R_GPT_Close)
+    8b2c     8b2c        0     1                 $t
+    8b2d     8b2d       4c     1                 R_GPT_Close
+    8b74     8b74        0     1                 $d
+    8b78     8b78       1c     4         nfc_read_205.elf.lto.o:(.text.r_gpt_disable_irq)
+    8b78     8b78        0     1                 $t
+    8b79     8b79       1c     1                 r_gpt_disable_irq
+    8b90     8b90        0     1                 $d
+    8b94     8b94       b8     4         nfc_read_205.elf.lto.o:(.text.gpt_counter_overflow_isr)
+    8b94     8b94        0     1                 $t
+    8b95     8b95       b8     1                 gpt_counter_overflow_isr
+    8c44     8c44        0     1                 $d
+    8c4c     8c4c        a     2         nfc_read_205.elf.lto.o:(.text.r_gpt_clear_pending_irq)
+    8c4c     8c4c        0     1                 $t
+    8c4d     8c4d        a     1                 r_gpt_clear_pending_irq
+    8c58     8c58       24     4         nfc_read_205.elf.lto.o:(.text.SystemCoreClockUpdate)
+    8c58     8c58        0     1                 $t
+    8c59     8c59       24     1                 SystemCoreClockUpdate
+    8c70     8c70        0     1                 $d
+    8c7c     8c7c        4     2         nfc_read_205.elf.lto.o:(.text.__assert_func)
+    8c7c     8c7c        0     1                 $t
+    8c7d     8c7d        4     1                 __assert_func
+    8c80     8c80       3c     4         nfc_read_205.elf.lto.o:(.text.R_BSP_SoftwareDelay)
+    8c80     8c80        0     1                 $t
+    8c81     8c81       3c     1                 R_BSP_SoftwareDelay
+    8cac     8cac        0     1                 $d
+    8cbc     8cbc        8     2         nfc_read_205.elf.lto.o:(.text.bsp_prv_software_delay_loop)
+    8cbc     8cbc        0     1                 sw_delay_loop
+    8cbc     8cbc        0     1                 $t
+    8cbd     8cbd        8     1                 bsp_prv_software_delay_loop
+    8cc4     8cc4       10     4         nfc_read_205.elf.lto.o:(.text.NMI_Handler)
+    8cc4     8cc4        0     1                 $t
+    8cc5     8cc5       10     1                 NMI_Handler
+    8cd0     8cd0        0     1                 $d
+    8cd4     8cd4       18     4         nfc_read_205.elf.lto.o:(.text.R_BSP_IrqStatusClear)
+    8cd4     8cd4        0     1                 $t
+    8cd5     8cd5       18     1                 R_BSP_IrqStatusClear
+    8ce8     8ce8        0     1                 $d
+    8cec     8cec       24     4         nfc_read_205.elf.lto.o:(.text.R_BSP_IrqClearPending)
+    8cec     8cec        0     1                 $t
+    8ced     8ced       24     1                 R_BSP_IrqClearPending
+    8d0c     8d0c        0     1                 $d
+    8d10     8d10       34     4         nfc_read_205.elf.lto.o:(.text.R_BSP_IrqCfg)
+    8d10     8d10        0     1                 $t
+    8d11     8d11       34     1                 R_BSP_IrqCfg
+    8d3c     8d3c        0     1                 $d
+    8d44     8d44       18     4         nfc_read_205.elf.lto.o:(.text.R_BSP_IrqEnableNoClear)
+    8d44     8d44        0     1                 $t
+    8d45     8d45       18     1                 R_BSP_IrqEnableNoClear
+    8d58     8d58        0     1                 $d
+    8d5c     8d5c       14     2         nfc_read_205.elf.lto.o:(.text.R_BSP_IrqEnable)
+    8d5c     8d5c        0     1                 $t
+    8d5d     8d5d       14     1                 R_BSP_IrqEnable
+    8d70     8d70       20     4         nfc_read_205.elf.lto.o:(.text.R_BSP_IrqDisable)
+    8d70     8d70        0     1                 $t
+    8d71     8d71       20     1                 R_BSP_IrqDisable
+    8d8c     8d8c        0     1                 $d
+    8d90     8d90       14     2         nfc_read_205.elf.lto.o:(.text.R_BSP_IrqCfgEnable)
+    8d90     8d90        0     1                 $t
+    8d91     8d91       14     1                 R_BSP_IrqCfgEnable
+    8da4     8da4      198     4         nfc_read_205.elf.lto.o:(.text.Reset_Handler)
+    8da4     8da4        0     1                 $t
+    8da5     8da5      198     1                 Reset_Handler
+    8edc     8edc        0     1                 $d
+    8f3c     8f3c        4     2         nfc_read_205.elf.lto.o:(.text.Default_Handler)
+    8f3c     8f3c        0     1                 $t
+    8f3d     8f3d        4     1                 Default_Handler
+    8f40     8f40       48     4         nfc_read_205.elf.lto.o:(.text.SystemRuntimeInit)
+    8f40     8f40        0     1                 $t
+    8f41     8f41       48     1                 SystemRuntimeInit
+    8f80     8f80        0     1                 $d
+    8f88     8f88       2e     2         nfc_read_205.elf.lto.o:(.text.vListInsert)
+    8f88     8f88        0     1                 $t
+    8f89     8f89       2e     1                 vListInsert
+    8fb6     8fb6       22     2         nfc_read_205.elf.lto.o:(.text.uxListRemove)
+    8fb6     8fb6        0     1                 $t
+    8fb7     8fb7       22     1                 uxListRemove
+    8fd8     8fd8       70     4         nfc_read_205.elf.lto.o:(.text.prvUnlockQueue)
+    8fd8     8fd8        0     1                 $t
+    8fd9     8fd9       70     1                 prvUnlockQueue
+    9044     9044        0     1                 $d
+    9048     9048       16     2         nfc_read_205.elf.lto.o:(.text.prvIsQueueEmpty)
+    9048     9048        0     1                 $t
+    9049     9049       16     1                 prvIsQueueEmpty
+    9060     9060       58     4         nfc_read_205.elf.lto.o:(.text.vTaskSwitchContext)
+    9060     9060        0     1                 $t
+    9061     9061       58     1                 vTaskSwitchContext
+    90ac     90ac        0     1                 $d
+    90b8     90b8      1b8     4         nfc_read_205.elf.lto.o:(.text.xTaskCreateStatic)
+    90b8     90b8        0     1                 $t
+    90b9     90b9      1b8     1                 xTaskCreateStatic
+    9258     9258        0     1                 $d
+    9270     9270      114     4         nfc_read_205.elf.lto.o:(.text.xTaskResumeAll)
+    9270     9270        0     1                 $t
+    9271     9271      114     1                 xTaskResumeAll
+    9370     9370        0     1                 $d
+    9384     9384       1c     4         nfc_read_205.elf.lto.o:(.text.prvResetNextTaskUnblockTime)
+    9384     9384        0     1                 $t
+    9385     9385       1c     1                 prvResetNextTaskUnblockTime
+    939c     939c        0     1                 $d
+    93a0     93a0      104     4         nfc_read_205.elf.lto.o:(.text.xTaskIncrementTick)
+    93a0     93a0        0     1                 $t
+    93a1     93a1      104     1                 xTaskIncrementTick
+    9498     9498        0     1                 $d
+    94a4     94a4       88     4         nfc_read_205.elf.lto.o:(.text.prvAddCurrentTaskToDelayedList)
+    94a4     94a4        0     1                 $t
+    94a5     94a5       88     1                 prvAddCurrentTaskToDelayedList
+    9520     9520        0     1                 $d
+    952c     952c       cc     4         nfc_read_205.elf.lto.o:(.text.prvIdleTask)
+    952c     952c        0     1                 $t
+    952d     952d       cc     1                 prvIdleTask
+    95e0     95e0        0     1                 $d
+    95f8     95f8       20     4         nfc_read_205.elf.lto.o:(.text.vTaskPlaceOnEventList)
+    95f8     95f8        0     1                 $t
+    95f9     95f9       20     1                 vTaskPlaceOnEventList
+    9614     9614        0     1                 $d
+    9618     9618       c4     4         nfc_read_205.elf.lto.o:(.text.xTaskRemoveFromEventList)
+    9618     9618        0     1                 $t
+    9619     9619       c4     1                 xTaskRemoveFromEventList
+    96cc     96cc        0     1                 $d
+    96dc     96dc       4c     4         nfc_read_205.elf.lto.o:(.text.xTaskCheckForTimeOut)
+    96dc     96dc        0     1                 $t
+    96dd     96dd       4c     1                 xTaskCheckForTimeOut
+    9724     9724        0     1                 $d
+    9728     9728      158     1         <internal>:(.rodata.str1.1)
+    9880     9880        5     1         nfc_read_205.elf.lto.o:(.rodata.ptx_Demo_RunTagMode.iso_dep_ats)
+    9880     9880        5     1                 ptx_Demo_RunTagMode.iso_dep_ats
+    9886     9886        8     2         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_uCODE_section_0)
+    9886     9886        8     1                 ptx_NSC_uCODE_section_0
+    988e     988e     6178     2         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_uCODE_section_1)
+    988e     988e     6178     1                 ptx_NSC_uCODE_section_1
+    fa06     fa06        2     2         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_uCODE_section_2)
+    fa06     fa06        2     1                 ptx_NSC_uCODE_section_2
+    fa08     fa08        4     2         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_uCODE_section_3)
+    fa08     fa08        4     1                 ptx_NSC_uCODE_section_3
+    fa0c     fa0c       30     4         <internal>:(.rodata.cst16)
+    fa3c     fa3c       10     4         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_uCODE_sections)
+    fa3c     fa3c       10     1                 ptx_NSC_uCODE_sections
+    fa4c     fa4c        5     1         nfc_read_205.elf.lto.o:(.rodata..L__const.ptx_NSC_RfConfig_CheckId.unsupported_values)
+    fa51     fa51        6     1         nfc_read_205.elf.lto.o:(.rodata..Lswitch.table.ptx_NSC_RfDeactivate)
+    fa58     fa58        a     4         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_RfDiscover_ListenA_NfcId1)
+    fa58     fa58        a     1                 ptx_NSC_RfDiscover_ListenA_NfcId1
+    fa64     fa64       14     4         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_RfDiscover_ListenIsoDep_ATS)
+    fa64     fa64       14     1                 ptx_NSC_RfDiscover_ListenIsoDep_ATS
+    fa78     fa78       44     2         nfc_read_205.elf.lto.o:(.rodata.ptx_NSC_SM_CmdCheckTable)
+    fa78     fa78       44     1                 ptx_NSC_SM_CmdCheckTable
+    fabc     fabc        6     1         nfc_read_205.elf.lto.o:(.rodata..Lswitch.table.ptx_RUL_Deactivate)
+    fac2     fac2        7     1         nfc_read_205.elf.lto.o:(.rodata..L__const.ptx_NativeTag_T4T_Select_NDEF_Application.PTX_T4T_DATA_FIELD_NDEF_APP_SELECT)
+    fac9     fac9        1     1         nfc_read_205.elf.lto.o:(.rodata.ptx_pmod2_irq_ext_cfg)
+    fac9     fac9        1     1                 ptx_pmod2_irq_ext_cfg
+    facc     facc       14     4         nfc_read_205.elf.lto.o:(.rodata.ptx_pmod2_irq_cfg)
+    facc     facc       14     1                 ptx_pmod2_irq_cfg
+    fae0     fae0        c     4         nfc_read_205.elf.lto.o:(.rodata.ptx_pmod2_irq)
+    fae0     fae0        c     1                 ptx_pmod2_irq
+    faec     faec        c     4         nfc_read_205.elf.lto.o:(.rodata.g_ioport)
+    faec     faec        c     1                 g_ioport
+    faf8     faf8       58     4         nfc_read_205.elf.lto.o:(.rodata.ptx_tmr1_extend)
+    faf8     faf8       58     1                 ptx_tmr1_extend
+    fb50     fb50       20     4         nfc_read_205.elf.lto.o:(.rodata.ptx_tmr1_cfg)
+    fb50     fb50       20     1                 ptx_tmr1_cfg
+    fb70     fb70        c     4         nfc_read_205.elf.lto.o:(.rodata.ptx_tmr1)
+    fb70     fb70        c     1                 ptx_tmr1
+    fb7c     fb7c       58     4         nfc_read_205.elf.lto.o:(.rodata.ptx_tmr0_extend)
+    fb7c     fb7c       58     1                 ptx_tmr0_extend
+    fbd4     fbd4       20     4         nfc_read_205.elf.lto.o:(.rodata.ptx_tmr0_cfg)
+    fbd4     fbd4       20     1                 ptx_tmr0_cfg
+    fbf4     fbf4        c     4         nfc_read_205.elf.lto.o:(.rodata.ptx_tmr0)
+    fbf4     fbf4        c     1                 ptx_tmr0
+    fc00     fc00       14     4         nfc_read_205.elf.lto.o:(.rodata.ptx_uart_dbg_cfg_extend)
+    fc00     fc00       14     1                 ptx_uart_dbg_cfg_extend
+    fc14     fc14       20     4         nfc_read_205.elf.lto.o:(.rodata.ptx_uart_dbg_cfg)
+    fc14     fc14       20     1                 ptx_uart_dbg_cfg
+    fc34     fc34        3     1         nfc_read_205.elf.lto.o:(.rodata.ptx_pmod2_spi_cfg_extend)
+    fc34     fc34        3     1                 ptx_pmod2_spi_cfg_extend
+    fc38     fc38       24     4         nfc_read_205.elf.lto.o:(.rodata.ptx_pmod2_spi_cfg)
+    fc38     fc38       24     1                 ptx_pmod2_spi_cfg
+    fc5c     fc5c        c     4         nfc_read_205.elf.lto.o:(.rodata.ptx_pmod2_spi)
+    fc5c     fc5c        c     1                 ptx_pmod2_spi
+    fc68     fc68        4     4         nfc_read_205.elf.lto.o:(.rodata.nfc_thread_parameters)
+    fc68     fc68        4     1                 nfc_thread_parameters
+    fc6c     fc6c       d8     4         nfc_read_205.elf.lto.o:(.rodata.g_bsp_pin_cfg_data)
+    fc6c     fc6c       d8     1                 g_bsp_pin_cfg_data
+    fd44     fd44        c     4         nfc_read_205.elf.lto.o:(.rodata.g_bsp_pin_cfg)
+    fd44     fd44        c     1                 g_bsp_pin_cfg
+    fd50     fd50       18     4         nfc_read_205.elf.lto.o:(.rodata.g_spi_on_sci)
+    fd50     fd50       18     1                 g_spi_on_sci
+    fd68     fd68       34     4         nfc_read_205.elf.lto.o:(.rodata.g_ioport_on_ioport)
+    fd68     fd68       34     1                 g_ioport_on_ioport
+    fd9c     fd9c       14     4         nfc_read_205.elf.lto.o:(.rodata.g_external_irq_on_icu)
+    fd9c     fd9c       14     1                 g_external_irq_on_icu
+    fdb0     fdb0       34     4         nfc_read_205.elf.lto.o:(.rodata.g_timer_on_gpt)
+    fdb0     fdb0       34     1                 g_timer_on_gpt
+    fde4     fde4       18     4         nfc_read_205.elf.lto.o:(.rodata.zero_list)
+    fde4     fde4       18     1                 zero_list
+    fdfc     fdfc       30     4         nfc_read_205.elf.lto.o:(.rodata.copy_list)
+    fdfc     fdfc       30     1                 copy_list
+    fe2c     fe2c        4     2         <internal>:(.rodata.cst4)
+    fe30     fe30       70     4         nfc_read_205.elf.lto.o:(.rodata..Lswitch.table.ptx_NSC_RUL_RfConfig_LoadParam)
+    fea0     fea0       70     4         nfc_read_205.elf.lto.o:(.rodata..Lswitch.table.ptx_NSC_RUL_RfConfig_LoadParam.504)
+    ff10     ff10       4e     4         nfc_read_205.elf.lto.o:(.version)
+    ff10     ff10        4     1                 g_fsp_version
+    ff14     ff14        6     1                 g_fsp_version_string
+    ff1a     ff1a       44     1                 g_fsp_version_build_string
+    ff5e     ff5e        0     1         __flash_readonly$$Limit = .
+    ff5e     ff5e        0     1 __flash_preinit_array$$
+    ff5e     ff5e        0     1         __preinit_array_start = .
+    ff5e     ff5e        0     1         __preinit_array_end = .
+    ff5e     ff5e        0     1 __flash_init_array$$
+    ff5e     ff5e        0     1         __init_array_start = .
+    ff5e     ff5e        0     1         __init_array_end = .
+    ff5e     ff5e        0     1 __flash_fini_array$$
+    ff5e     ff5e        0     1         __fini_array_start = .
+    ff5e     ff5e        0     1         __fini_array_end = .
+    ff5e     ff5e        0     1 __flash_arm.exidx$$
+    ff5e     ff5e        0     1         __exidx_start = .
+    ff5e     ff5e        0     1         __exidx_end = .
+   10000    10000        0     1 .flash.endof
+   10000    10000        0     1         __ddsc_FLASH_END = .
+     400      400        0     1 .option_setting_ofs0.startof
+     400      400        0     1         __ddsc_OPTION_SETTING_OFS0_START = .
+     400      400        4     4 __option_setting_ofs0_reg$$
+     400      400        0     1         __option_setting_ofs0_reg$$Base = .
+     400      400        4     4         nfc_read_205.elf.lto.o:(.option_setting_ofs0)
+     400      400        4     1                 g_bsp_cfg_option_setting_ofs0
+     404      404        0     1         __option_setting_ofs0_reg$$Limit = .
+     404      404        0     1 .option_setting_ofs0.endof
+     404      404        0     1         __ddsc_OPTION_SETTING_OFS0_END = .
+     404      404        0     1 .option_setting_ofs1.startof
+     404      404        0     1         __ddsc_OPTION_SETTING_OFS1_START = .
+     404      404        4     4 __option_setting_ofs1_reg$$
+     404      404        0     1         __option_setting_ofs1_reg$$Base = .
+     404      404        4     4         nfc_read_205.elf.lto.o:(.option_setting_ofs1)
+     404      404        4     1                 g_bsp_cfg_option_setting_ofs1
+     408      408        0     1         __option_setting_ofs1_reg$$Limit = .
+     408      408        0     1 .option_setting_ofs1.endof
+     408      408        0     1         __ddsc_OPTION_SETTING_OFS1_END = .
+     408      408        0     1 .option_setting_secmpu.startof
+     408      408        0     1         __ddsc_OPTION_SETTING_SECMPU_START = .
+     408      408        0     1 __option_setting_secmpu_reg$$
+     408      408        0     1         __option_setting_secmpu_reg$$Base = .
+     408      408        0     1         __option_setting_secmpu_reg$$Limit = .
+     408      408        0     1 .option_setting_secmpu.endof
+     408      408        0     1         __ddsc_OPTION_SETTING_SECMPU_END = .
+ 1010018  1010018        0     1 .option_setting_osis.startof
+ 1010018  1010018        0     1         __ddsc_OPTION_SETTING_OSIS_START = .
+ 1010018  1010018        0     1 __option_setting_osis_reg$$
+ 1010018  1010018        0     1         __option_setting_osis_reg$$Base = .
+ 1010018  1010018        0     1         __option_setting_osis_reg$$Limit = .
+ 1010018  1010018        0     1 .option_setting_osis.endof
+ 1010018  1010018        0     1         __ddsc_OPTION_SETTING_OSIS_END = .
+ 1010018  1010018        0     1 PROVIDE( __tls_base = ADDR (__ram_tdata$$))
+ 1010018  1010018        0     1 PROVIDE( __tdata_source = LOADADDR (__ram_tdata$$))
+ 1010018  1010018        0     1 PROVIDE( __tdata_size = SIZEOF (__ram_tdata$$))
+ 1010018  1010018        0     1 PROVIDE( __tbss_offset = ADDR (__ram_tbss$$) - ADDR (__ram_tdata$$))
+ 1010018  1010018        0     1 PROVIDE( __tbss_size = SIZEOF (__ram_tbss$$))
+ 1010018  1010018        0     1 PROVIDE( __arm32_tls_tcb_offset = 8)
+       0        0       41     1 .ARM.attributes
+       0        0       41     1         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\crt0.o:(.ARM.attributes)
+       0        0     d388     1 .debug_loclists
+       0        0     d388     1         nfc_read_205.elf.lto.o:(.debug_loclists)
+       0        0      e30     1 .debug_abbrev
+       0        0      e30     1         nfc_read_205.elf.lto.o:(.debug_abbrev)
+       0        0    74583     1 .debug_info
+       0        0    74583     1         nfc_read_205.elf.lto.o:(.debug_info)
+       0        0     1401     1 .debug_rnglists
+       0        0     1401     1         nfc_read_205.elf.lto.o:(.debug_rnglists)
+       0        0     7600     1 .debug_str_offsets
+       0        0     7600     1         nfc_read_205.elf.lto.o:(.debug_str_offsets)
+       0        0    1fb01     1 .debug_str
+       0        0    1fb01     1         <internal>:(.debug_str)
+       0        0      b74     1 .debug_addr
+       0        0      b74     1         nfc_read_205.elf.lto.o:(.debug_addr)
+       0        0       29     1 .comment
+       0        0       29     1         <internal>:(.comment)
+       0        0     13d8     4 .debug_frame
+       0        0     13d8     4         nfc_read_205.elf.lto.o:(.debug_frame)
+       0        0    11269     1 .debug_line
+       0        0    11269     1         nfc_read_205.elf.lto.o:(.debug_line)
+       0        0     3e7d     1 .debug_line_str
+       0        0     3e7d     1         <internal>:(.debug_line_str)
+       0        0     3250     4 .symtab
+       0        0     3250     4         <internal>:(.symtab)
+       0        0      3cc     1 .shstrtab
+       0        0      3cc     1         <internal>:(.shstrtab)
+       0        0     28c5     1 .strtab
+       0        0     28c5     1         <internal>:(.strtab)
+
+Cross Reference Table
+
+Symbol                                            File
+memcpy                                            C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memcpy.c.o)
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\crt0.o
+memset                                            C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memset.c.o)
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\crt0.o
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(bzero.c.o)
+_set_tls                                          C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_machine_arm_set_tls.c.o)
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\crt0.o
+                                                  nfc_read_205.elf.lto.o
+main                                              nfc_read_205.elf.lto.o
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\crt0.o
+__tls_base                                        fsp_gen.lld:325
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\crt0.o
+                                                  nfc_read_205.elf.lto.o
+__aeabi_memcpy4                                   C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memcpy.c.o)
+                                                  nfc_read_205.elf.lto.o
+__aeabi_memcpy8                                   C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memcpy.c.o)
+__aeabi_memcpy                                    C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memcpy.c.o)
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o)
+                                                  nfc_read_205.elf.lto.o
+strlen                                            C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(strlen.S.o)
+                                                  nfc_read_205.elf.lto.o
+memcmp                                            C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_string_memcmp.c.o)
+                                                  nfc_read_205.elf.lto.o
+_init_tls                                         C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o)
+                                                  nfc_read_205.elf.lto.o
+__aeabi_memclr                                    C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(bzero.c.o)
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o)
+                                                  nfc_read_205.elf.lto.o
+__tdata_source                                    fsp_gen.lld:326
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o)
+__tdata_size                                      fsp_gen.lld:327
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o)
+__tbss_offset                                     fsp_gen.lld:328
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o)
+__tbss_size                                       fsp_gen.lld:329
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_inittls.c.o)
+bzero                                             C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(bzero.c.o)
+__aeabi_memclr4                                   C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(bzero.c.o)
+                                                  nfc_read_205.elf.lto.o
+__aeabi_memclr8                                   C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(bzero.c.o)
+__arm32_tls_tcb_offset                            fsp_gen.lld:330
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_machine_arm_set_tls.c.o)
+__tls                                             C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_machine_arm_tls.c.o)
+                                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(libc_picolib_machine_arm_set_tls.c.o)
+memmove                                           C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memmove.c.o)
+__aeabi_memmove4                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memmove.c.o)
+__aeabi_memmove8                                  C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memmove.c.o)
+__aeabi_memmove                                   C:\Users\a5133459\AppData\Local\Programs\Renesas\e2_studio\toolchains\llvm_arm\ATfE-21.1.1-Windows-x86_64\bin\..\lib\clang-runtimes/arm-none-eabi/armv6m_soft_nofp_exn_rtti_size\lib\libc.a(memmove.c.o)
+                                                  nfc_read_205.elf.lto.o
+vPortSVCHandler_C                                 nfc_read_205.elf.lto.o
+vTaskSwitchContext                                nfc_read_205.elf.lto.o
+Reset_Handler                                     nfc_read_205.elf.lto.o
+__Vectors                                         nfc_read_205.elf.lto.o
+__init_array_start                                fsp_gen.lld:213
+                                                  nfc_read_205.elf.lto.o
+__init_array_end                                  fsp_gen.lld:216
+                                                  nfc_read_205.elf.lto.o
+pxCurrentTCB                                      nfc_read_205.elf.lto.o
+g_vector_table                                    nfc_read_205.elf.lto.o
+__ram_zero$$Base                                  fsp_gen.lld:132
+                                                  nfc_read_205.elf.lto.o
+__ram_zero$$Limit                                 fsp_gen.lld:136
+                                                  nfc_read_205.elf.lto.o
+__ram_tbss$$Base                                  fsp_gen.lld:150
+                                                  nfc_read_205.elf.lto.o
+__ram_tbss$$Limit                                 fsp_gen.lld:155
+                                                  nfc_read_205.elf.lto.o
+__ram_from_data_flash$$Base                       fsp_gen.lld:39
+                                                  nfc_read_205.elf.lto.o
+__ram_from_data_flash$$Limit                      fsp_gen.lld:44
+                                                  nfc_read_205.elf.lto.o
+__ram_from_data_flash$$Load                       fsp_gen.lld:39
+                                                  nfc_read_205.elf.lto.o
+__ram_from_flash$$Base                            fsp_gen.lld:109
+                                                  nfc_read_205.elf.lto.o
+__ram_from_flash$$Limit                           fsp_gen.lld:116
+                                                  nfc_read_205.elf.lto.o
+__ram_from_flash$$Load                            fsp_gen.lld:109
+                                                  nfc_read_205.elf.lto.o
+__ram_tdata$$Base                                 fsp_gen.lld:141
+                                                  nfc_read_205.elf.lto.o
+__ram_tdata$$Limit                                fsp_gen.lld:145
+                                                  nfc_read_205.elf.lto.o
+__ram_tdata$$Load                                 fsp_gen.lld:141
+                                                  nfc_read_205.elf.lto.o
