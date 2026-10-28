@@ -1,0 +1,38 @@
+{
+  "cmake.cmakePath": "${env:CMAKE_PATH}",
+  "cmake.additionalKits": [],
+  "cmake.environment": {
+    "PATH": "${env:NINJA_PATH};${env:PATH}"
+  },
+  "cmake.configureOnOpen": true,
+  "cmake.configureOnEdit": true,
+  "cmake.useCMakePresets": "never",
+  // NOTE: cmake.options.statusBarVisibility / cmake.options.advanced are
+  // *window*-scoped, so they are ignored here whenever the project is opened
+  // via ra2e3_nfc_reader.code-workspace. They live in that file's "settings"
+  // block instead. Only resource-scoped settings belong in this file.
+  "cmake.sourceDirectory": "${workspaceFolder}",
+  "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
+  "cmake.preferredGenerators": [
+    "Ninja",
+    "MinGW Makefiles",
+    "Unix Makefiles"
+  ],
+  "cmake.debugConfig": {
+    "name": "Renesas GDB Debugging",
+    "type": "renesas-hardware",
+    "request": "launch",
+    "target": {
+      "device": "R7FA2E307",
+      "deviceFamily": "RA",
+      "debuggerType": "SEGGERJLINKARM"
+    },
+    "cwd": "${command:renesas.debug.supportFolder}"
+  },
+  "clangd.arguments": [
+    "--query-driver=${env:ARM_TOOLCHAIN_PATH}/*",
+    "--compile-commands-dir=${workspaceFolder}/build/Debug",
+    "--background-index"
+  ],
+  "clangd.path": "${config:renesas-platform.crossProbeClangdPath}"
+}

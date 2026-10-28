@@ -1,0 +1,36 @@
+# e² studio / Eclipse build output
+Debug/
+Release/
+*_Debug/
+*_Release/
+
+# JLink logs
+*.log
+*.jlink
+
+# Eclipse workspace metadata
+.metadata/
+.settings/language.settings.xml
+
+# FSP generated files (optional — uncomment to exclude)
+# ra_gen/
+
+# CMake build output
+examples/fpb-ra2e3/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+ra/
+ra_cfg/
+ra_gen/
+
+bsp_linker_info.h
+.secure_*
+.api_xml
+memory_regions.lld
+fsp_gen.lld
+ra_cfg.txt
+.clangd
+.settings/language.settings.xml
