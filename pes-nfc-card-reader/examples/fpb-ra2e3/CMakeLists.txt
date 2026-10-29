@@ -137,7 +137,10 @@ endforeach()
 # The RS NFC reader driver is the product of this repository and lives at the
 # top level:
 #     <repo>/src       public header (rs_nfc_reader.h) + implementation
-#                      (+ src/ptx105r hardware layer)
+#                      (+ src/ptx205r hardware layer)
+#     <repo>/ptx_sdk   PTX205R SDK (PTX2xx RUL/NSC/HAL stack). The PTX205R has
+#                      no FSP module, so the SDK is part of the repository
+#                      and compiled from there (see "PTX205R SDK" below).
 #     <repo>/test      unit-test placeholders (not built into the firmware and
 #                      not copied into this example)
 # This example carries its own copy of <repo>/src under
@@ -160,10 +163,117 @@ endforeach()
 target_include_directories(${PROJECT_NAME}.elf
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx105r
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r
     ${CMAKE_CURRENT_SOURCE_DIR}/src/app
     ${CMAKE_CURRENT_SOURCE_DIR}/src/console_io
 )
+
+# --------------------------------------------------------------------------
+# PTX205R SDK: <repo>/ptx_sdk
+# --------------------------------------------------------------------------
+# Only the reader parts of the SDK are built: RUL (main API), NATIVE_TAG and
+# the per-tag-type NDEF components, and the COMPS (HAL with the RA port in
+# COMPS/HAL/DRV/MCU/RA4M2 -- adapted to the FPB-RA2E3 -- HIP, LOG/NONE, NSC
+# incl. the PTX205R firmware image, UTILS). Card emulation (listen mode,
+# routing table), WLC, LLCP/SNEP, EMV/FeliCa DTE, the I2C/UART host interfaces
+# and the SDK examples are left out. The same set is selected in .cproject.
+# Keep these lists and the PTX_* definitions below in sync with .cproject.
+set(PTX_SDK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../ptx_sdk/SRC)
+
+file(GLOB PTX_SDK_SOURCES
+    ${PTX_SDK_DIR}/API/RUL/*.c
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T2T/*.c
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T3T/*.c
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T4T/*.c
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T5T/*.c
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T2T/*.c
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T3T/*.c
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T4T/*.c
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T5T/*.c
+    ${PTX_SDK_DIR}/COMPS/HAL/ptx_HAL.c
+    ${PTX_SDK_DIR}/COMPS/HAL/ptx_HAL_GPIO.c
+    ${PTX_SDK_DIR}/COMPS/HAL/ptx_HAL_Interface.c
+    ${PTX_SDK_DIR}/COMPS/HAL/ptx_HAL_Interface_SPI.c
+    ${PTX_SDK_DIR}/COMPS/HAL/ptx_HAL_Timer.c
+    ${PTX_SDK_DIR}/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_GPIO.c
+    ${PTX_SDK_DIR}/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_SPI.c
+    ${PTX_SDK_DIR}/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_MCU.c
+    ${PTX_SDK_DIR}/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Timer.c
+    ${PTX_SDK_DIR}/COMPS/HIP/*.c
+    ${PTX_SDK_DIR}/COMPS/HIP/RUL/*.c
+    ${PTX_SDK_DIR}/COMPS/LOG/ptx_Log.c
+    ${PTX_SDK_DIR}/COMPS/LOG/NONE/*.c
+    ${PTX_SDK_DIR}/COMPS/NSC/*.c
+    ${PTX_SDK_DIR}/COMPS/NSC/RUL/*.c
+    ${PTX_SDK_DIR}/COMPS/NSC/UCODE/*.c
+    ${PTX_SDK_DIR}/COMPS/UTILS/*.c
+)
+# Card emulation is compiled out (PTX_DISABLE_LISTEN_MODE): these two files
+# have no content guard of their own.
+list(FILTER PTX_SDK_SOURCES EXCLUDE REGEX "ptx_NSC_RfDiscover_Listen\\.c$|ptx_NSC_RfSetRoutingTable\\.c$")
+
+target_sources(${PROJECT_NAME}.elf PRIVATE ${PTX_SDK_SOURCES})
+
+# Vendor code: built as delivered, without the project's warning set.
+set_source_files_properties(${PTX_SDK_SOURCES} PROPERTIES COMPILE_OPTIONS "-w")
+
+# Include order matters: the SDK has same-named headers for other platforms
+# (COMPS/HAL/DRV/LIN, WIN, ...), so only the MCU port is on the path.
+target_include_directories(${PROJECT_NAME}.elf
+    PRIVATE
+    ${PTX_SDK_DIR}/API
+    ${PTX_SDK_DIR}/API/NATIVE_TAG
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T2T
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T3T
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T4T
+    ${PTX_SDK_DIR}/API/NATIVE_TAG/T5T
+    ${PTX_SDK_DIR}/API/NDEF
+    ${PTX_SDK_DIR}/API/NDEF/DEFINES
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T2T
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T3T
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T4T
+    ${PTX_SDK_DIR}/API/NDEF/TAG_TYPES/NDEF_T5T
+    ${PTX_SDK_DIR}/API/RUL
+    ${PTX_SDK_DIR}/COMPS
+    ${PTX_SDK_DIR}/COMPS/HAL
+    ${PTX_SDK_DIR}/COMPS/HAL/DRV
+    ${PTX_SDK_DIR}/COMPS/HAL/DRV/MCU
+    ${PTX_SDK_DIR}/COMPS/HAL/DRV/MCU/RA4M2
+    ${PTX_SDK_DIR}/COMPS/HIP
+    ${PTX_SDK_DIR}/COMPS/HIP/RUL
+    ${PTX_SDK_DIR}/COMPS/LOG
+    ${PTX_SDK_DIR}/COMPS/LOG/NONE
+    ${PTX_SDK_DIR}/COMPS/NSC
+    ${PTX_SDK_DIR}/COMPS/NSC/RUL
+    ${PTX_SDK_DIR}/COMPS/NSC/UCODE
+    ${PTX_SDK_DIR}/COMPS/UTILS
+    # header only (PTX_DBG macro, compiled out by PTX_DEBUG_PRINTS_DISABLE)
+    ${PTX_SDK_DIR}/EXAMPLES/Utils
+)
+
+# SDK build configuration: MCU platform, SPI host interface, RA HAL port,
+# reader-only feature set, no SDK logging / debug prints.
+target_compile_definitions(${PROJECT_NAME}.elf PRIVATE
+    PTX_PLATFORM_MCU
+    PTX_ENABLE_SPI
+    PTX_APP_DIVERSITY_RA4M2
+    PTX_LOG_DISABLED
+    PTX_DEBUG_PRINTS_DISABLE
+    PTX_DISABLE_COMP_CHECK
+    PTX_DISABLE_WLC
+    PTX_DISABLE_LISTEN_MODE
+    PTX_DISABLE_LISTEN_B
+)
+
+# --------------------------------------------------------------------------
+# Flash budget: LTO + machine outliner
+# --------------------------------------------------------------------------
+# The PTX205R firmware image downloaded by the SDK alone is ~25 KB. The
+# complete image only fits the RA2E3's 64 KB flash with link-time
+# optimization (~7 KB over without it). The same options are set in .cproject.
+target_compile_options(${PROJECT_NAME}.elf PRIVATE -flto)
+target_link_options(${PROJECT_NAME}.elf PRIVATE -flto -Wl,-mllvm,-enable-machine-outliner)
 
 # --------------------------------------------------------------------------
 # Console: src/console_io (no libc stdio)

@@ -33,7 +33,7 @@
     OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     ---------------------------------------------------------------
 
-    Project     : PTX1K
+    Project     : PTX205R
     Module      : IOT_READER Demo
     File        : app_nfc_reader.h
 

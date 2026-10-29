@@ -1,14 +1,22 @@
-# NFC IoT Card Reader — FPB-RA2E3 + PTX105R Quick-Connect PMOD
+# NFC IoT Card Reader — FPB-RA2E3 + PTX205RIOTEB Evaluation Board
 
-**Renesas Electronics — Confidential** · Rev 1.2 · August 2026
+**Renesas Electronics — Confidential** · Rev 2.0 (PTX205R port) · October 2026
 
 | Item | Value |
 |---|---|
 | MCU | R7FA2E3073CFL (RA2E3, Cortex-M23, 48 MHz) |
-| NFC IC | PTX105R (ISO 14443-A/B, NFC-F, ISO 15693) |
-| FSP | v6.4.0 + FreeRTOS |
-| NFC SDK | `rm_nfc_reader_ptx_sdk` 3.0.0+fsp.6.4.0 |
-| Project | nfc-ptx105r-ra2e3 |
+| NFC IC | PTX205R (ISO 14443-A/B, NFC-F, ISO 15693) |
+| FSP | v6.5.0 + FreeRTOS |
+| NFC SDK | PTX2xx SDK (RUL), vendored in [`ptx_sdk/`](ptx_sdk/) — no FSP module |
+| Project | nfc-ptx205r-ra2e3 |
+
+> **PTX205R port status.** The RS module, the hardware layer (`src/ptx205r/`)
+> and the example build configuration were ported from the PTX105R release and
+> verified on the PTX205RIOTEB (card detection + NDEF read, see 6.1).
+> PTX205R board photos are from the Renesas
+> [PTX205RIOTEB page](https://www.renesas.com/en/design-resources/boards-kits/ptx205rioteb#overview);
+> for the board schematic see the
+> [PTX205RIOTEB design files](https://www.renesas.com/en/document/pcs/altium-design-files-ptx205rioteb-reva5?r=25612867).
 
 ---
 
@@ -20,7 +28,7 @@
    - [Quick Start](#quick-start)
 4. [Dependencies](#4-dependencies)
    - 4.1 [FPB-RA2E3 Fast Prototyping Board](#41-fpb-ra2e3-fast-prototyping-board)
-   - 4.2 [PTX105R QC PMOD Board](#42-ptx105r-quick-connect-qc-pmod-board)
+   - 4.2 [PTX205RIOTEB Evaluation Board](#42-ptx205rioteb-evaluation-board)
    - 4.3 [Pin Connections](#43-pin-connections)
    - 4.4 [USB UART](#44-usb-uart-log-output)
    - 4.5 [Software Requirements](#45-software-requirements)
@@ -60,17 +68,20 @@
 
 ## 1. Overview
 
-This project contains the **NFC Card Reader** for the Renesas PTX105R, plus
+This project contains the **NFC Card Reader** for the Renesas PTX205R, plus
 the complete reference firmware that exercises it. The project owns the whole NFC
 workflow — discovery, activation, NDEF read, callback dispatch and deactivation —
 and hands the application a single filled-in result struct. `rs_nfc_reader.h` is
-its only public header. The project talks to the PTX NFC SDK (`ptxIoTRd_*`)
-**directly**; the `RM_NFC_READER_PTX` FSP wrapper is intentionally not used.
+its only public header. The project talks to the PTX205R SDK (`ptx_RUL_*`)
+**directly**. Unlike the PTX105R, the PTX205R has no FSP middleware module: the
+SDK is part of this repository ([`ptx_sdk/`](ptx_sdk/)) and plays the role the
+FSP `rm_nfc_reader_ptx_sdk` module played for the PTX105R. Its RA HAL port talks
+to plain FSP driver instances (SCI SPI, ICU, GPT).
 
-The reference firmware demonstrates a fully autonomous NFC card reader running on the **Renesas RA2E3** microcontroller (R7FA2E3073CFL, Arm® Cortex®-M23). The **PTX105R Quick-Connect (QC) PMOD Board** connects to the **FPB-RA2E3** via the PMOD1 connector (SPI on SCI0 + IRQ7) and supports all major NFC card types out of the box. It builds identically in **e² studio** and **vs-code**, and doubles as the integration reference: FSP stack configuration, pin assignment, the two integrator-supplied board symbols, and a picolibc stdio retarget over SCI9.
+The reference firmware demonstrates a fully autonomous NFC card reader running on the **Renesas RA2E3** microcontroller (R7FA2E3073CFL, Arm® Cortex®-M23). The **PTX205RIOTEB evaluation board** is wired to the **FPB-RA2E3** PMOD1 connector (SPI on SCI0 + IRQ7 + SEN) and supports all major NFC card types out of the box. It builds identically in **e² studio** and **vs-code**, and doubles as the integration reference: FSP stack configuration, pin assignment, the integrator-supplied board symbols, and the `console_io` UART console over SCI9.
 
-The application is built on **Renesas FSP v6.4.0** with **FreeRTOS** and uses a layered software architecture:  
-**APP** (Application) → **Project**  → **FSP Middleware + Drivers**
+The application is built on **Renesas FSP v6.5.0** with **FreeRTOS** and uses a layered software architecture:  
+**APP** (Application) → **Project** → **PTX205R SDK** (`ptx_sdk/`) → **FSP Drivers**
 
 Once running, the device continuously wait for NFC cards. On each detection it automatically identifies the card type and UID, attempts an NDEF read (supported for T2T, T3T, T4A, T4B, and T5T — see 2. [Key Features](#2-key-features)), fires a callback, and returns to wait for next NFC cards detection — *no code changes needed when switching card types*.
 
@@ -87,17 +98,17 @@ Core project responsibilities:
 - Start and stop the reader event (`rs_nfc_reader_Read`, `rs_nfc_reader_Stop`)
 - Perform discovery, activation, read, callback dispatch, and deactivation
 - Decode NDEF records into the result struct for the application (`result->decoded`)
-- Keep upper application logic portable while hardware specifics stay in `rs_nfc_ptx105r.c`
+- Keep upper application logic portable while hardware specifics stay in `rs_nfc_ptx205r.c`
 
 Design highlights:
 
 - **Two public APIs** — `rs_nfc_reader_Read()` and `rs_nfc_reader_Stop()`
 - **One public header** — `rs_nfc_reader.h`
 - **Fully static allocation** — no heap, no `malloc`; static FreeRTOS task, TCB and stack
-- **0 % idle CPU** — the read loop blocks on the reader IRQ, not on a poll timer
+- **~0 % idle CPU** — the read loop sleeps on the PTX205R IRQ (ICU IRQ7), with a 100 ms safety re-check (`RS_NFC_PTX205R_WAIT_RECHECK_MS`, 0 = IRQ only)
 - **NDEF decoded by the project** — records land in `result->decoded`
-- **Vendor isolation** — one HAL header, `ptx105r/rs_nfc_ptx105r.h`; swap the
-  `ptx105r/` folder to port to another NFC front-end
+- **Vendor isolation** — one HAL header, `ptx205r/rs_nfc_ptx205r.h`; swap the
+  `ptx205r/` folder to port to another NFC front-end
 
 The application supplies a config struct and a callback; it never touches the PTX
 SDK, never walks TLVs, and never parses an NDEF record header.
@@ -139,8 +150,9 @@ hardware setup and the flash/debug step.
 ### Step 1: Hardware Setup
 
 1. Keep the FPB-RA2E3 **unpowered** (USB disconnected) while making connections.
-2. Align **pin 1** of the PTX105R QC board with **pin 1** of PMOD1 on the FPB-RA2E3 and press firmly until seated.
-3. Connect a micro-USB cable to **J10**. The board powers on, PTX105R receives 3.3 V through PMOD1 automatically, and the on-board J-Link OB enumerates both the debug probe and the virtual COM port used for the log output.
+2. On the PTX205RIOTEB, select the **SPI** host interface with the interface jumpers (see the [evaluation kit manual](https://www.renesas.com/en/document/mah/ptx205rioteb-evaluation-kit-manual-reva5?r=25612867)).
+3. Wire the PTX205RIOTEB SPI, IRQ, SEN and GND signals to the FPB-RA2E3 **PMOD1** pins listed in 4.3 [Pin Connections](#43-pin-connections). Power the PTX205RIOTEB as described in its manual, and make sure the I/O levels are 3.3 V.
+4. Connect a micro-USB cable to **J10** of the FPB-RA2E3. The board powers on and the on-board J-Link OB enumerates both the debug probe and the virtual COM port used for the log output.
 
 ### Step 2: Add Project to IDE
 
@@ -163,7 +175,7 @@ hardware setup and the flash/debug step.
 
 ### Step 3: Review FSP Configuration
 
-Double-click `configuration.xml` to open the RA Configuration view. Verify BSP tab (device R7FA2E3073CFL, FSP 6.4.0), Stacks tab (full NFC driver stack), and Pins tab (SCI0 + IRQ7 assignments). Full details are in 5. [FSP Configuration](#5-fsp-configuration).
+Double-click `configuration.xml` to open the RA Configuration view. Verify BSP tab (device R7FA2E3073CFL, FSP 6.5.0), Stacks tab (SCI SPI, ICU, two GPT and UART instances used by the PTX205R SDK), and Pins tab (SCI0 + IRQ7 assignments). Full details are in 5. [FSP Configuration](#5-fsp-configuration).
 
 ### Step 4: Build
 
@@ -175,11 +187,17 @@ Double-click `configuration.xml` to open the RA Configuration view. Verify BSP t
 3. A successful build prints zero errors:
 
 ```
-**** Incremental Build of configuration Debug ****
+**** Incremental Build of configuration Debug for project RA2E3_nfc_reader ****
+make -r --output-sync -j14 all
+llvm-size --format=berkeley "RA2E3_nfc_reader.elf"
    text    data     bss     dec     hex filename
-  62636     160   15157   77953   13081 RA2E3_nfc_reader.elf
+  62622     648   12184   75454   126be RA2E3_nfc_reader.elf
+
 Build Finished. 0 errors, 0 warnings.
 ```
+
+Flash use is `text + data` (≈ 63.3 KB of the RA2E3's 64 KB, including the ~25 KB
+PTX205R firmware image); RAM use is `data + bss` (≈ 12.8 KB of 16 KB).
 
 Output files are written to `Debug/`: `RA2E3_nfc_reader.elf` · `.map`
 
@@ -255,9 +273,6 @@ main()                          ← FSP generated
 
 ### 4.1 FPB-RA2E3 Fast Prototyping Board
 
-![FPB-RA2E3 + PTX105R connected to PMOD1](readme_assets/FPB-RA2E3_PTX105R.png)
-
-*Figure 2 — FPB-RA2E3 with PTX105R QC board seated in PMOD1*
 
 | Resource | Detail |
 |---|---|
@@ -269,38 +284,47 @@ main()                          ← FSP generated
 | LEDs | LED1 (P213) and LED2 (P914 / `PMOD1_GPIO9`) — both driven high together for the duration of each card transaction, then low. (P913 is `PMOD1_GPIO10` and P915 is `PMOD1_RESET`; neither is used as an LED by the current firmware.) |
 | User button | SW1 (P200 / NMI) |
 
-### 4.2 PTX105R Quick-Connect (QC) PMOD Board
+### 4.2 PTX205RIOTEB Evaluation Board
 
-![PTX105R QC PMOD Board](readme_assets/PTX105R-DB-RB.png)
+![PTX205RIOTEB Evaluation Board - Top](readme_assets/PTX205R-top.png)
 
-*Figure 3 — PTX105R-DB-RB QFN56-IOT QC v1.0 board*
+*Figure 3a — PTX205RIOTEB Evaluation Board, Rev.A5 — top (image: Renesas)*
+
+![PTX205RIOTEB Evaluation Board - Bottom](readme_assets/PTX205R-bottom.png)
+
+*Figure 3b — PTX205RIOTEB Evaluation Board, Rev.A5 — bottom (image: Renesas)*
 
 | Feature | Detail |
 |---|---|
-| NFC IC | PTX105R |
+| Board | PTX205RIOTEB — PTX205R NFC Reader Evaluation Board for IoT Applications, Rev.A5 |
+| NFC IC | PTX205R |
 | RF Protocols | ISO 14443-A/B, NFC-F (FeliCa), ISO 15693 |
-| Antenna | Integrated 20 × 20 mm loop, on-board |
-| Interface | 12-pin PMOD connector — plug directly into FPB-RA2E3 PMOD1 |
-| SPI | 1 MHz, CPHA=0, CPOL=0 (SPI Mode 0), active-low CS |
-| IRQ | Active-high rising edge on PMOD1 pin 7 (P015 / ICU IRQ7) |
-| Power | 3.3 V from PMOD rail |
+| Antenna | On-board 36 × 36 mm loop |
+| Host interface | SPI, I²C or UART, selected with jumpers on the board — **this project uses SPI** |
+| SPI (as used here) | 1 MHz, CPHA=0, CPOL=0 (SPI Mode 0), active-low CS |
+| IRQ | Active-high, rising edge → P015 / ICU IRQ7 on the FPB-RA2E3 |
+| Documentation | [Evaluation kit manual](https://www.renesas.com/en/document/mah/ptx205rioteb-evaluation-kit-manual-reva5?r=25612867) · [Design files (Altium, Rev.A5)](https://www.renesas.com/en/document/pcs/altium-design-files-ptx205rioteb-reva5?r=25612867) · [PTX205R datasheet](https://www.renesas.com/en/document/dst/ptx205r-datasheet) |
 
 ### 4.3 Pin Connections
 
-![PTX105R QC PMOD Board](readme_assets/PTX105R-Schematic.png)
-
-*Figure 4 — PTX105R-Schematic*
+The board schematic is part of the
+[PTX205RIOTEB design files](https://www.renesas.com/en/document/pcs/altium-design-files-ptx205rioteb-reva5?r=25612867);
+the jumper settings for the SPI host interface and the board-side header pinout
+are in the
+[PTX205RIOTEB evaluation kit manual](https://www.renesas.com/en/document/mah/ptx205rioteb-evaluation-kit-manual-reva5?r=25612867).
+The table below lists the FPB-RA2E3 side, as used by the PTX205R SDK RA port
+(`ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2`).
 
 | PMOD1 Pin | Signal | FPB-RA2E3 Pin | SCI0 Function | Description |
 |---|---|---|---|---|
-| 1 | MISO | P100 | SCI0 RXD0 | Data from PTX105R to RA2E3 |
-| 2 | MOSI | P101 | SCI0 TXD0 | Data from RA2E3 to PTX105R |
+| 1 | MISO | P100 | SCI0 RXD0 | Data from PTX205R to RA2E3 |
+| 2 | MOSI | P101 | SCI0 TXD0 | Data from RA2E3 to PTX205R |
 | 3 | SCK | P102 | SCI0 SCK0 | SPI clock (1 MHz, Master) |
 | 4 | SS / CS | P103 | GPIO output | Chip select (active-low, software-driven GPIO, idle high) |
 | 5 | GND | GND | — | Ground |
-| 6 | 3V3 | 3.3 V | — | Power supply to PTX105R |
-| 7 | IRQ | P015 | ICU IRQ7 | Active-high interrupt from PTX105R |
-| 8 | RESET | P915 | GPIO (`PMOD1_RESET`) | PTX105R reset line (macro defined; not driven by current firmware) |
+| 6 | 3V3 | 3.3 V | — | Power supply to PTX205R |
+| 7 | IRQ | P015 | ICU IRQ7 | Active-high interrupt from PTX205R |
+| 8 | SEN / RESET | P915 | GPIO (`PMOD1_RESET`) | PTX205R SEN (reset) line — output high at boot, driven by the PTX205R SDK HAL |
 
 ### 4.4 USB UART (Log Output)
 
@@ -313,18 +337,39 @@ Debug log output is available through the board's USB UART connection. Connect t
 | Software | Version / Notes |
 |---|---|
 | Renesas e² studio | 2025-01 or later |
-| Renesas FSP | v6.4.0 |
+| Renesas FSP | v6.5.0 |
 | LLVM (ATfE) Arm toolchain | 21.1.1 — recorded by RASC as `LLVMARM` (see `cmake/GeneratedCfg.cmake`) |
-| PTX105R IoT-Reader SDK | `rm_nfc_reader_ptx_sdk` 3.0.0+fsp.6.4.0 |
+| PTX205R SDK | PTX2xx SDK (RUL API), vendored in `ptx_sdk/` |
 | FreeRTOS | via FSP (rm_freertos_port + Heap 4) |
 | Serial terminal | Tera Term, PuTTY or any console app — 230400 8N1 |
 
 For detailed steps on using e² studio, refer to the Renesas e² studio User Guide:
 [e² studio | Renesas](https://www.renesas.com/en/software-tool/e2-studio?srsltid=AfmBOorTMc82ySC1OUrEN8SZbrQK2qXPYpFT_VatUYLmZMBeViM4bFTS)
 
-The PTX105R IoT-Reader SDK is vendored in this repository under
-`ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/` and is pulled in through the FSP
-`rm_nfc_reader_ptx` stack — no separate SDK download is required.
+The PTX205R SDK has no FSP module. It is vendored in this repository under
+[`ptx_sdk/`](ptx_sdk/) (complete SDK as delivered, including its examples) — no
+separate SDK download is required. The example compiles only the reader parts of
+it:
+
+| SDK part | Built | Purpose |
+|---|---|---|
+| `API/RUL` | yes | Main reader API (`ptx_RUL_*`): init, discovery, card registry, select, exchange |
+| `API/NATIVE_TAG/T2T..T5T`, `API/NDEF/TAG_TYPES/NDEF_T2T..T5T` | yes | Per-tag-type NDEF read (T3T/T4T/T5T used; T2T NDEF is hand-rolled in `rs_ndef_read.c`) |
+| `COMPS/HAL` + `COMPS/HAL/DRV/MCU/RA4M2` | yes | Host interface (SPI), GPIO, timers. The `RA4M2` folder holds the RA port adapted to the FPB-RA2E3 |
+| `COMPS/HIP`, `COMPS/NSC` (+ `RUL`, `UCODE`), `COMPS/LOG/NONE`, `COMPS/UTILS` | yes | PTX205R protocol stack, firmware image (~25 KB), no-op logging |
+| everything else (examples, HCE/listen mode, WLC, LLCP/SNEP, EMV/FeliCa DTE, I2C/UART host interfaces, other platforms) | no | Excluded in `CMakeLists.txt` and `.cproject` |
+
+The SDK build options are compile definitions (both build systems):
+`PTX_PLATFORM_MCU`, `PTX_ENABLE_SPI`, `PTX_APP_DIVERSITY_RA4M2`, `PTX_LOG_DISABLED`,
+`PTX_DEBUG_PRINTS_DISABLE`, `PTX_DISABLE_COMP_CHECK`, `PTX_DISABLE_WLC`,
+`PTX_DISABLE_LISTEN_MODE`, `PTX_DISABLE_LISTEN_B`. Add `PTX_DISABLE_NDEF_T3T` /
+`PTX_DISABLE_NDEF_T5T` to compile out the T3T / T5T NDEF reader (cards are still
+detected and their UID reported).
+
+> **Flash budget:** the image only fits the RA2E3's 64 KB flash with link-time
+> optimization — `-flto` (compiler and linker) and `-Wl,-mllvm,-enable-machine-outliner`
+> are set in `CMakeLists.txt` and `.cproject`. Without them the link overflows
+> by ~7 KB.
 
 ### 4.6 First-Time vs-code Environment Setup
 
@@ -374,7 +419,7 @@ setx ARM_TOOLCHAIN_PATH "C:\Path\To\ATfE\bin"
 setx CMAKE_PATH        "C:\Program Files\CMake\bin\cmake.exe"
 setx NINJA_PATH        "C:\Program Files\CMake\bin"
 setx ARM_GDB_PATH      "C:\Path\To\ArmGNUToolchain\bin\arm-none-eabi-gdb.exe"
-setx RASC_EXE_PATH     "C:\Renesas\RA\sc_v2025-12_fsp_v6.4.0\eclipse\rasc.exe"
+setx RASC_EXE_PATH     "C:\Renesas\RA\sc_v2025-12_fsp_v6.5.0\eclipse\rasc.exe"
 ```
 
 > `setx` only affects **new** processes — the terminal you typed it in keeps the
@@ -410,7 +455,7 @@ FSP configuration can be done with **e² studio**, **Renesas Smart Configuration
 
 | Setting | Value |
 |---|---|
-| FSP Version | 6.4.0 |
+| FSP Version | 6.5.0 |
 | Board | FPB-RA2E3 (board.ra2e3_fpb) |
 | Device | R7FA2E3073CFL · LQFP48 · Cortex-M23 |
 | RTOS | FreeRTOS (rm_freertos_port) |
@@ -422,33 +467,27 @@ FSP configuration can be done with **e² studio**, **Renesas Smart Configuration
 
 ### 5.2 FSP Stack Overview
 
-![Figure 5a — FSP Stacks tab: HAL/Common top-level view](readme_assets/FSP_Config_stack1.png)
+![Figure 5 — FSP Stacks tab: HAL/Common stacks for the PTX205R](readme_assets/FSP_Config_stack_ptx205r.png)
 
-*Figure 5a — FSP Stacks tab: HAL/Common top-level view*
+*Figure 5 — FSP Stacks tab: HAL/Common stacks (UART, SCI SPI, ICU IRQ7, two GPT timers, FreeRTOS)*
 
-
-
-![Figure 5b — FSP Stacks tab: g_nfc_reader_ptx0 full stack expanded](readme_assets/FSP_Config_stack2.png)
-
-*Figure 5b — FSP Stacks tab: g_nfc_reader_ptx0 full stack expanded*
+There is no NFC middleware module in the FSP configuration. The PTX205R SDK's RA
+HAL port binds to the following driver instances **by name** (see
+`src/ptx205r/rs_nfc_ptx205r_board.h`), so these names must not be changed:
 
 | FSP Module | Instance | Role |
 |---|---|---|
-| `rm_nfc_reader_ptx` | `g_nfc_reader_ptx0` | Config/context instance only — the `RM_NFC_READER_PTX_*` is bypassed; `rs_nfc_ptx105r.c` reads `g_nfc_reader_ptx0_cfg` and drives `ptxIoTRd_*` directly (see [7.1 Project Structure](#71-project-structure)) |
-| `rm_nfc_reader_ptx_sdk` | — | PTX105R SDK v3.0.0 (NSC stack, RF protocol engine) |
-| `rm_comms_spi` (bus) | `g_comms_spi_bus0` | SPI bus abstraction with mutex + blocking semaphore |
-| `rm_comms_spi` (device) | `g_comms_spi_device0` | SPI device instance for PTX105R (CS active-low) |
-| `r_sci_spi` | `ptx_pmod_spi` | SCI0 SPI Master — 1 MHz, CPHA=0, CPOL=0, MSB-first |
-| `r_dtc` (TX + RX) | `g_transfer0` / `g_transfer1` | DTC for zero-CPU SPI DMA transfer |
-| `r_icu` | `g_ext_irq` | ICU IRQ7 on P015 — rising-edge interrupt from PTX105R |
-| `r_gpt` | `g_timer0` | GPT Ch0 — TDC timer, callback: ptxPLAT_TIMER_IsrCallback |
-| `r_gpt` | `g_timer1` | GPT Ch1 — second PTX timing channel |
-| `r_sci_uart` | `g_uart_jlob_vcom` | SCI9 — 230400 8N1 UART on P109 (TX) / P110 (RX) |
-| `r_ioport` | `g_ioport` | GPIO — LEDs, PMOD1_RESET (P915) |
+| `r_sci_spi` | `ptx_pmod2_spi` | SCI0 SPI Master — CPHA=0, CPOL=0, MSB-first, no callback, no DTC. FSP bitrate 500 kHz; the SDK HAL sets 1 MHz when it opens the interface |
+| `r_icu` | `ptx_pmod2_irq` | ICU IRQ7 on P015 — rising edge. Opened by the SDK; the RS module installs its own callback while waiting for a card |
+| `r_gpt` | `ptx_tmr0` | GPT Ch4 — SDK timer 0 (timeouts) |
+| `r_gpt` | `ptx_tmr1` | GPT Ch0 — SDK timer 1 (sleeps) |
+| `r_sci_uart` | `g_uart_jlob_vcom` | SCI9 — 230400 8N1 UART on P109 (TX) / P110 (RX), used by `console_io` |
+| `r_ioport` | `g_ioport` | GPIO — LEDs, SPI CS (P103), PTX205R SEN (P915) |
+| `rm_freertos_port` + Heap 4 | — | FreeRTOS |
 
 ### 5.3 SCI0 SPI & ICU IRQ7 Properties
 
-**SCI0 SPI (ptx_pmod_spi)**
+**SCI0 SPI (ptx_pmod2_spi)**
 
 | Property | Value |
 |---|---|
@@ -457,9 +496,9 @@ FSP configuration can be done with **e² studio**, **Renesas Smart Configuration
 | CPHA | 0 (leading edge) |
 | CPOL | 0 (clock idle low) |
 | Bit Order | MSB First |
-| Bitrate | 1,000,000 bps |
+| Bitrate | 500,000 bps in FSP; 1,000,000 bps set by the SDK HAL at open |
 
-**ICU IRQ7 (g_ext_irq)**
+**ICU IRQ7 (ptx_pmod2_irq)**
 
 | Property | Value |
 |---|---|
@@ -471,20 +510,28 @@ FSP configuration can be done with **e² studio**, **Renesas Smart Configuration
 
 ### 5.4 Pin Assignments
 
-![Figure 6 — Pin Assignments](readme_assets/FSP_Config_PIN.png)
+![Figure 6 — Pins tab: ICU IRQ7 on P015](readme_assets/FSP_Config_PIN_ptx205r.png)
 
-*Figure 6 — Assignments*
+*Figure 6 — Pins tab: active pin configuration `R7FA2E3073CFL.pincfg` (generated as `g_bsp_pin_cfg`), Interrupt:ICU → IRQ7 = P015*
+
+The active pin configuration is **`R7FA2E3073CFL.pincfg`** with **Generate data: `g_bsp_pin_cfg`**
+(Figure 6). The peripherals in use are Connectivity:SCI (SCI0 SPI, SCI9 UART),
+Debug:JTAG/SWD, Interrupt:ICU and System:SYSTEM. Under **Interrupt:ICU**, only
+**IRQ7** is assigned, to **P015**. This pin must stay in IRQ mode: the PTX205R
+SDK reads its level, and the RS module sleeps on its interrupt.
 
 | Peripheral | Pin | Symbolic Name | Function |
 |---|---|---|---|
-| SCI0 RXD0 | P100 | `ARDUINO_D12_MISO_PMOD1_MISO` | SPI MISO ← PTX105R |
-| SCI0 TXD0 | P101 | `ARDUINO_D11_MOSI_PMOD1_MOSI` | SPI MOSI → PTX105R |
+| SCI0 RXD0 | P100 | `ARDUINO_D12_MISO_PMOD1_MISO` | SPI MISO ← PTX205R |
+| SCI0 TXD0 | P101 | `ARDUINO_D11_MOSI_PMOD1_MOSI` | SPI MOSI → PTX205R |
 | SCI0 SCK0 | P102 | `ARDUINO_D13_SCK_PMOD1_SCK` | SPI Clock |
 | GPIO output | P103 | `ARDUINO_D10_SS_PMOD1_SS` | SPI CS (active-low, software GPIO) |
-| ICU IRQ7 | P015 | `PMOD1_IRQ7` | PTX105R interrupt |
+| ICU IRQ7 | P015 | `PMOD1_IRQ7` | PTX205R interrupt |
 | SCI9 TXD9 | P109 | `ARDUINO_D1_TX` | UART TX → PC (log output) |
 | SCI9 RXD9 | P110 | `ARDUINO_D0_RX` | UART RX ← PC (reserved) |
-| GPIO (unused) | P915 | `PMOD1_RESET` | PTX105R RESET line (not driven by firmware) |
+| GPIO output | P915 | `PMOD1_RESET` | PTX205R SEN (reset) line — output high at boot, driven by the SDK HAL |
+| GPIO output | P213 | `LED1` | Card-event LED (output low at boot) |
+| GPIO output | P914 | `LED2_PMOD1_GPIO9` | Card-event LED (output low at boot) |
 
 ---
 
@@ -503,18 +550,26 @@ System Initialization (RS NFC Reader) ... starting
 RS NFC Reader launched (non-blocking)
 ```
 
-3. Place an NFC card within **5–10 cm** of the PTX105R antenna. Example output for a Type 4A tag:
+3. Place an NFC card close to the PTX205RIOTEB antenna. Output captured on the PTX205RIOTEB for a Type 4A tag holding one NDEF Text record:
 
 ```
-CARD DETECTED! type=NFC-T4A UID=02840017810196 NDEF=15B
+CARD DETECTED! type=NFC-T4A UID=02840017810196 NDEF=23B
+
 RF Technology  : TYPE A
 Tag Type       : ISO-DEP (Type 4 Tag / ISO 14443-4)
 Serial Number  : 02:84:00:17:81:01:96
 Size           : 8192 bytes
 Writeable      : Yes
-NDEF           : 15 bytes
-  NDEF raw (15 bytes): D1 01 0B 54 02 65 6E 59 4F 20 45 4C 49 4E 41
+NDEF           : 23 bytes
+
+NDEF raw (23 bytes): D1 01 13 54 02 65 6E 35 35 35 35 35 35 35 35 35
+                        35 35 35 35 35 35 35
+Records        : 1
+[0] TNF=0x01 (NFC Forum well-known) Type='T'  Payload=19 bytes
+        Text : "5555555555555555"
 ```
+
+The UID, size and NDEF content depend on the card used.
 
 ### 6.2 LED Feedback
 
@@ -547,15 +602,18 @@ rs-nfc-card-reader/
 │   ├── rs_nfc_reader.h                    ← Project public API header (single include)
 │   ├── rs_nfc_reader.c                    ← Project reader + "RS_NFC" task (detect, retry, dependency check, card summary)
 │   ├── rs_ndef_read.c                     ← NDEF read (T2T page/TLV; T3T/T4T/T5T via PTX SDK) + record decode
-│   └── ptx105r/
-│       ├── rs_nfc_ptx105r.c               ← PTX105R HAL → direct ptxIoTRd_* / ptxPLAT_* calls
-│       ├── rs_nfc_ptx105r.h               ← vendor HAL contract — the porting seam
-│       └── rs_nfc_ptx105r_board.h         ← integrator-supplied board symbols (g_ext_irq + GPIO ISR callback)
+│   └── ptx205r/
+│       ├── rs_nfc_ptx205r.c               ← PTX205R HAL → direct ptx_RUL_* calls
+│       ├── rs_nfc_ptx205r.h               ← vendor HAL contract — the porting seam
+│       └── rs_nfc_ptx205r_board.h         ← integrator-supplied board symbols (ptx_pmod2_irq) + discovery tuning
 │
-├── test/                                  ← Unit-test placeholders + PTX105R mock (root only, never copied into the example)
+├── ptx_sdk/                              ← PTX205R SDK (PTX2xx RUL stack) — replaces the PTX105R FSP SDK module
+│   └── SRC/                               ← API/ (RUL, NDEF, NATIVE_TAG, …), COMPS/ (HAL + RA port, HIP, NSC + firmware, …), EXAMPLES/
+│
+├── test/                                  ← Unit-test placeholders + PTX205R mock (root only, never copied into the example)
 │   ├── test_nfc_reader.c
 │   ├── test_ndef_read.c
-│   └── mocks/mock_ptx105r_adapter.c
+│   └── mocks/mock_ptx205r_adapter.c
 │
 └── examples/
     └── fpb-ra2e3/                         ← Reference firmware (this document)
@@ -571,12 +629,11 @@ rs-nfc-card-reader/
         │       ├── rs_nfc_reader.h        ← Project public API header
         │       ├── rs_nfc_reader.c        ← orchestrator + "RS_NFC" task
         │       ├── rs_ndef_read.c         ← NDEF read + record decode
-        │       └── ptx105r/               ← PTX105R backend (.c/.h + board header)
-        ├── ra/                            ← [generated] FSP + CMSIS + FreeRTOS + PTX SDK sources
+        │       └── ptx205r/               ← PTX205R backend (.c/.h + board header)
+        ├── ra/                            ← [generated] FSP + CMSIS + FreeRTOS sources
         ├── ra_gen/                        ← [generated] FSP project content (do not edit)
         ├── ra_cfg/                        ← [generated] FSP configuration headers (do not edit)
         │   └── fsp_cfg/
-        │       └── rm_nfc_reader_ptx_cfg.h← NFC reader FSP config
         ├── cmake/
         │   ├── gcc.cmake                  ← GCC ARM Embedded toolchain file
         │   ├── llvm.cmake                 ← LLVM (ATfE) toolchain file
@@ -653,13 +710,13 @@ Use this mental model: each layer has one clear responsibility and only calls th
 |---|---|---|
 | Application (APP) | Product behavior (logs, LED, when to read) | `src/app/app_nfc_reader.c`, `src/new_thread0_entry.c` |
 | Project module | NFC state machine (discover, activate, read, callback, deactivate, loop) | `src/rs_nfc_card_reader/rs_nfc_reader.c`, `rs_ndef_read.c` |
-| PTX105R adapter | Converts project module calls to PTX SDK operations | `src/rs_nfc_card_reader/ptx105r/rs_nfc_ptx105r.c`, `rs_nfc_ptx105r.h` |
-| PTX SDK + FSP drivers | NFC protocol ops and MCU peripheral access | `ptxIoTRd_*`, `ptxPLAT_*`, `R_SCI_SPI`, `R_ICU`, `R_GPT` |
-| Hardware | Physical RF + MCU execution platform | RA2E3 board + PTX105R PMOD |
+| PTX205R adapter | Converts project module calls to PTX SDK operations | `src/rs_nfc_card_reader/ptx205r/rs_nfc_ptx205r.c`, `rs_nfc_ptx205r.h` |
+| PTX SDK + FSP drivers | NFC protocol ops and MCU peripheral access | `ptx_RUL_*` (`ptx_sdk/`), `R_SCI_SPI`, `R_ICU`, `R_GPT` |
+| Hardware | Physical RF + MCU execution platform | RA2E3 board + PTX205R PMOD |
 
 **Important boundary**
 
-The PTX adapter (`rs_nfc_ptx105r.c`) calls `ptxIoTRd_*` directly. The `RM_NFC_READER_PTX_*` wrapper layer is intentionally bypassed in this project.
+The PTX adapter (`rs_nfc_ptx205r.c`) calls the PTX205R SDK (`ptx_RUL_*`, `ptx_sdk/`) directly. There is no FSP NFC middleware layer for the PTX205R.
 
 **Call flow (top-down)**
 
@@ -667,13 +724,13 @@ The PTX adapter (`rs_nfc_ptx105r.c`) calls `ptxIoTRd_*` directly. The `RM_NFC_RE
 flowchart TD
     A[APP layer\napp_nfc_reader / LED / log]
    B[Project module\nread loop and state machine]
-    C[PTX105R adapter\nrs_nfc_ptx105r.c]
-    D[PTX SDK + FSP drivers\nptxIoTRd_* + R_* drivers]
-    E[Hardware\nRA2E3 + PTX105R]
+    C[PTX205R adapter\nrs_nfc_ptx205r.c]
+    D[PTX SDK + FSP drivers\nptx_RUL_* + R_* drivers]
+    E[Hardware\nRA2E3 + PTX205R]
 
     A -->|rs_nfc_reader_Read / Stop| B
     B -->|rs_nfc_ptx_*| C
-    C -->|ptxIoTRd_* / ptxPLAT_*| D
+    C -->|ptx_RUL_*| D
     D -->|SPI IRQ timer GPIO| E
     E -->|card events and RF data| D
     D --> C --> B -->|card callback result| A
@@ -747,7 +804,7 @@ typedef struct st_rs_nfc_reader_cfg {
 | `p_context` | `void *` | User context passed back to `callback`. May be `NULL`. |
 | `on_card_event` | `rs_nfc_card_event_cb_t` | Per-card callback fired each time a card is detected and activated — the important hook for the application. |
 | `p_card_event_context` | `void *` | User context passed back to `on_card_event`. |
-| `validate_dependencies` | `bool` | When `true`, the project also checks the lower-level PTX105R stack is ready before starting. |
+| `validate_dependencies` | `bool` | When `true`, the project also checks the lower-level PTX205R stack is ready before starting. |
 | `cfg_valid_check_en` | `bool` | Gate for `rs_nfc_reader_validate()` inside `Read()`. Because `memset(&cfg,0,...)` zeroes it to `false`, callers must set it to `true` to keep config validation enabled. |
 
 #### Result Struct
@@ -757,7 +814,7 @@ typedef struct st_rs_nfc_reader_cfg {
 ```c
 struct st_rs_nfc_card_result {
     rs_nfc_card_type_t      card_type;
-    ptxIoTRd_CardProtocol_t protocol;
+    ptx_RUL_CardProtocolType_t protocol;
     uint8_t                 uid[RS_NFC_UID_MAX_BYTES];
     uint8_t                 uid_len;
     bool                    ndef_present;
@@ -778,7 +835,7 @@ struct st_rs_nfc_card_result {
 | Field | Type | Meaning |
 |---|---|---|
 | `card_type` | `rs_nfc_card_type_t` | Normalized card classification such as T2T, T4A, T4B, T3T, or T5T. |
-| `protocol` | `ptxIoTRd_CardProtocol_t` | Active RF protocol as reported by the PTX SDK (`Prot_T2T` / `Prot_T3T` / `Prot_ISODEP` / `Prot_T5T` / …). |
+| `protocol` | `ptx_RUL_CardProtocolType_t` | Active RF protocol as reported by the PTX SDK (`ptx_RUL_CardProtocolType_T2T` / `_T3T` / `_T4T` (ISO-DEP) / `_T5T` / …). |
 | `uid` | `uint8_t[10]` | Raw UID bytes as read from the card. |
 | `uid_len` | `uint8_t` | Number of valid bytes in `uid`. |
 | `ndef_present` | `bool` | `true` if the project found an NDEF message on the card. |
@@ -888,12 +945,12 @@ flowchart LR
    end
 
    subgraph PTX[PTX Adapter]
-      T1[ptx105r/rs_nfc_ptx105r.c]
-      T2[ptx105r/rs_nfc_ptx105r.h]
+      T1[ptx205r/rs_nfc_ptx205r.c]
+      T2[ptx205r/rs_nfc_ptx205r.h]
    end
 
    subgraph SDK[SDK and Drivers]
-      S1[ptxIoTRd_* and ptxPLAT_*]
+      S1[ptx_RUL_* (PTX205R SDK)]
       S2[R_SCI_SPI and R_ICU and R_GPT]
    end
 
@@ -914,9 +971,9 @@ flowchart LR
 flowchart TD
    A[Card activated] --> B{Tag type}
    B -->|T2T| C[rs_ndef_read.c page and TLV logic]
-   B -->|T4T| D[ptxNDEF_T4TOP via PTX SDK]
-   B -->|T5T| E[ptxNDEF_T5TOP via PTX SDK]
-   B -->|T3T| F[ptxNDEF_T3TOP via PTX SDK]
+   B -->|T4T| D[ptx_NDEF_T4T via PTX SDK]
+   B -->|T5T| E[ptx_NDEF_T5T via PTX SDK]
+   B -->|T3T| F[ptx_NDEF_T3T via PTX SDK]
 
    C --> G[Fill result fields and callback]
    D --> G
@@ -950,7 +1007,7 @@ Key FSP and firmware configuration options:
 | `configTIMER_TASK_STACK_DEPTH` | `FreeRTOSConfig.h` | 128 | FreeRTOS timer task stack size (words) |
 | `RS_NFC_NDEF_MAX_BYTES` | `rs_nfc_reader.h` | 512 | Maximum NDEF message size |
 | `UART baud rate` | FSP Configurator (`g_uart_jlob_vcom`) | 230400 | Debug log output speed |
-| `SPI clock` | FSP Configurator (`ptx_pmod_spi`) | 1 MHz | PTX105R SPI communication speed |
+| `SPI clock` | FSP Configurator (`ptx_pmod2_spi`) + SDK HAL | 1 MHz (set by the SDK at open) | PTX205R SPI communication speed |
 
 ---
 
@@ -963,22 +1020,24 @@ enum (`rs_nfc_reader.h`):
 |---|---|---|
 | `RS_ERR_TIMEOUT` | Card removed or polling timeout | Retry detection in main loop |
 | `RS_ERR_INVALID_CFG` | Malformed `rs_nfc_reader_cfg_t` | Fix config fields; keep `cfg_valid_check_en = true` |
-| `RS_ERR_DEPENDENCY` | Lower PTX105R stack not ready | Verify FSP stack + `validate_dependencies` |
+| `RS_ERR_DEPENDENCY` | Lower PTX205R stack not ready | Verify FSP stack + `validate_dependencies` |
 | `RS_ERR_NOT_FOUND` | Card not NDEF-formatted | Log and continue polling |
 | `RS_ERR_BUFFER_OVERFLOW` | NDEF larger than `max_ndef_bytes` | Increase `max_ndef_bytes` (≤ `RS_NFC_NDEF_MAX_BYTES`) |
-| `RS_ERR_INTERNAL` | Second non-blocking `Read()` while one is active, or internal fault | Stop the running read first; reset PTX105R if persistent |
+| `RS_ERR_INTERNAL` | Second non-blocking `Read()` while one is active, or internal fault | Stop the running read first; reset PTX205R if persistent |
 
 ---
 
 ## 11. Limitations
 
 * **NDEF write/erase**: Not implemented in this release — the firmware is a **read-only** reader for all tag types (T2T/T3T/T4T/T5T).
-* **SPI transport scope**: The current PTX105R integration is validated only with SCI-SPI. Dedicated RA SPI peripherals such as `R_SPI` are not supported in this release.
-* **Simultaneous card detection**: Only one card can be activated per read cycle.
+* **SPI transport scope**: The PTX205R integration uses SCI-SPI through the SDK RA port (`ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2`). Dedicated RA SPI peripherals such as `R_SPI` are not supported in this release.
+* **Simultaneous card detection**: Only one card can be activated per read cycle. When discovery resolves several cards, the reader reports `WARN: multiple cards detected, reading the first one` (card event with `result == NULL`) and reads the first card.
 * **NDEF message size**: Limited by on-tag memory and by `RS_NFC_NDEF_MAX_BYTES` (512 bytes).
 * **RA2E3 RAM**: 16 KB total; dynamic allocation is minimal. All task stacks are statically allocated.
 * **FreeRTOS heap**: 2 KB reserved for kernel; user malloc limited by remaining RAM.
 * **ISO 15693 (NFC-V)**: Basic detection supported; advanced features (AFI, DSFID) not implemented.
+* **Flash (RA2E3, 64 KB)**: the e² studio Debug build uses ~63.3 KB (text + data) with LTO, including the ~25 KB PTX205R firmware image; ~2 KB headroom. Use `PTX_DISABLE_NDEF_T3T` / `PTX_DISABLE_NDEF_T5T` to free space.
+* **PTX205R SDK stays initialized** between `rs_nfc_reader_Read()` calls (the firmware download is done once); `Read()` completion only switches the RF field off.
 
 ---
 
@@ -986,7 +1045,7 @@ enum (`rs_nfc_reader.h`):
 
 > **Note:** If you're running the packaged demo on the reference hardware, see [3. Demo Bring-Up](#3-demo-bring-up). This section is intended for integrating the code into your own project and hardware.
 
-When moving to a different RA MCU board, only a few layers need to change — the project module, NDEF layer, and overall application flow are portable, and the APP layer can be reused as-is or adapted to your product behavior. The integration touch-points are concentrated in `configuration.xml` (BSP device, stacks, pins) and the two PTX board-adapter files (`rs_nfc_ptx105r_board.h` / `rs_nfc_ptx105r.c`).
+When moving to a different RA MCU board, only a few layers need to change — the project module, NDEF layer, and overall application flow are portable, and the APP layer can be reused as-is or adapted to your product behavior. The integration touch-points are concentrated in `configuration.xml` (BSP device, stacks, pins) and the two PTX board-adapter files (`rs_nfc_ptx205r_board.h` / `rs_nfc_ptx205r.c`).
 
 This section walks through that work:
 
@@ -1000,14 +1059,14 @@ This section walks through that work:
 
 Follow these steps, in order, when bringing this code into your own project or custom hardware:
 
-![Figure 7 — BSP Device Selection](readme_assets/FSP_Custom_Config.png)
+![Figure 7 — BSP tab: Device Selection](readme_assets/FSP_BSP_Device_ptx205r.png)
 
-*Figure 7 — BSP Device Selection*
+*Figure 7 — BSP tab, Device Selection of this project: FSP version 6.5.0, Board FPB-RA2E3, Device R7FA2E3073CFL, Core CM23, RTOS FreeRTOS*
 
-1. **Select the BSP device, then verify required MCU modules using the Hardware User's Manual (HWUM).** In `configuration.xml` BSP tab, select your exact MCU/device package first (Figure 7). Then confirm that device has: an SPI-capable SCI channel (or a dedicated SPI channel), an external-IRQ-capable pin, a spare GPIO output for reset/chip-select, a DTC/DMAC channel for SPI transfers, and — only if you need log output — a spare UART channel. Also confirm two GPT timer channels are available for the PTX timing services (`g_timer0` / `g_timer1`).
-2. **Verify pin/channel mapping against your schematic.** Cross-reference the MCU pin-function tables in the HWUM with your board schematic to decide which physical pins will carry SPI (MISO/MOSI/SCK/CS), IRQ, RESET, and (optionally) UART. Use [ 12.2 Adapting to Custom Board Wiring](#122-adapting-to-custom-board-wiring) as the list of what to reassign in `configuration.xml` and `rs_nfc_ptx105r_board.h`.
+1. **Select the BSP device, then verify required MCU modules using the Hardware User's Manual (HWUM).** In the `configuration.xml` **BSP** tab, **Device Selection** (Figure 7), keep **FSP version 6.5.0** and **RTOS FreeRTOS**, then select your board and your exact MCU device. For the reference setup these are **FPB-RA2E3** and **R7FA2E3073CFL** (Core CM23); the Properties view shows the same value as `part_number`. Then confirm that the device has: an SPI-capable SCI channel, an external-IRQ-capable pin, spare GPIO outputs for the PTX205R SEN (reset) line and the SPI chip select, two GPT timer channels for the PTX205R SDK (`ptx_tmr0` / `ptx_tmr1`), and — only if you need log output — a spare UART channel. No DTC/DMAC channel is needed. Also check the flash budget: the PTX205R firmware image alone is ~25 KB, and the reference image uses ~63.3 KB of the RA2E3's 64 KB (see [11. Limitations](#11-limitations)).
+2. **Verify pin/channel mapping against your schematic.** Cross-reference the MCU pin-function tables in the HWUM with your board schematic to decide which physical pins will carry SPI (MISO/MOSI/SCK/CS), IRQ, RESET, and (optionally) UART. Use [ 12.2 Adapting to Custom Board Wiring](#122-adapting-to-custom-board-wiring) as the list of what to reassign in `configuration.xml` and `rs_nfc_ptx205r_board.h`.
 3. **Selectively import only the layers you need into your project's `src/`.**
-   - **Always required:** the PTX adapter (`src/rs_nfc_card_reader/ptx105r/`) and the project module files (`src/rs_nfc_card_reader/rs_nfc_reader.c`, `rs_ndef_read.c`).
+   - **Always required:** the PTX adapter (`src/rs_nfc_card_reader/ptx205r/`), the project module files (`src/rs_nfc_card_reader/rs_nfc_reader.c`, `rs_ndef_read.c`) and the PTX205R SDK (`ptx_sdk/`), built with the source set, include paths, `PTX_*` definitions and LTO options listed in [4.5 Software Requirements](#45-software-requirements).
    - **Optional:** `src/app/` (LED, log) — omit or replace with your own application layer if you don't need the demo's LED/log behavior.
    - **Do not copy:** `ra_gen/` and `ra_cfg/` — these are FSP-generated and must be produced fresh for your own project/board configuration (see [7.1 Project Structure](#71-project-structure)).
 
@@ -1017,31 +1076,31 @@ Once these three steps are complete, validate the result against [ 12.3 Integrat
 
 ### 12.2 Adapting to Custom Board Wiring
 
-When moving the PTX105R connection off the reference PMOD1 wiring (for example, onto a customer's own board or a different connector layout), the following signals can be remapped. Most changes are confined to `configuration.xml` (Stacks + Pins) and are picked up through the FSP-generated headers; `rs_nfc_ptx105r_board.h` exposes the external-IRQ instance/callback used by the adapter.
+When moving the PTX205R connection off the reference PMOD1 wiring (for example, onto a customer's own board or a different connector layout), the following signals can be remapped. Most changes are confined to `configuration.xml` (Stacks + Pins) and are picked up through the FSP-generated headers; `rs_nfc_ptx205r_board.h` exposes the external-IRQ instance/callback used by the adapter.
 
 | Signal | Reference (FPB-RA2E3) | What can change | Where to update |
 |---|---|---|---|
-| SPI (MISO/MOSI/SCK/CS) | SCI0 · P100–P103 | Any SCI channel with SPI support (see 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) | `configuration.xml` Stacks tab (`ptx_pmod_spi`) + Pins tab |
+| SPI (MISO/MOSI/SCK/CS) | SCI0 · P100–P103 | Any SCI channel with SPI support (see 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) | `configuration.xml` Stacks tab (`ptx_pmod2_spi`) + Pins tab |
 | DTC transfer instances | `g_transfer0` (TX) / `g_transfer1` (RX) on SCI0 | Must be reassigned to match the new SCI channel's transfer request line | `configuration.xml` Stacks tab — regenerate after changing the SPI channel |
-| IRQ | ICU IRQ7 · P015 | Any external-IRQ-capable pin | `configuration.xml` Stacks (`g_ext_irq`) + Pins tab — see note in 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) (`vector_data.h`/`common_data` regenerate); the adapter picks up `g_ext_irq` via `rs_nfc_ptx105r_board.h` |
+| IRQ | ICU IRQ7 · P015 | Any external-IRQ-capable pin | `configuration.xml` Stacks (`ptx_pmod2_irq`) + Pins tab — see note in 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) (`vector_data.h`/`common_data` regenerate); the adapter picks up `g_ext_irq` via `rs_nfc_ptx205r_board.h` |
 | RESET | GPIO P915 (`PMOD1_RESET`) | Any GPIO output pin | `configuration.xml` Pins tab (macro `PMOD1_RESET` in generated `bsp_pin_cfg.h`) |
 | UART (log — optional) | SCI9 · P109 (TX) / P110 (RX) | Any UART-capable SCI channel, or can be omitted entirely if log output isn't needed | `configuration.xml` (`g_uart_jlob_vcom`); `src/app/app_nfc_reader_log.c` |
-| Power | 3.3 V from PMOD1 rail | PTX105R always requires a regulated 3.3 V supply from the host board | Host board power rail |
+| Power | 3.3 V from PMOD1 rail | PTX205R always requires a regulated 3.3 V supply from the host board | Host board power rail |
 
-> **Note:** If the target is a **different RA MCU** (not just different wiring on the same MCU), also re-verify the clock tree in `bsp_clock_cfg.h` and the availability of the two GPT timer channels used by `g_timer0` / `g_timer1`.
+> **Note:** If the target is a **different RA MCU** (not just different wiring on the same MCU), also re-verify the clock tree in `bsp_clock_cfg.h` and the availability of the two GPT timer channels used by `ptx_tmr0` / `ptx_tmr1`.
 
 ---
 
 ### 12.3 Integration Checklist
 
-Before running your application on **your own board**, verify the following (values shown for the reference FPB-RA2E3/PTX105R setup are examples only — substitute your own MCU, channels, and pins):
+Before running your application on **your own board**, verify the following (values shown for the reference FPB-RA2E3/PTX205R setup are examples only — substitute your own MCU, channels, and pins):
 
 * [ ] Target device and BSP in FSP match **your** hardware (MCU part number, package, FSP version) — confirmed against your MCU's HWUM.
 * [ ] Required peripheral modules are available on your MCU and not already claimed by another function: an SPI-capable channel, an external-IRQ-capable pin, a GPIO output, a DTC/DMAC channel, and (if used) a UART channel — see 12.1 [Integration Guide](#121-integration-guide).
 * [ ] Pin/channel mapping matches your schematic for SPI (MISO/MOSI/SCK/CS), IRQ, RESET, and UART (if used) — see 12.2 [Adapting to Custom Board Wiring](#122-adapting-to-custom-board-wiring).
 * [ ] Active build configuration matches your project (the reference project ships a single configuration named `Debug`).
-* [ ] PTX105R middleware stack exists and is connected: NFC reader config instance + SPI bus instance + SPI device instance (`g_nfc_reader_ptx0` / `g_comms_spi_bus0` / `g_comms_spi_device0`, or your renamed equivalents).
-* [ ] SPI driver instance is configured to match the PTX105R spec: **master**, **1 MHz**, **CPOL=0**, **CPHA=0** (see 4.2 [PTX105R QC PMOD Board](#42-ptx105r-quick-connect-qc-pmod-board)), on the channel you selected.
+* [ ] PTX205R SDK driver instances exist with the names the SDK HAL port expects: `ptx_pmod2_spi` (SCI SPI), `ptx_pmod2_irq` (ICU), `ptx_tmr0` / `ptx_tmr1` (GPT), `g_ioport` — or the port tables in `ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2/` are updated to your names.
+* [ ] SPI driver instance is configured to match the PTX205R spec: **master**, **1 MHz**, **CPOL=0**, **CPHA=0** (see 4.2 [PTX205RIOTEB Evaluation Board](#42-ptx205rioteb-evaluation-board)), on the channel you selected.
 * [ ] DTC (or DMAC) transfer instances for SPI TX/RX are enabled and match the SPI channel you selected.
 * [ ] External IRQ instance is configured on the pin you selected, with rising-edge trigger.
 * [ ] PTX reset GPIO is present, configured as output, and wired to the pin you selected.
@@ -1049,7 +1108,7 @@ Before running your application on **your own board**, verify the following (val
 * [ ] Terminal baud (if UART is used) matches the FSP `g_uart_jlob_vcom` baud setting (230400 8N1 by default); the log backend lives in `src/app/app_nfc_reader_log.c`.
 * [ ] FreeRTOS settings are valid for your app: `configSUPPORT_STATIC_ALLOCATION=1` and heap sized for your workload.
 * [ ] Project builds and links with no unresolved symbols from the NFC reader/PTX, SPI, IRQ, DTC/DMAC, and UART components you selected.
-* [ ] Hardware wiring is correct per your schematic: PTX105R module wired to the pins you selected, and (if used) UART adapter connected with matching RX/TX/GND.
+* [ ] Hardware wiring is correct per your schematic: PTX205R module wired to the pins you selected, and (if used) UART adapter connected with matching RX/TX/GND.
 
 ---
 
@@ -1079,7 +1138,7 @@ static void my_card_event(rs_status_t                  status,
         return;
     }
 
-    /* e.g. "CARD DETECTED! type=NFC-T4A UID=02840017810196 NDEF=15B" */
+    /* e.g. "CARD DETECTED! type=NFC-T4A UID=02840017810196 NDEF=23B" */
     /* print summary, then consume the pre-populated result fields */
     if (result->ndef_present)
     {
@@ -1122,7 +1181,7 @@ void app_entry(void)
 ## 14. Troubleshooting
 
 **Symptom**: No cards detected
-- Verify PTX105R power supply (3.3 V)
+- Verify PTX205R power supply (3.3 V)
 - Check antenna connection; ensure J2 jumper closed on FPB-RA2E3
 - Confirm GPIO and SPI pin mappings in FSP Configurator
 - Test with e² studio debugger; check `rs_nfc_ptx_start_discovery` return code
@@ -1144,11 +1203,11 @@ void app_entry(void)
 
 ## 15. Summary
 
-This project provides a **complete, ready-to-run NFC card reader** on the **Renesas FPB-RA2E3** board using the **PTX105R Quick-Connect PMOD**.
+This project provides a **complete, ready-to-run NFC card reader** on the **Renesas FPB-RA2E3** board using the **PTX205RIOTEB evaluation board**.
 
 * The **project module** handles the full NFC workflow — discovery, activation, NDEF read, callback dispatch, and shutdown — keeping the application layer portable. (This release is read-only; NDEF write/erase is not implemented.)
 * All major NFC card types are detected out of the box: **ISO 14443-A/B (T2T, T4A, T4B)**, **NFC-F / FeliCa (T3T)**, and **ISO 15693 (T5T)**. NDEF content read is supported for all of them.
-* The software stack is built on **Renesas FSP v6.4.0 + FreeRTOS**, with a layered architecture: APP → Project → PTX adapter → PTX SDK + FSP drivers.
+* The software stack is built on **Renesas FSP v6.5.0 + FreeRTOS**, with a layered architecture: APP → Project → PTX205R adapter → PTX205R SDK (`ptx_sdk/`) → FSP drivers.
 * Porting to another RA board requires changes only to `configuration.xml` (BSP/stacks/pins) and the PTX board-adapter files — all other layers are unchanged.
 
 ---
@@ -1160,8 +1219,10 @@ Project specific reference:
 | Document | Description |
 |---|---|
 | [FPB-RA2E3 User's Manual](https://www.renesas.com/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/fpb-ra2e3-fast-prototyping-board-ra2e3-mcu-group) | Board schematic, jumper positions, connector pinout |
-| [PTX105R - Mid-power, Multi-protocol NFC Forum Compliant Reader Renesas](https://www.renesas.com/en/products/ptx105r) | PTX105R product page |
-| [PTX105R Datasheet](https://www.renesas.com/en/document/dst/ptx105r-datasheet?srsltid=AfmBOoo1nI-a-YNJOhCNSXNbOdtv9vA-IlhP9sdv6T4lM7sctsYzoVpP) | PTX105R NFC IC electrical and RF specifications |
+| [PTX205R - NFC Reader](https://www.renesas.com/en/products/ptx205r) | PTX205R product page |
+| [PTX205RIOTEB Evaluation Board](https://www.renesas.com/en/design-resources/boards-kits/ptx205rioteb#overview) | Board page (photos, manual, design files) |
+| [PTX205R Datasheet](https://www.renesas.com/en/document/dst/ptx205r-datasheet) | PTX205R NFC IC electrical and RF specifications |
+| [PTX205RIOTEB Evaluation Kit Manual](https://www.renesas.com/en/document/mah/ptx205rioteb-evaluation-kit-manual-reva5?r=25612867) | Board jumpers, headers, host-interface selection |
 
 Renesas general reference:
 

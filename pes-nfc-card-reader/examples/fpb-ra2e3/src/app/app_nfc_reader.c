@@ -33,11 +33,11 @@
     OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     ---------------------------------------------------------------
 
-    Project     : PTX1K
+    Project     : PTX205R
     Module      : IOT_READER Demo
     File        : app_nfc_reader.c
 
-    Description : IoT Reader demo application for PTX1xxR NFC Platform.
+    Description : NFC card reader demo application for the PTX205R NFC reader.
                   Thin application layer — all NFC protocol logic lives in the
                   RS NFC Reader module (src/rs-nfc-card-reader/).
 */

@@ -15,7 +15,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
-#include "ptx_IOT_READER.h"
+#include "ptx_RUL.h"         /* PTX205R SDK (ptx_sdk): ptx_RUL_CardProtocolType_t */
 
 #ifdef __cplusplus
 extern "C" {
@@ -175,7 +175,7 @@ typedef struct st_rs_nfc_raw_exchange {
 
  typedef struct st_rs_nfc_card_result {
     rs_nfc_card_type_t card_type;
-    ptxIoTRd_CardProtocol_t  protocol;     /* active RF protocol */
+    ptx_RUL_CardProtocolType_t protocol;   /* active RF protocol (T2T/T3T/T4T/T5T/NFC-DEP) */
     uint8_t uid[RS_NFC_UID_MAX_BYTES];
     uint8_t uid_len;
     bool ndef_present;

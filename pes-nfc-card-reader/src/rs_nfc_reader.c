@@ -3,7 +3,7 @@
  *
  * RS NFC Reader — main orchestrator (blocking + non-blocking).
  *
- * Owns the full FSP-driven discovery/activation/read state machine. The
+ * Owns the full PTX205R-driven discovery/activation/read state machine. The
  * application interacts exclusively through the RS public API:
  *
  *   - rs_nfc_reader_Read()         : run the interrupt-driven detect/read loop
@@ -18,7 +18,7 @@
  */
 
 #include "rs_nfc_reader.h"
-#include "rs_nfc_ptx105r.h"
+#include "rs_nfc_ptx205r.h"
 #include <string.h>
 #include <stdint.h>
 #include "FreeRTOS.h"
@@ -41,10 +41,6 @@
 #define ASYNC_TASK_STACK_WORDS   (4096U / sizeof(StackType_t))
 #define ASYNC_TASK_PRIORITY      1U
 #define ASYNC_TASK_NAME          "RS_NFC"
-
-/* PTX system/RF status raw codes */
-#define PTX_SYS_STATUS_OK                       0x00u
-#define PTX_RF_ERR_WARNING_PA_OVERCURRENT_LIMIT 0x06u
 
 /* Static buffers for the optional per-card raw demo exchange.
  * Sized to match the frames built inside rs_nfc_reader_raw_exchange
@@ -106,7 +102,7 @@ static rs_status_t run_event_loop(const rs_nfc_reader_cfg_t * cfg,
 
 /* Internal helpers (previously public API — now module-private). */
 static rs_status_t rs_nfc_reader_validate(const rs_nfc_reader_cfg_t * cfg);
-static rs_status_t rs_nfc_reader_raw_exchange(ptxIoTRd_CardProtocol_t protocol,
+static rs_status_t rs_nfc_reader_raw_exchange(ptx_RUL_CardProtocolType_t protocol,
                                               const uint8_t     * uid,
                                               uint8_t             uid_len,
                                               uint8_t           * tx,
@@ -281,12 +277,12 @@ static rs_status_t rs_nfc_reader_retry (const void * cfg, void * result_out, uin
 static rs_status_t rs_nfc_reader_validate_deps (void)
 {
     /* Called from rs_nfc_read_blocking() right after rs_nfc_ptx_open(): the
-     * backend must be open and the PTX105R must report a healthy system state. */
+     * backend must be open and the PTX205R must report a healthy system state. */
     uint8_t sys_state = 0U;
 
     if (!rs_nfc_ptx_is_open() ||
         (RS_OK != rs_nfc_ptx_get_system_state(&sys_state)) ||
-        (PTX_SYS_STATUS_OK != sys_state))
+        (RS_NFC_PTX_SYS_STATUS_OK != sys_state))
     {
         return RS_ERR_DEPENDENCY;
     }
@@ -307,7 +303,6 @@ static rs_status_t run_event_loop (const rs_nfc_reader_cfg_t * cfg,
     uint32_t                elapsed_ms    = 0u;
     const bool              loop_forever  = (UINT32_MAX == cfg->timeout_ms);
     uint8_t sys_state;
-    uint8_t last_rf_err;
     uint8_t activate_failures = 0U;
 
     while (loop_forever || (elapsed_ms < cfg->timeout_ms))
@@ -318,27 +313,16 @@ static rs_status_t run_event_loop (const rs_nfc_reader_cfg_t * cfg,
             return RS_OK;
         }
 
-        /* Critical system-error watchdog */
-        sys_state = PTX_SYS_STATUS_OK;
+        /* Critical system-error watchdog (the PTX205R reports over-current
+         * and over-temperature as system errors). */
+        sys_state = RS_NFC_PTX_SYS_STATUS_OK;
 
         if (RS_OK == rs_nfc_ptx_get_system_state(&sys_state))
         {
-            if (PTX_SYS_STATUS_OK != sys_state)
+            if (RS_NFC_PTX_SYS_STATUS_OK != sys_state)
             {
                 state = LOOP_SYSTEM_ERROR;
             }
-        }
-
-        /* PA overcurrent / other RF warning notifications */
-        last_rf_err = 0u;
-        (void)rs_nfc_ptx_get_last_rf_error(&last_rf_err);
-
-        if ((PTX_RF_ERR_WARNING_PA_OVERCURRENT_LIMIT == last_rf_err) &&
-            (NULL != cfg->on_card_event))
-        {
-            cfg->on_card_event(RS_OK, NULL,
-                               "WARN: PA overcurrent limiter activated",
-                               cfg->p_card_event_context);
         }
 
         switch (state)
@@ -383,6 +367,15 @@ static rs_status_t run_event_loop (const rs_nfc_reader_cfg_t * cfg,
                 {
                     activate_failures = 0U;
 
+                    /* Several cards resolved by discovery: report it, then
+                     * continue with the first one (the one activated). */
+                    if ((info.cards_in_field > 1U) && (NULL != cfg->on_card_event))
+                    {
+                        cfg->on_card_event(RS_OK, NULL,
+                                           "WARN: multiple cards detected, reading the first one",
+                                           cfg->p_card_event_context);
+                    }
+
                     (void)memset(res, 0, sizeof(*res));
                     res->card_type = info.card_type;
                     res->protocol  = info.protocol;
@@ -402,8 +395,8 @@ static rs_status_t run_event_loop (const rs_nfc_reader_cfg_t * cfg,
                      * rs_nfc_reader_raw_exchange itself. Prior memset() has
                      * already zero-initialised res->raw_exchange. */
                     if (cfg->run_raw_exchange &&
-                        (Prot_ISODEP    != res->protocol) &&
-                        (Prot_Undefined != res->protocol))
+                        (ptx_RUL_CardProtocolType_T4T       != res->protocol) &&
+                        (ptx_RUL_CardProtocolType_Undefined != res->protocol))
                     {
                         uint32_t tx_len = 0u;
                         uint32_t rx_len = RAW_RX_BUF_SIZE;
@@ -859,7 +852,7 @@ static uint32_t rs_nfc_reader_card_summary_build (const rs_nfc_card_result_t * r
  * Raw exchange
  **********************************************************************************************************************/
 
-static rs_status_t rs_nfc_reader_raw_exchange (ptxIoTRd_CardProtocol_t protocol,
+static rs_status_t rs_nfc_reader_raw_exchange (ptx_RUL_CardProtocolType_t protocol,
                                                const uint8_t     * uid,
                                                uint8_t             uid_len,
                                                uint8_t           * tx,
@@ -876,7 +869,7 @@ static rs_status_t rs_nfc_reader_raw_exchange (ptxIoTRd_CardProtocol_t protocol,
 
     switch (protocol)
     {
-        case Prot_T2T:
+        case ptx_RUL_CardProtocolType_T2T:
         {
             tx[0] = 0x30u;
             tx[1] = 0x00u;
@@ -884,29 +877,32 @@ static rs_status_t rs_nfc_reader_raw_exchange (ptxIoTRd_CardProtocol_t protocol,
             break;
         }
 
-        case Prot_T3T:
+        case ptx_RUL_CardProtocolType_T3T:
         {
             static const uint8_t t3t_tail[] = {
                 0x01, 0x0B, 0x00, 0x01, 0x80, 0x00
             };
 
-            tx[0] = 0x06;
+            /* PTX205R T3T frames start with the FeliCa length byte
+             * (which counts itself): LEN | CHECK | NFCID2 | tail. */
+            frame_len = 2u + 8u + (uint32_t) sizeof(t3t_tail);
+            tx[0] = (uint8_t) frame_len;
+            tx[1] = 0x06;
 
             if ((NULL != uid) && (uid_len >= 8u))
             {
-                (void)memcpy(&tx[1], uid, 8u);
+                (void)memcpy(&tx[2], uid, 8u);
             }
             else
             {
-                (void)memset(&tx[1], 0, 8u);
+                (void)memset(&tx[2], 0, 8u);
             }
 
-            (void)memcpy(&tx[9], t3t_tail, sizeof(t3t_tail));
-            frame_len = 1u + 8u + (uint32_t) sizeof(t3t_tail);
+            (void)memcpy(&tx[10], t3t_tail, sizeof(t3t_tail));
             break;
         }
 
-        case Prot_T5T:
+        case ptx_RUL_CardProtocolType_T5T:
         {
             tx[0] = 0x22u;
             tx[1] = 0x20u;
@@ -928,7 +924,7 @@ static rs_status_t rs_nfc_reader_raw_exchange (ptxIoTRd_CardProtocol_t protocol,
             break;
         }
 
-        case Prot_NFCDEP:
+        case ptx_RUL_CardProtocolType_NfcDep:
         {
             tx[0] = 0x00u;
             tx[1] = 0x00u;

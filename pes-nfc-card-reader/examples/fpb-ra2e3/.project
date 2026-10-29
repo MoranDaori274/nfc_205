@@ -42,4 +42,11 @@
 		<nature>com.renesas.cdt.managedbuild.jsoncdb.compilationdatabase.CompileCommandsNature</nature>
 		<nature>com.renesas.cdt.ra.contentgen.raNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>ptx_sdk</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/ptx_sdk</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

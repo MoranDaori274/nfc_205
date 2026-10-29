@@ -10,7 +10,11 @@
 #include "app_nfc_reader_log.h"
 #include "hal_data.h"
 #include "r_ioport.h"
-#include "ptxCOMMON.h"
+
+/* app_nfc_reader_log_print_buffer(): bytes printed at most (covers the RS raw-
+ * exchange RX buffer) and bytes per output line. */
+#define APP_NFC_READER_LOG_MAX_BYTES        (300U)
+#define APP_NFC_READER_LOG_BYTES_PER_LINE   (32U)
 
 
 /*
@@ -32,9 +36,9 @@ void app_nfc_reader_log_print_buffer (uint8_t  * buffer,
     {
         if (0 != bufferLength)
         {
-            for (i = 0; (i < bufferLength) && (i < (uint32_t) TX_BUFFER_SIZE); i++)
+            for (i = 0; (i < bufferLength) && (i < (uint32_t) APP_NFC_READER_LOG_MAX_BYTES); i++)
             {
-                if ((i > 0) && ((i % (LINE_LENGTH - 5) == 0)))
+                if ((i > 0) && ((i % APP_NFC_READER_LOG_BYTES_PER_LINE) == 0))
                 {
                     APP_LOG("\r\n     ");
                 }

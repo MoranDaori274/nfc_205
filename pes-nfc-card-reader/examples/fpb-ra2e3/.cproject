@@ -27,7 +27,9 @@
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.unaligned.128824282" name="Unaligned access" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.unaligned"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.mcmse.1939687859" name="TrustZone (-mcmse)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.mcmse"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined.2011306118" name="Other CPU options" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined"/>
-							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization.1731304708" name="Other optimization flags" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization"/>
+							<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization.1731304708" name="Other optimization flags" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization" valueType="stringList">
+								<listOptionValue builtIn="false" value="-flto"/>
+							</option>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize.343427502" name="Print Size" superClass="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize" value="true" valueType="boolean"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.979763431" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel" value="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.codeSizeAgress" valueType="enumerated"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1337073862" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections" value="true" valueType="boolean"/>
@@ -45,7 +47,35 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx105r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -55,22 +85,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_gen}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg/bsp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TRANSPARENT_MODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/RF_TEST}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_RD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_IOTRD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_CE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/IOT_READER}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/HCE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/GPIO}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/FELICA_DTE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_nfc_reader_ptx}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/aws}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
@@ -78,10 +92,16 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.macro.1655736963" name="Macro Defines (-D)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.macro" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_RENESAS_RA_"/>
+									<listOptionValue builtIn="false" value="PTX_PLATFORM_MCU"/>
+									<listOptionValue builtIn="false" value="PTX_ENABLE_SPI"/>
+									<listOptionValue builtIn="false" value="PTX_APP_DIVERSITY_RA4M2"/>
+									<listOptionValue builtIn="false" value="PTX_LOG_DISABLED"/>
+									<listOptionValue builtIn="false" value="PTX_DEBUG_PRINTS_DISABLE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_COMP_CHECK"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_WLC"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_MODE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_B"/>
 									<listOptionValue builtIn="false" value="SSP_SUPPRESS_ISR_g_uart0"/>
-									<listOptionValue builtIn="false" value="PTX_FEATURES_NSC_READER_ONLY"/>
-									<listOptionValue builtIn="false" value="PTX_PRODUCT_TYPE_IOT_READER"/>
-									<listOptionValue builtIn="false" value="USE_PTX_IOTRD_DEMO"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 									<listOptionValue builtIn="false" value="_RA_CORE=CM23"/>
 								</option>
@@ -106,7 +126,35 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx105r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -116,28 +164,21 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_gen}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg/bsp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TRANSPARENT_MODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/RF_TEST}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_RD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_IOTRD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_CE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/IOT_READER}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/HCE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/GPIO}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/FELICA_DTE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_nfc_reader_ptx}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/aws}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.assembler.includes.symbolDefines.1232231542" name="Define a symbol (-D)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.assembler.includes.symbolDefines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_RENESAS_RA_"/>
+									<listOptionValue builtIn="false" value="PTX_PLATFORM_MCU"/>
+									<listOptionValue builtIn="false" value="PTX_ENABLE_SPI"/>
+									<listOptionValue builtIn="false" value="PTX_APP_DIVERSITY_RA4M2"/>
+									<listOptionValue builtIn="false" value="PTX_LOG_DISABLED"/>
+									<listOptionValue builtIn="false" value="PTX_DEBUG_PRINTS_DISABLE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_COMP_CHECK"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_WLC"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_MODE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_B"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 									<listOptionValue builtIn="false" value="_RA_CORE=CM23"/>
 								</option>
@@ -161,22 +202,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/api}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/instances}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TRANSPARENT_MODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/RF_TEST}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_RD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_IOTRD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_CE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/IOT_READER}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/HCE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/GPIO}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/FELICA_DTE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_nfc_reader_ptx}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
 								</option>
@@ -186,12 +211,14 @@
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.linker.other.userDefinedOptions.877917405" name="User defined options" superClass="com.renesas.cdt.managedbuild.llvm.core.option.linker.other.userDefinedOptions" valueType="stringList">
 									<listOptionValue builtIn="false" value="-Wl,--gc-sections"/>
 									<listOptionValue builtIn="false" value="-Wl,-z,norelro"/>
+									<listOptionValue builtIn="false" value="-flto"/>
+									<listOptionValue builtIn="false" value="-Wl,-mllvm,-enable-machine-outliner"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkOrderList.1369935647" name="Linkage Order List" superClass="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkOrderList" valueType="stringList">
-									<listOptionValue builtIn="false" value="&quot;.\src/console_io\console_io.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx105r\rs_nfc_ptx105r.o&quot;"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkOrderList.91592935" name="Linkage Order List" superClass="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkOrderList" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r\rs_nfc_ptx205r.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader\rs_ndef_read.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader\rs_nfc_reader.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/console_io\console_io.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\src/app\app_nfc_reader.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\src/app\app_nfc_reader_log.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\src\hal_entry.o&quot;"/>
@@ -202,50 +229,12 @@
 									<listOptionValue builtIn="false" value="&quot;.\ra_gen\new_thread0.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra_gen\pin_data.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra_gen\vector_data.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TRANSPARENT_MODE\ptxTransparentMode.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC\ptxTDC.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC\ptxTDC_Timer.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/RF_TEST\ptxRF_Test.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_RD\ptxNSC_Rd.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_IOTRD\ptxNSC_Notifications.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_CE\ptxNSC_CE.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC\ptxNSC.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC\ptxNSC_Intf_SPI.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC\ptxNSC_RfConfig.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC\ptxNSC_RfConfigVal.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC\ptxNSC_System.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC\ptxNSC_uCODE.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF\ptxNDEF.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF\ptxNDEF_T2TOP.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF\ptxNDEF_T3TOP.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF\ptxNDEF_T4TOP.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF\ptxNDEF_T5TOP.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG\ptxNativeTag_T2T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG\ptxNativeTag_T3T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG\ptxNativeTag_T4T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG\ptxNativeTag_T5T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/IOT_READER\ptx_IOT_READER.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/HCE\ptxHce.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/GPIO\ptxGPIO.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/FELICA_DTE\ptxFeliCa_DTE.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON\ptxCOMMON.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON\ptxHce_Exchange.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON\ptxT4T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_nfc_reader_ptx\ptxPERIPH_APPTIMER.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_nfc_reader_ptx\ptxPLAT.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_nfc_reader_ptx\ptxPLAT_GPIO.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_nfc_reader_ptx\ptxPLAT_SPI.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_nfc_reader_ptx\ptxPLAT_TIMER.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_nfc_reader_ptx\rm_nfc_reader_ptx.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_freertos_port\port.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_comms_spi\rm_comms_spi.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_comms_lock\rm_comms_lock.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_sci_uart\r_sci_uart.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_sci_spi\r_sci_spi.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_ioport\r_ioport.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_icu\r_icu.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_gpt\r_gpt.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_dtc\r_dtc.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/ra2e3\bsp_linker.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_clocks.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_common.o&quot;"/>
@@ -272,6 +261,59 @@
 									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\stream_buffer.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\tasks.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\timers.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/UTILS\ptx_RingBuffer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/UCODE\ptx_NSC_uCODE.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL_MsgProcessing.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL_RfConfig.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RfConfigVal.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_CmdProcessor.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Error.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Firmware.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_InitHw.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Misc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RevisionInfo.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfActivate.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfConfig.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDeactivate.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDiscover.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDiscover_Poll.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfPresenceCheck.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfSetParameter.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfTest.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Standby.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_StateMachine.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_SystemConfig.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Wakeup.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Wlc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/LOG/NONE\ptx_Log_None.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/LOG\ptx_Log.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HIP/RUL\ptx_HIP_Frame.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HIP\ptx_HIP.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_GPIO.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_Interface_SPI.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_MCU.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_Timer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_GPIO.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Interface.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Interface_SPI.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Timer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_CardHandler.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_DataProcessor.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_Discovery.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_Extension.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T\ptx_NDEF_T5T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T\ptx_NDEF_T4T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T\ptx_NDEF_T3T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T\ptx_NDEF_T2T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T5T\ptx_NativeTag_T5T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T4T\ptx_NativeTag_T4T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T3T\ptx_NativeTag_T3T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T2T\ptx_NativeTag_T2T.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\libRA2E3_nfc_reader.a&quot;"/>
 								</option>
 								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c.1457362404" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c">
@@ -301,6 +343,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry excluding="SRC/API/EVK_PERIPHERALS|SRC/API/FELICA|SRC/API/FELICA_DTE|SRC/API/NATIVE_TAG/MFCC|SRC/API/NDEF/GENERIC|SRC/API/NDEF/RECORDS|SRC/API/NFC_FORUM_DTA|SRC/API/POS_DTE|SRC/API/PSL|SRC/API/RF_TEST|SRC/API/RUL_HCE|SRC/API/RUL_LLCP|SRC/API/RUL_SNEP|SRC/API/RUL_WLC|SRC/API/TRANSPARENT_MODE|SRC/COMPS/HAL/DRV/LIN|SRC/COMPS/HAL/DRV/MCU/RA2E2|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_I2C.c|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_UART.c|SRC/COMPS/HAL/DRV/WIN|SRC/COMPS/HAL/ptx_HAL_Interface_I2C.c|SRC/COMPS/HAL/ptx_HAL_Interface_I3C.c|SRC/COMPS/HAL/ptx_HAL_Interface_UART.c|SRC/COMPS/LOG/CONSOLE|SRC/COMPS/LOG/FILE|SRC/COMPS/LOG/SERIAL|SRC/COMPS/LOG/zf_log.c|SRC/COMPS/NSC/ptx_NSC_RfDiscover_Listen.c|SRC/COMPS/NSC/ptx_NSC_RfSetRoutingTable.c|SRC/COMPS/OSAL|SRC/EXAMPLES" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ptx_sdk"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra_gen"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
@@ -340,7 +383,9 @@
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.unaligned.129824282" name="Unaligned access" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.unaligned"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.mcmse.1940687859" name="TrustZone (-mcmse)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.mcmse"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined.2012306118" name="Other CPU options" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined"/>
-							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization.1732304708" name="Other optimization flags" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization"/>
+							<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization.1732304708" name="Other optimization flags" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization" valueType="stringList">
+								<listOptionValue builtIn="false" value="-flto"/>
+							</option>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize.344427502" name="Print Size" superClass="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize" value="true" valueType="boolean"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.980763431" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel" value="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.codeSizeAgress" valueType="enumerated"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1338073862" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections" value="true" valueType="boolean"/>
@@ -358,7 +403,35 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx105r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -368,22 +441,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_gen}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg/bsp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TRANSPARENT_MODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/RF_TEST}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_RD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_IOTRD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_CE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/IOT_READER}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/HCE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/GPIO}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/FELICA_DTE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_nfc_reader_ptx}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/aws}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
@@ -391,10 +448,16 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.macro.1656736963" name="Macro Defines (-D)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.macro" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_RENESAS_RA_"/>
+									<listOptionValue builtIn="false" value="PTX_PLATFORM_MCU"/>
+									<listOptionValue builtIn="false" value="PTX_ENABLE_SPI"/>
+									<listOptionValue builtIn="false" value="PTX_APP_DIVERSITY_RA4M2"/>
+									<listOptionValue builtIn="false" value="PTX_LOG_DISABLED"/>
+									<listOptionValue builtIn="false" value="PTX_DEBUG_PRINTS_DISABLE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_COMP_CHECK"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_WLC"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_MODE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_B"/>
 									<listOptionValue builtIn="false" value="SSP_SUPPRESS_ISR_g_uart0"/>
-									<listOptionValue builtIn="false" value="PTX_FEATURES_NSC_READER_ONLY"/>
-									<listOptionValue builtIn="false" value="PTX_PRODUCT_TYPE_IOT_READER"/>
-									<listOptionValue builtIn="false" value="USE_PTX_IOTRD_DEMO"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 									<listOptionValue builtIn="false" value="_RA_CORE=CM23"/>
 								</option>
@@ -419,7 +482,35 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx105r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -429,28 +520,21 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_gen}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg/bsp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TRANSPARENT_MODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/RF_TEST}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_RD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_IOTRD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_CE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/IOT_READER}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/HCE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/GPIO}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/FELICA_DTE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_nfc_reader_ptx}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/aws}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.assembler.includes.symbolDefines.1233231542" name="Define a symbol (-D)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.assembler.includes.symbolDefines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_RENESAS_RA_"/>
+									<listOptionValue builtIn="false" value="PTX_PLATFORM_MCU"/>
+									<listOptionValue builtIn="false" value="PTX_ENABLE_SPI"/>
+									<listOptionValue builtIn="false" value="PTX_APP_DIVERSITY_RA4M2"/>
+									<listOptionValue builtIn="false" value="PTX_LOG_DISABLED"/>
+									<listOptionValue builtIn="false" value="PTX_DEBUG_PRINTS_DISABLE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_COMP_CHECK"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_WLC"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_MODE"/>
+									<listOptionValue builtIn="false" value="PTX_DISABLE_LISTEN_B"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 									<listOptionValue builtIn="false" value="_RA_CORE=CM23"/>
 								</option>
@@ -474,22 +558,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/api}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/instances}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TRANSPARENT_MODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/TDC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/RF_TEST}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_RD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_IOTRD}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC/NSC_CE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/IOT_READER}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/HCE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/GPIO}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/FELICA_DTE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS/COMMON}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/renesas/wireless/ptx/rm_nfc_reader_ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_nfc_reader_ptx}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
 								</option>
@@ -499,6 +567,8 @@
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.linker.other.userDefinedOptions.878917405" name="User defined options" superClass="com.renesas.cdt.managedbuild.llvm.core.option.linker.other.userDefinedOptions" valueType="stringList">
 									<listOptionValue builtIn="false" value="-Wl,--gc-sections"/>
 									<listOptionValue builtIn="false" value="-Wl,-z,norelro"/>
+									<listOptionValue builtIn="false" value="-flto"/>
+									<listOptionValue builtIn="false" value="-Wl,-mllvm,-enable-machine-outliner"/>
 								</option>
 								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c.1458362404" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -527,6 +597,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry excluding="SRC/API/EVK_PERIPHERALS|SRC/API/FELICA|SRC/API/FELICA_DTE|SRC/API/NATIVE_TAG/MFCC|SRC/API/NDEF/GENERIC|SRC/API/NDEF/RECORDS|SRC/API/NFC_FORUM_DTA|SRC/API/POS_DTE|SRC/API/PSL|SRC/API/RF_TEST|SRC/API/RUL_HCE|SRC/API/RUL_LLCP|SRC/API/RUL_SNEP|SRC/API/RUL_WLC|SRC/API/TRANSPARENT_MODE|SRC/COMPS/HAL/DRV/LIN|SRC/COMPS/HAL/DRV/MCU/RA2E2|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_I2C.c|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_UART.c|SRC/COMPS/HAL/DRV/WIN|SRC/COMPS/HAL/ptx_HAL_Interface_I2C.c|SRC/COMPS/HAL/ptx_HAL_Interface_I3C.c|SRC/COMPS/HAL/ptx_HAL_Interface_UART.c|SRC/COMPS/LOG/CONSOLE|SRC/COMPS/LOG/FILE|SRC/COMPS/LOG/SERIAL|SRC/COMPS/LOG/zf_log.c|SRC/COMPS/NSC/ptx_NSC_RfDiscover_Listen.c|SRC/COMPS/NSC/ptx_NSC_RfSetRoutingTable.c|SRC/COMPS/OSAL|SRC/EXAMPLES" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ptx_sdk"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra_gen"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>

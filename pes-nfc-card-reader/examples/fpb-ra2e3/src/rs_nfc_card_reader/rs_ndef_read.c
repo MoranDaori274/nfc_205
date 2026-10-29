@@ -2,11 +2,11 @@
  * rs_ndef_read.c
  *
  * NDEF message reading for NFC Forum Type 2 Tags (hand-rolled, small
- * footprint) and Type 3/Type 4/Type 5 Tags (via the PTX SDK's lean
- * ptxNDEF_T3TOP / ptxNDEF_T4TOP / ptxNDEF_T5TOP components). We use
- * the individual tag-type NDEF-OP components instead of the generic
- * ptxNDEF dispatcher (ptxNDEF.c) which unconditionally links all four
- * tag-type operation components (~13 KB flash).
+ * footprint) and Type 3/Type 4/Type 5 Tags (via the PTX205R SDK.s lean
+ * ptx_NDEF_T3T / ptx_NDEF_T4T / ptx_NDEF_T5T components). We use
+ * the individual tag-type NDEF components instead of the generic
+ * ptx_NDEF dispatcher (ptx_NDEF.c) which unconditionally links all four
+ * tag-type components.
  *
  * Also contains the module-internal NDEF message record parser
  * (rs_ndef_decode_message) which fills rs_nfc_card_result_t.decoded.
@@ -15,11 +15,15 @@
  */
 
 #include "rs_nfc_reader.h"
-#include "rs_nfc_ptx105r.h"
-#include "ptx_IOT_READER.h"
-#include "ptxNDEF_T3TOP.h"
-#include "ptxNDEF_T4TOP.h"
-#include "ptxNDEF_T5TOP.h"
+#include "rs_nfc_ptx205r.h"
+#include "ptx_RUL.h"
+#if !defined(PTX_DISABLE_NDEF_T3T)
+#include "ptx_NDEF_T3T.h"
+#endif
+#include "ptx_NDEF_T4T.h"
+#if !defined(PTX_DISABLE_NDEF_T5T)
+#include "ptx_NDEF_T5T.h"
+#endif
 #include <string.h>
 
 /***********************************************************************************************************************
@@ -35,7 +39,7 @@ static rs_status_t rs_ndef_decode_message(const uint8_t     * msg,
                                           rs_ndef_decoded_t * out);
 
 /***********************************************************************************************************************
- * Type 4 Tag NDEF Read — via PTX SDK ptxNDEF_T4TOP component
+ * Type 4 Tag NDEF Read — via PTX SDK ptx_NDEF_T4T component
  **********************************************************************************************************************/
 
 static rs_status_t read_t4t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
@@ -49,11 +53,11 @@ static rs_status_t read_t4t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
         return st;
     }
 
-    struct ptxNDEF_T4TOP * t4t = rs_nfc_ptx_get_ndef_comp();
+    struct ptx_NDEF_T4T * t4t = rs_nfc_ptx_get_ndef_comp();
 
-    ptxStatus_t ptx_st = ptxNDEF_T4TOpCheckMessage(t4t);
+    ptx_Status_t ptx_st = ptx_NDEF_T4T_CheckMessage(t4t);
 
-    if (ptxStatus_Success != ptx_st)
+    if (PTX_STATUS_SUCCESS != ptx_st)
     {
         rs_nfc_ptx_ndef_close();
         res->ndef_present   = false;
@@ -63,9 +67,9 @@ static rs_status_t read_t4t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
     }
 
     uint32_t msg_len = cap;
-    ptx_st = ptxNDEF_T4TOpReadMessage(t4t, res->ndef_data, &msg_len);
+    ptx_st = ptx_NDEF_T4T_ReadMessage(t4t, res->ndef_data, &msg_len);
 
-    if (ptxStatus_Success == ptx_st)
+    if (PTX_STATUS_SUCCESS == ptx_st)
     {
         res->ndef_len     = (uint16_t) msg_len;
         res->ndef_present = (msg_len > 0u);
@@ -76,7 +80,7 @@ static rs_status_t read_t4t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
         res->ndef_len     = 0;
     }
 
-    /* Extract CC metadata from the SDK T4TOP component */
+    /* Extract CC metadata from the SDK T4T component */
     res->data_area_size = t4t->CCParams.NDEFFileSize;
     res->writeable      = (0x00u == t4t->CCParams.NDEFAccessWrite);
 
@@ -85,8 +89,9 @@ static rs_status_t read_t4t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
     return RS_OK;
 }
 
+#if !defined(PTX_DISABLE_NDEF_T5T)
 /***********************************************************************************************************************
- * Type 5 Tag NDEF Read — via PTX SDK ptxNDEF_T5TOP component
+ * Type 5 Tag NDEF Read — via PTX SDK ptx_NDEF_T5T component
  **********************************************************************************************************************/
 
 static rs_status_t read_t5t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
@@ -100,11 +105,11 @@ static rs_status_t read_t5t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
         return st;
     }
 
-    struct ptxNDEF_T5TOP * t5t = rs_nfc_ptx_get_ndef_t5t_comp();
+    struct ptx_NDEF_T5T * t5t = rs_nfc_ptx_get_ndef_t5t_comp();
 
-    ptxStatus_t ptx_st = ptxNDEF_T5TOpCheckMessage(t5t);
+    ptx_Status_t ptx_st = ptx_NDEF_T5T_CheckMessage(t5t);
 
-    if (ptxStatus_Success != ptx_st)
+    if (PTX_STATUS_SUCCESS != ptx_st)
     {
         rs_nfc_ptx_ndef_t5t_close();
         res->ndef_present   = false;
@@ -114,9 +119,9 @@ static rs_status_t read_t5t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
     }
 
     uint32_t msg_len = cap;
-    ptx_st = ptxNDEF_T5TOpReadMessage(t5t, res->ndef_data, &msg_len);
+    ptx_st = ptx_NDEF_T5T_ReadMessage(t5t, res->ndef_data, &msg_len);
 
-    if (ptxStatus_Success == ptx_st)
+    if (PTX_STATUS_SUCCESS == ptx_st)
     {
         res->ndef_len     = (uint16_t) msg_len;
         res->ndef_present = (msg_len > 0u);
@@ -127,17 +132,20 @@ static rs_status_t read_t5t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
         res->ndef_len     = 0;
     }
 
-    /* Extract CC metadata from the SDK T5TOP component */
+    /* Extract CC metadata from the SDK T5T component.
+     * MLEN is in bytes; WriteAccess: 0x01 = write access granted. */
     res->data_area_size = (uint32_t) t5t->CCParams.MLEN;
-    res->writeable      = (0x00u == t5t->CCParams.WriteAccess);
+    res->writeable      = (0x00u != t5t->CCParams.WriteAccess);
 
     rs_nfc_ptx_ndef_t5t_close();
 
     return RS_OK;
 }
+#endif /* PTX_DISABLE_NDEF_T5T */
 
+#if !defined(PTX_DISABLE_NDEF_T3T)
 /***********************************************************************************************************************
- * Type 3 Tag NDEF Read — via PTX SDK ptxNDEF_T3TOP component
+ * Type 3 Tag NDEF Read — via PTX SDK ptx_NDEF_T3T component
  **********************************************************************************************************************/
 
 static rs_status_t read_t3t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
@@ -151,11 +159,11 @@ static rs_status_t read_t3t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
         return st;
     }
 
-    struct ptxNDEF_T3TOP * t3t = rs_nfc_ptx_get_ndef_t3t_comp();
+    struct ptx_NDEF_T3T * t3t = rs_nfc_ptx_get_ndef_t3t_comp();
 
-    ptxStatus_t ptx_st = ptxNDEF_T3TOpCheckMessage(t3t);
+    ptx_Status_t ptx_st = ptx_NDEF_T3T_CheckMessage(t3t);
 
-    if (ptxStatus_Success != ptx_st)
+    if (PTX_STATUS_SUCCESS != ptx_st)
     {
         rs_nfc_ptx_ndef_t3t_close();
         res->ndef_present   = false;
@@ -165,9 +173,9 @@ static rs_status_t read_t3t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
     }
 
     uint32_t msg_len = cap;
-    ptx_st = ptxNDEF_T3TOpReadMessage(t3t, res->ndef_data, &msg_len);
+    ptx_st = ptx_NDEF_T3T_ReadMessage(t3t, res->ndef_data, &msg_len);
 
-    if (ptxStatus_Success == ptx_st)
+    if (PTX_STATUS_SUCCESS == ptx_st)
     {
         res->ndef_len     = (uint16_t) msg_len;
         res->ndef_present = (msg_len > 0u);
@@ -178,7 +186,7 @@ static rs_status_t read_t3t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
         res->ndef_len     = 0;
     }
 
-    /* Extract CC metadata from the SDK T3TOP component.
+    /* Extract CC metadata from the SDK T3T component.
      * NmaxB is the maximum number of 16-byte blocks available for NDEF data.
      * RWFlag: 0x00 = read-only, non-zero = read/write. */
     res->data_area_size = (uint32_t) t3t->CCParams.NmaxB * PTX_T3T_BLOCK_SIZE;
@@ -188,11 +196,16 @@ static rs_status_t read_t3t_ndef (rs_nfc_card_result_t * res, uint32_t cap)
 
     return RS_OK;
 }
+#endif /* PTX_DISABLE_NDEF_T3T */
 
 /***********************************************************************************************************************
  * Type 2 Tag NDEF Read — hand-rolled (small footprint, proven)
+ *
+ * noinline: keeps the ~580 B of on-stack buffers below out of
+ * rs_ndef_read_card_info()'s frame, i.e. off the (deeper) T3T/T4T/T5T SDK
+ * call paths that run on the 4 KB RS_NFC worker stack.
  **********************************************************************************************************************/
-static rs_status_t read_t2t_ndef (rs_nfc_card_result_t * res, uint32_t ndef_cap)
+static __attribute__((noinline)) rs_status_t read_t2t_ndef (rs_nfc_card_result_t * res, uint32_t ndef_cap)
 {
     uint8_t rx[RX_BUF_SIZE];
     uint8_t cmd[2];
@@ -327,7 +340,7 @@ static rs_status_t read_t2t_ndef (rs_nfc_card_result_t * res, uint32_t ndef_cap)
  * Public API
  **********************************************************************************************************************/
 
-rs_status_t rs_ndef_read_card_info (ptxIoTRd_CardProtocol_t protocol,
+rs_status_t rs_ndef_read_card_info (ptx_RUL_CardProtocolType_t protocol,
                                     rs_nfc_card_result_t * result,
                                     uint32_t               max_ndef_bytes)
 {
@@ -354,12 +367,24 @@ rs_status_t rs_ndef_read_card_info (ptxIoTRd_CardProtocol_t protocol,
 
     switch (protocol)
     {
-        case Prot_ISODEP: st = read_t4t_ndef(result, cap); break;
-        case Prot_T2T:    st = read_t2t_ndef(result, cap); break;
-        case Prot_T5T:    st = read_t5t_ndef(result, cap); break;
-        case Prot_T3T:    st = read_t3t_ndef(result, cap); break;
+        case ptx_RUL_CardProtocolType_T4T: st = read_t4t_ndef(result, cap); break;
+        case ptx_RUL_CardProtocolType_T2T: st = read_t2t_ndef(result, cap); break;
+#if !defined(PTX_DISABLE_NDEF_T5T)
+        case ptx_RUL_CardProtocolType_T5T: st = read_t5t_ndef(result, cap); break;
+#else
+        case ptx_RUL_CardProtocolType_T5T:
+            result->tag_type_name = "NFC Forum Type 5 Tag (T5T/ISO 15693)";
+            return RS_OK;   /* NDEF read compiled out (PTX_DISABLE_NDEF_T5T) */
+#endif
+#if !defined(PTX_DISABLE_NDEF_T3T)
+        case ptx_RUL_CardProtocolType_T3T: st = read_t3t_ndef(result, cap); break;
+#else
+        case ptx_RUL_CardProtocolType_T3T:
+            result->tag_type_name = "NFC Forum Type 3 Tag (T3T/FeliCa)";
+            return RS_OK;   /* NDEF read compiled out (PTX_DISABLE_NDEF_T3T) */
+#endif
 
-        case Prot_NFCDEP:
+        case ptx_RUL_CardProtocolType_NfcDep:
             result->tag_type_name = "NFC-DEP (Peer-to-Peer)";
             return RS_OK;
 

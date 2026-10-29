@@ -3,15 +3,17 @@
 
 set(RASC_TARGET_DEVICE R7FA2E307)
 set(RASC_TARGET_ARCH cortex-m23)
-set(RASC_PROJECT_NAME fpb-ra2e3)
+set(RASC_PROJECT_NAME RA2E3_nfc_reader)
 SET(RASC_TOOLCHAIN_NAME LLVMARM)
 
 SET(RASC_CMAKE_ASM_FLAGS "--target=arm-none-eabi;-mcpu=cortex-m23;-Wunused;-Wuninitialized;-Wall;-Wextra;-Wmissing-declarations;-Wconversion;-Wpointer-arith;-Wshadow;-Waggregate-return;-Wno-parentheses-equality;-Wfloat-equal;-fshort-enums;-fno-unroll-loops;-fmessage-length=0;-fsigned-char;-ffunction-sections;-fdata-sections;-mthumb;-mlittle-endian;-x;assembler-with-cpp;-MP")
-SET(RASC_CMAKE_C_FLAGS "--target=arm-none-eabi;-mcpu=cortex-m23;-Wunused;-Wuninitialized;-Wall;-Wextra;-Wmissing-declarations;-Wconversion;-Wpointer-arith;-Wshadow;-Waggregate-return;-Wno-parentheses-equality;-Wfloat-equal;-fshort-enums;-fno-unroll-loops;-fmessage-length=0;-fsigned-char;-ffunction-sections;-fdata-sections;-mthumb;-mlittle-endian;-std=c99;-MP;-Oz")
-SET(RASC_CMAKE_CXX_FLAGS "--target=arm-none-eabi;-mcpu=cortex-m23;-Wunused;-Wuninitialized;-Wall;-Wextra;-Wmissing-declarations;-Wconversion;-Wpointer-arith;-Wshadow;-Waggregate-return;-Wno-parentheses-equality;-Wfloat-equal;-fshort-enums;-fno-unroll-loops;-fmessage-length=0;-fsigned-char;-ffunction-sections;-fdata-sections;-mthumb;-mlittle-endian;-std=c++11;-MP;-Oz")
-SET(RASC_CMAKE_EXE_LINKER_FLAGS "--target=arm-none-eabi;-mcpu=cortex-m23;-Wunused;-Wuninitialized;-Wall;-Wextra;-Wmissing-declarations;-Wconversion;-Wpointer-arith;-Wshadow;-Waggregate-return;-Wno-parentheses-equality;-Wfloat-equal;-fshort-enums;-fno-unroll-loops;-fmessage-length=0;-fsigned-char;-ffunction-sections;-fdata-sections;--target=arm-none-eabi;-mthumb;-mlittle-endian;-T;script/fsp.lld;-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.map;-Wl,--gc-sections;-Wl,--cref;-Wl,--icf=none;-o;${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.elf;-Wl,-z,norelro")
-SET(RASC_CMAKE_DEFINITIONS "_RA_ORDINAL=1;_RENESAS_RA_;_RA_CORE=CM23")
+SET(RASC_CMAKE_C_FLAGS "--target=arm-none-eabi;-mcpu=cortex-m23;-Wunused;-Wuninitialized;-Wall;-Wextra;-Wmissing-declarations;-Wconversion;-Wpointer-arith;-Wshadow;-Waggregate-return;-Wno-parentheses-equality;-Wfloat-equal;-fshort-enums;-fno-unroll-loops;-fmessage-length=0;-fsigned-char;-ffunction-sections;-fdata-sections;-mthumb;-mlittle-endian;-std=c99;-MP")
+SET(RASC_CMAKE_CXX_FLAGS "--target=arm-none-eabi;-mcpu=cortex-m23;-Wunused;-Wuninitialized;-Wall;-Wextra;-Wmissing-declarations;-Wconversion;-Wpointer-arith;-Wshadow;-Waggregate-return;-Wno-parentheses-equality;-Wfloat-equal;-fshort-enums;-fno-unroll-loops;-fmessage-length=0;-fsigned-char;-ffunction-sections;-fdata-sections;-mthumb;-mlittle-endian;-std=c++11;-MP")
+SET(RASC_CMAKE_EXE_LINKER_FLAGS "--target=arm-none-eabi;-mcpu=cortex-m23;-Wunused;-Wuninitialized;-Wall;-Wextra;-Wmissing-declarations;-Wconversion;-Wpointer-arith;-Wshadow;-Waggregate-return;-Wno-parentheses-equality;-Wfloat-equal;-fshort-enums;-fno-unroll-loops;-fmessage-length=0;-fsigned-char;-ffunction-sections;-fdata-sections;--target=arm-none-eabi;-mthumb;-mlittle-endian;-T;fsp.lld;-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.map;-Wl,--gc-sections;-Wl,--cref;-Wl,--icf=none;-o;${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.elf")
+SET(RASC_CMAKE_DEFINITIONS "_RENESAS_RA_;PTX_PLATFORM_MCU;PTX_ENABLE_SPI;PTX_APP_DIVERSITY_RA4M2;PTX_LOG_DISABLED;PTX_DEBUG_PRINTS_DISABLE;PTX_DISABLE_COMP_CHECK;PTX_DISABLE_WLC;PTX_DISABLE_LISTEN_MODE;PTX_DISABLE_LISTEN_B;SSP_SUPPRESS_ISR_g_uart0;_RA_ORDINAL=1;_RA_CORE=CM23")
 SET(RASC_ASM_FILES "${CMAKE_CURRENT_SOURCE_DIR}/ra_gen/*.asm")
+
+SET(EXCLUDED_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/EVK_PERIPHERALS ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/FELICA ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/FELICA_DTE ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NATIVE_TAG/MFCC ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/GENERIC ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/RECORDS ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NFC_FORUM_DTA ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/POS_DTE ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/PSL ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/RF_TEST ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/RUL_HCE ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/RUL_LLCP ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/RUL_SNEP ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/RUL_WLC ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/TRANSPARENT_MODE ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV/LIN ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA2E2 ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_I2C.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_UART.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV/WIN ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/ptx_HAL_Interface_I2C.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/ptx_HAL_Interface_I3C.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/ptx_HAL_Interface_UART.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/LOG/CONSOLE ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/LOG/FILE ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/LOG/SERIAL ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/LOG/zf_log.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/NSC/ptx_NSC_RfDiscover_Listen.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/NSC/ptx_NSC_RfSetRoutingTable.c ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/OSAL ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/EXAMPLES)
 
 cmake_path(GET CMAKE_CURRENT_SOURCE_DIR PARENT_PATH PROJECT_PARENT_DIR)
 
@@ -24,6 +26,10 @@ if(DEVICE AND (NOT "${RASC_TARGET_DEVICE}" STREQUAL "${DEVICE}"))
 	message(FATAL_ERROR "Incorrect device specified ${DEVICE} but project is built for ${RASC_TARGET_DEVICE}")
 endif()
 
+if(RENESAS_IDE AND RENESAS_IDE STREQUAL "e2studio" AND EXISTS "${CMAKE_CURRENT_BINARY_DIR}/.fsp_content_generation_error.txt" )
+  file(READ "${CMAKE_CURRENT_BINARY_DIR}/.fsp_content_generation_error.txt" contentGenerationError 1000)
+  message(FATAL_ERROR "DDSC Content generation failed: ${contentGenerationError}")
+endif()
 
 # ADD COMPILE FLAGS FOR GCC version >= 12.2
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU" AND CMAKE_C_COMPILER_VERSION VERSION_GREATER_EQUAL 12.2)
