@@ -238,7 +238,7 @@
       <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority2"/>
     </module>
     <module id="module.driver.spi_on_sci_spi.69090446">
-      <property id="module.driver.spi.name" value="ptx_pmod2_spi"/>
+      <property id="module.driver.spi.name" value="ptx_pmod_spi"/>
       <property id="module.driver.spi.channel" value="0"/>
       <property id="module.driver.spi.operating_mode" value="module.driver.spi.operating_mode.mode_master"/>
       <property id="module.driver.spi.clk_phase" value="module.driver.spi.clk_phase.clk_phase_edge_odd"/>
@@ -250,11 +250,11 @@
       <property id="module.driver.spi.txi_ipl" value="board.icu.common.irq.priority2"/>
       <property id="module.driver.spi.tei_ipl" value="board.icu.common.irq.priority2"/>
       <property id="module.driver.spi.eri_ipl" value="board.icu.common.irq.priority2"/>
-      <property id="module.driver.spi.bitrate" value="500000"/>
+      <property id="module.driver.spi.bitrate" value="1000000"/>
       <property id="module.driver.spi.bitrate_modulation" value="module.driver.spi.bitrate_modulation.disabled"/>
     </module>
     <module id="module.driver.external_irq_on_icu.598725840">
-      <property id="module.driver.external_irq.name" value="ptx_pmod2_irq"/>
+      <property id="module.driver.external_irq.name" value="g_ext_irq"/>
       <property id="module.driver.external_irq.channel" value="7"/>
       <property id="module.driver.external_irq.trigger" value="module.driver.external_irq.trigger.trig_rising"/>
       <property id="module.driver.external_irq.filter_enable" value="module.driver.external_irq.filter_enable.false"/>

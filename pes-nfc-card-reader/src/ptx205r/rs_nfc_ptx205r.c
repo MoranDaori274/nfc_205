@@ -463,7 +463,7 @@ rs_status_t rs_nfc_ptx_wait_for_card (uint32_t timeout_ms, rs_nfc_ptx_disc_statu
     /* Publish the waiter and clear stale notifications BEFORE looking at
      * the IRQ line: an IRQ edge (or Stop()) after that point is never lost. */
     g_waiting_task = xTaskGetCurrentTaskHandle();
-    (void)ptx_pmod2_irq.p_api->callbackSet(ptx_pmod2_irq.p_ctrl, ptx205r_irq_wake_cb, NULL, NULL);
+    (void)g_ext_irq.p_api->callbackSet(g_ext_irq.p_ctrl, ptx205r_irq_wake_cb, NULL, NULL);
     (void)ulTaskNotifyTake(pdTRUE, 0);
 
     for (;;)

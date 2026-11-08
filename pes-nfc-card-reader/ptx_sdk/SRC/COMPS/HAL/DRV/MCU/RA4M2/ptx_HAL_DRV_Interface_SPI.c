@@ -79,7 +79,7 @@ static ptx_HAL_DRV_Interface_SPI_PortConfig_t gDrvSpiPortConfigs[PTX_HAL_DRV_INT
     {
         .Type                   = HAL_DRV_Interface_Port_Type_Default,
         .ID                     = 0,
-        .Instance               = &ptx_pmod2_spi,
+        .Instance               = &ptx_pmod_spi,
         /* FPB-RA2E3: SCI0 simple SPI on PMOD1 (P101 MOSI0, P100 MISO0, P102 SCK0, P103 SS as GPIO), PTX IRQ on P015 (IRQ7). */
         .Mosi                   = BSP_IO_PORT_01_PIN_01,
         .Clock                  = BSP_IO_PORT_01_PIN_02,
@@ -89,13 +89,13 @@ static ptx_HAL_DRV_Interface_SPI_PortConfig_t gDrvSpiPortConfigs[PTX_HAL_DRV_INT
         .Channel                = PTX_HAL_DRV_INTERFACE_SPI_DEFAULT_CHANNEL,
         .TransferState          = PTX_HAL_DRV_INTERFACE_SPI_RESET_VALUE,
         .TransferWaitCnt        = 0u,
-        .ExternalIrqInstance    = &ptx_pmod2_irq,
+        .ExternalIrqInstance    = &g_ext_irq,
     },
 #else
     {
         .Type                   = HAL_DRV_Interface_Port_Type_Evk,
         .ID                     = 0,
-        .Instance               = &ptx_pmod2_spi,
+        .Instance               = &ptx_pmod_spi,
         .Mosi                   = BSP_IO_PORT_01_PIN_01,
         .Clock                  = BSP_IO_PORT_01_PIN_02,
         .Nss                    = BSP_IO_PORT_01_PIN_03,
@@ -104,7 +104,7 @@ static ptx_HAL_DRV_Interface_SPI_PortConfig_t gDrvSpiPortConfigs[PTX_HAL_DRV_INT
         .Channel                = PTX_HAL_DRV_INTERFACE_SPI_EVK_CHANNEL,
         .TransferState          = PTX_HAL_DRV_INTERFACE_SPI_RESET_VALUE,
         .TransferWaitCnt        = 0u,
-        .ExternalIrqInstance    = &ptx_pmod2_irq,
+        .ExternalIrqInstance    = &g_ext_irq,
     }
 #endif
 };

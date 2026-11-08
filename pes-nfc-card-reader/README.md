@@ -477,8 +477,8 @@ HAL port binds to the following driver instances **by name** (see
 
 | FSP Module | Instance | Role |
 |---|---|---|
-| `r_sci_spi` | `ptx_pmod2_spi` | SCI0 SPI Master — CPHA=0, CPOL=0, MSB-first, no callback, no DTC. FSP bitrate 500 kHz; the SDK HAL sets 1 MHz when it opens the interface |
-| `r_icu` | `ptx_pmod2_irq` | ICU IRQ7 on P015 — rising edge. Opened by the SDK; the RS module installs its own callback while waiting for a card |
+| `r_sci_spi` | `ptx_pmod_spi` | SCI0 SPI Master — CPHA=0, CPOL=0, MSB-first, no callback, no DTC. FSP bitrate 500 kHz; the SDK HAL sets 1 MHz when it opens the interface |
+| `r_icu` | `g_ext_irq` | ICU IRQ7 on P015 — rising edge. Opened by the SDK; the RS module installs its own callback while waiting for a card |
 | `r_gpt` | `ptx_tmr0` | GPT Ch4 — SDK timer 0 (timeouts) |
 | `r_gpt` | `ptx_tmr1` | GPT Ch0 — SDK timer 1 (sleeps) |
 | `r_sci_uart` | `g_uart_jlob_vcom` | SCI9 — 230400 8N1 UART on P109 (TX) / P110 (RX), used by `console_io` |
@@ -487,7 +487,7 @@ HAL port binds to the following driver instances **by name** (see
 
 ### 5.3 SCI0 SPI & ICU IRQ7 Properties
 
-**SCI0 SPI (ptx_pmod2_spi)**
+**SCI0 SPI (ptx_pmod_spi)**
 
 | Property | Value |
 |---|---|
@@ -498,7 +498,7 @@ HAL port binds to the following driver instances **by name** (see
 | Bit Order | MSB First |
 | Bitrate | 500,000 bps in FSP; 1,000,000 bps set by the SDK HAL at open |
 
-**ICU IRQ7 (ptx_pmod2_irq)**
+**ICU IRQ7 (g_ext_irq)**
 
 | Property | Value |
 |---|---|
@@ -605,7 +605,7 @@ rs-nfc-card-reader/
 │   └── ptx205r/
 │       ├── rs_nfc_ptx205r.c               ← PTX205R HAL → direct ptx_RUL_* calls
 │       ├── rs_nfc_ptx205r.h               ← vendor HAL contract — the porting seam
-│       └── rs_nfc_ptx205r_board.h         ← integrator-supplied board symbols (ptx_pmod2_irq) + discovery tuning
+│       └── rs_nfc_ptx205r_board.h         ← integrator-supplied board symbols (g_ext_irq) + discovery tuning
 │
 ├── ptx_sdk/                              ← PTX205R SDK (PTX2xx RUL stack) — replaces the PTX105R FSP SDK module
 │   └── SRC/                               ← API/ (RUL, NDEF, NATIVE_TAG, …), COMPS/ (HAL + RA port, HIP, NSC + firmware, …), EXAMPLES/
@@ -1007,7 +1007,7 @@ Key FSP and firmware configuration options:
 | `configTIMER_TASK_STACK_DEPTH` | `FreeRTOSConfig.h` | 128 | FreeRTOS timer task stack size (words) |
 | `RS_NFC_NDEF_MAX_BYTES` | `rs_nfc_reader.h` | 512 | Maximum NDEF message size |
 | `UART baud rate` | FSP Configurator (`g_uart_jlob_vcom`) | 230400 | Debug log output speed |
-| `SPI clock` | FSP Configurator (`ptx_pmod2_spi`) + SDK HAL | 1 MHz (set by the SDK at open) | PTX205R SPI communication speed |
+| `SPI clock` | FSP Configurator (`ptx_pmod_spi`) + SDK HAL | 1 MHz (set by the SDK at open) | PTX205R SPI communication speed |
 
 ---
 
@@ -1080,9 +1080,9 @@ When moving the PTX205R connection off the reference PMOD1 wiring (for example, 
 
 | Signal | Reference (FPB-RA2E3) | What can change | Where to update |
 |---|---|---|---|
-| SPI (MISO/MOSI/SCK/CS) | SCI0 · P100–P103 | Any SCI channel with SPI support (see 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) | `configuration.xml` Stacks tab (`ptx_pmod2_spi`) + Pins tab |
+| SPI (MISO/MOSI/SCK/CS) | SCI0 · P100–P103 | Any SCI channel with SPI support (see 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) | `configuration.xml` Stacks tab (`ptx_pmod_spi`) + Pins tab |
 | DTC transfer instances | `g_transfer0` (TX) / `g_transfer1` (RX) on SCI0 | Must be reassigned to match the new SCI channel's transfer request line | `configuration.xml` Stacks tab — regenerate after changing the SPI channel |
-| IRQ | ICU IRQ7 · P015 | Any external-IRQ-capable pin | `configuration.xml` Stacks (`ptx_pmod2_irq`) + Pins tab — see note in 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) (`vector_data.h`/`common_data` regenerate); the adapter picks up `g_ext_irq` via `rs_nfc_ptx205r_board.h` |
+| IRQ | ICU IRQ7 · P015 | Any external-IRQ-capable pin | `configuration.xml` Stacks (`g_ext_irq`) + Pins tab — see note in 5.3 [SCI0 SPI & ICU IRQ7 Properties](#53-sci0-spi--icu-irq7-properties)) (`vector_data.h`/`common_data` regenerate); the adapter picks up `g_ext_irq` via `rs_nfc_ptx205r_board.h` |
 | RESET | GPIO P915 (`PMOD1_RESET`) | Any GPIO output pin | `configuration.xml` Pins tab (macro `PMOD1_RESET` in generated `bsp_pin_cfg.h`) |
 | UART (log — optional) | SCI9 · P109 (TX) / P110 (RX) | Any UART-capable SCI channel, or can be omitted entirely if log output isn't needed | `configuration.xml` (`g_uart_jlob_vcom`); `src/app/app_nfc_reader_log.c` |
 | Power | 3.3 V from PMOD1 rail | PTX205R always requires a regulated 3.3 V supply from the host board | Host board power rail |
@@ -1099,7 +1099,7 @@ Before running your application on **your own board**, verify the following (val
 * [ ] Required peripheral modules are available on your MCU and not already claimed by another function: an SPI-capable channel, an external-IRQ-capable pin, a GPIO output, a DTC/DMAC channel, and (if used) a UART channel — see 12.1 [Integration Guide](#121-integration-guide).
 * [ ] Pin/channel mapping matches your schematic for SPI (MISO/MOSI/SCK/CS), IRQ, RESET, and UART (if used) — see 12.2 [Adapting to Custom Board Wiring](#122-adapting-to-custom-board-wiring).
 * [ ] Active build configuration matches your project (the reference project ships a single configuration named `Debug`).
-* [ ] PTX205R SDK driver instances exist with the names the SDK HAL port expects: `ptx_pmod2_spi` (SCI SPI), `ptx_pmod2_irq` (ICU), `ptx_tmr0` / `ptx_tmr1` (GPT), `g_ioport` — or the port tables in `ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2/` are updated to your names.
+* [ ] PTX205R SDK driver instances exist with the names the SDK HAL port expects: `ptx_pmod_spi` (SCI SPI), `g_ext_irq` (ICU), `ptx_tmr0` / `ptx_tmr1` (GPT), `g_ioport` — or the port tables in `ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2/` are updated to your names.
 * [ ] SPI driver instance is configured to match the PTX205R spec: **master**, **1 MHz**, **CPOL=0**, **CPHA=0** (see 4.2 [PTX205RIOTEB Evaluation Board](#42-ptx205rioteb-evaluation-board)), on the channel you selected.
 * [ ] DTC (or DMAC) transfer instances for SPI TX/RX are enabled and match the SPI channel you selected.
 * [ ] External IRQ instance is configured on the pin you selected, with rising-edge trigger.

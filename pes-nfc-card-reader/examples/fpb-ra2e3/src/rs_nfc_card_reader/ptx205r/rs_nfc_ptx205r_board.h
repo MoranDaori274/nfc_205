@@ -10,13 +10,13 @@
  * these FSP instances by name instead, so the FSP configuration must provide
  * them:
  *
- *   ptx_pmod2_spi   r_sci_spi    SCI0 simple SPI (P100 MISO, P101 MOSI, P102 SCK;
+ *   ptx_pmod_spi    r_sci_spi    SCI0 simple SPI (P100 MISO, P101 MOSI, P102 SCK;
  *                                P103 is the SS line, driven as a GPIO)
- *   ptx_pmod2_irq   r_icu        IRQ7 on P015 (PTX205R IRQ), rising edge
+ *   g_ext_irq       r_icu        IRQ7 on P015 (PTX205R IRQ), rising edge
  *   ptx_tmr0/1      r_gpt        two timers used for SDK timeouts / sleeps
  *   g_ioport        r_ioport     P915 is the PTX205R SEN (reset) line
  *
- * Only ptx_pmod2_irq is referenced by rs_nfc_ptx205r.c itself: it installs
+ * Only g_ext_irq is referenced by rs_nfc_ptx205r.c itself: it installs
  * its own ICU callback while waiting for a card, so the read loop sleeps
  * until the PTX205R raises its IRQ line.
  */
@@ -30,7 +30,7 @@
 extern "C" {
 #endif
 
-extern const external_irq_instance_t ptx_pmod2_irq;
+extern const external_irq_instance_t g_ext_irq;
 
 /* Pause between polling-loop cycles while no card is in the field. */
 #ifndef RS_NFC_PTX205R_IDLE_TIME_MS

@@ -84,7 +84,7 @@ static ptx_HAL_DRV_Interface_UART_PortConfig_t gDrvUartPortConfigs[PTX_HAL_DRV_I
         .Channel                = PTX_HAL_DRV_INTERFACE_UART_DEFAULT_CHANNEL,
         .TransferState          = PTX_HAL_DRV_INTERFACE_UART_RESET_VALUE,
         .TransferWaitCnt        = 0u,
-        .ExternalIrqInstance    = &ptx_pmod2_irq,
+        .ExternalIrqInstance    = &g_ext_irq,
     },
     {
         .Type                   = HAL_DRV_Interface_Port_Type_Debug,
@@ -96,7 +96,7 @@ static ptx_HAL_DRV_Interface_UART_PortConfig_t gDrvUartPortConfigs[PTX_HAL_DRV_I
         .Channel                = PTX_HAL_DRV_INTERFACE_UART_DEBUG_CHANNEL,
         .TransferState          = PTX_HAL_DRV_INTERFACE_UART_RESET_VALUE,
         .TransferWaitCnt        = 0u,
-        .ExternalIrqInstance    = &ptx_pmod2_irq,
+        .ExternalIrqInstance    = &g_ext_irq,
     }
 };
 

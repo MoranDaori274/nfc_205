@@ -81,7 +81,7 @@ static ptx_HAL_DRV_Interface_I2C_PortConfig_t gDrvI2CPortConfigs[PTX_HAL_DRV_INT
         .Channel                    = PTX_HAL_DRV_I2C_DEFAULT_CHANNEL,
         .TransferState              = PTX_HAL_DRV_I2C_RESET_VALUE,
         .TransferWaitCnt            = 0u,
-        .ExternalIrqInstance        = &ptx_pmod2_irq,
+        .ExternalIrqInstance        = &g_ext_irq,
     },
 #else
     {
@@ -92,7 +92,7 @@ static ptx_HAL_DRV_Interface_I2C_PortConfig_t gDrvI2CPortConfigs[PTX_HAL_DRV_INT
         .Channel                    = PTX_HAL_DRV_I2C_EVK_CHANNEL,
         .TransferState              = PTX_HAL_DRV_I2C_RESET_VALUE,
         .TransferWaitCnt            = 0u,
-        .ExternalIrqInstance        = &ptx_pmod2_irq,
+        .ExternalIrqInstance        = &g_ext_irq,
     },
 #endif
 };
