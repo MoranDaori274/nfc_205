@@ -109,7 +109,7 @@ static ptx_HAL_DRV_Interface_SPI_PortConfig_t gDrvSpiPortConfigs[PTX_HAL_DRV_INT
 #endif
 };
 
-extern void ptx_HAL_DRV_Interface_SPI_TransferCallback(spi_callback_args_t *p_args);
+extern void sci_spi_callback(spi_callback_args_t *p_args);
 void ptx_HAL_DRV_Interface_SPI_IrqCallback(external_irq_callback_args_t *p_args);
 
 static ptx_Status_t ptx_HAL_DRV_Interface_SPI_SetTransmissionSpeed(ptx_HAL_DRV_Interface_SPI_t *ctx, uint32_t speed);
@@ -225,11 +225,6 @@ ptx_Status_t ptx_HAL_DRV_Interface_SPI_Open(ptx_HAL_DRV_Interface_SPI_t *ctx)
                     if (NULL != ctx->Port->ExternalIrqInstance)
                     {
                         r_status = R_ICU_ExternalIrqOpen(ctx->Port->ExternalIrqInstance->p_ctrl, ctx->Port->ExternalIrqInstance->p_cfg);
-
-                        if (FSP_SUCCESS == r_status)
-                        {
-                            r_status = R_SCI_SPI_CallbackSet(ctx->Port->Instance->p_ctrl, ptx_HAL_DRV_Interface_SPI_TransferCallback, ctx, NULL);
-                        }
 
                         if (FSP_SUCCESS == r_status)
                         {
@@ -547,30 +542,27 @@ ptx_Status_t ptx_HAL_DRV_Interface_SPI_SetTransmissionSpeed(ptx_HAL_DRV_Interfac
     return status;
 }
 
-void ptx_HAL_DRV_Interface_SPI_TransferCallback(spi_callback_args_t *p_args)
+void sci_spi_callback(spi_callback_args_t *p_args)
 {
     if (NULL != p_args)
     {
-        ptx_HAL_DRV_Interface_SPI_PortConfig_t *config = ((ptx_HAL_DRV_Interface_SPI_t *)p_args->p_context)->Port;
-        if (config->Channel == p_args->channel)
+        /* FSP registers this callback with a NULL context, so locate the port by SCI channel. */
+        for (uint32_t i = 0u; i < PTX_HAL_DRV_INTERFACE_SPI_NUMBER_PORTS; i++)
         {
-            switch (p_args->event)
+            ptx_HAL_DRV_Interface_SPI_PortConfig_t *config = &gDrvSpiPortConfigs[i];
+            if (config->Channel == p_args->channel)
             {
-                case SPI_EVENT_TRANSFER_COMPLETE:
+                if (SPI_EVENT_TRANSFER_COMPLETE == p_args->event)
+                {
                     config->TransferState = SPI_EVENT_TRANSFER_COMPLETE;
-                    break;
-
-                default:
+                }
+                else
+                {
                     /* Transfer Error */
                     config->TransferState = SPI_EVENT_TRANSFER_ABORTED;
-                    break;
+                }
+                break;
             }
-
-        }
-        else
-        {
-            /* Transfer Error */
-            config->TransferState = SPI_EVENT_TRANSFER_ABORTED;
         }
     }
 }
