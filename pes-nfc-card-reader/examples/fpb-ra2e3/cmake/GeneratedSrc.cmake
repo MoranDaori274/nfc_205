@@ -24,14 +24,6 @@ endif()
 
 #source directories
 file(GLOB_RECURSE Source_Files 
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.cxx
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.S
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.asm
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.sx
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/*.msa
     ${CMAKE_CURRENT_SOURCE_DIR}/ra/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/ra/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ra/*.cc
@@ -48,6 +40,14 @@ file(GLOB_RECURSE Source_Files
     ${CMAKE_CURRENT_SOURCE_DIR}/ra_gen/*.asm
     ${CMAKE_CURRENT_SOURCE_DIR}/ra_gen/*.sx
     ${CMAKE_CURRENT_SOURCE_DIR}/ra_gen/*.msa
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.cxx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.S
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.asm
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.sx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/*.msa
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
@@ -96,34 +96,34 @@ target_include_directories(${PROJECT_NAME}.elf
     ${CMAKE_CURRENT_SOURCE_DIR}/src/console_io
     ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader
     ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NATIVE_TAG
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NATIVE_TAG/T2T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NATIVE_TAG/T3T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NATIVE_TAG/T4T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NATIVE_TAG/T5T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/DEFINES
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/TAG_TYPES
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/API/RUL
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HIP
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/HIP/RUL
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/LOG
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/LOG/NONE
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/NSC
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/NSC/RUL
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/NSC/UCODE
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/COMPS/UTILS
-    ${CMAKE_CURRENT_SOURCE_DIR}/ptx_sdk/SRC/EXAMPLES/Utils
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T2T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T3T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T4T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T5T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/DEFINES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP/RUL
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG/NONE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/UCODE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/UTILS
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/EXAMPLES/Utils
     ${CMAKE_CURRENT_SOURCE_DIR}/src/app
     ${CMAKE_CURRENT_SOURCE_DIR}/"."
     ${CMAKE_CURRENT_SOURCE_DIR}/ra/fsp/inc

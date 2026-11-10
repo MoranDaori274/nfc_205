@@ -48,34 +48,34 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -127,34 +127,34 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -261,59 +261,59 @@
 									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\stream_buffer.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\tasks.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\timers.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/UTILS\ptx_RingBuffer.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/UCODE\ptx_NSC_uCODE.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL_MsgProcessing.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL_RfConfig.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RfConfigVal.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_CmdProcessor.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Data.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Error.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Firmware.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_InitHw.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Misc.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RevisionInfo.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfActivate.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfConfig.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDeactivate.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDiscover.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDiscover_Poll.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfPresenceCheck.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfSetParameter.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfTest.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Standby.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_StateMachine.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_SystemConfig.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Wakeup.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Wlc.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/LOG/NONE\ptx_Log_None.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/LOG\ptx_Log.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HIP/RUL\ptx_HIP_Frame.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HIP\ptx_HIP.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_GPIO.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_Interface_SPI.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_MCU.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_Timer.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_GPIO.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Interface.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Interface_SPI.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Timer.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_CardHandler.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_DataProcessor.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_Discovery.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/RUL\ptx_RUL_Extension.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T\ptx_NDEF_T5T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T\ptx_NDEF_T4T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T\ptx_NDEF_T3T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T\ptx_NDEF_T2T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T5T\ptx_NativeTag_T5T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T4T\ptx_NativeTag_T4T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T3T\ptx_NativeTag_T3T.o&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.\ptx_sdk/SRC/API/NATIVE_TAG/T2T\ptx_NativeTag_T2T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/UTILS\ptx_RingBuffer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/UCODE\ptx_NSC_uCODE.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL_MsgProcessing.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RUL_RfConfig.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL\ptx_NSC_RfConfigVal.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_CmdProcessor.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Error.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Firmware.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_InitHw.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Misc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RevisionInfo.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfActivate.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfConfig.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDeactivate.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDiscover.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfDiscover_Poll.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfPresenceCheck.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfSetParameter.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_RfTest.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Standby.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_StateMachine.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_SystemConfig.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Wakeup.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC\ptx_NSC_Wlc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG/NONE\ptx_Log_None.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG\ptx_Log.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP/RUL\ptx_HIP_Frame.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP\ptx_HIP.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_GPIO.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_Interface_SPI.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_MCU.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2\ptx_HAL_DRV_Timer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL\ptx_HAL.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL\ptx_HAL_GPIO.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Interface.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Interface_SPI.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL\ptx_HAL_Timer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL\ptx_RUL.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL\ptx_RUL_CardHandler.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL\ptx_RUL_DataProcessor.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL\ptx_RUL_Discovery.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL\ptx_RUL_Extension.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T\ptx_NDEF_T5T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T\ptx_NDEF_T4T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T\ptx_NDEF_T3T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T\ptx_NDEF_T2T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T5T\ptx_NativeTag_T5T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T4T\ptx_NativeTag_T4T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T3T\ptx_NativeTag_T3T.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T2T\ptx_NativeTag_T2T.o&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.\libRA2E3_nfc_reader.a&quot;"/>
 								</option>
 								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c.1457362404" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c">
@@ -360,6 +360,7 @@
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1337073862.328415028" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1337073862"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1280992569.1858828088" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1280992569"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.61661602.1105083698" name="Other flags" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.61661602"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.renesas.cdt.managedbuild.llvm.core.targetPlatform" isAbstract="false" osList="all" superClass="com.renesas.cdt.managedbuild.llvm.core.targetPlatform"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.1717666965" name="SMS Assembler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.1514814688"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1984116698" name="Library Generator" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1924607012"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.365316728" name="Compiler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.290907277">
@@ -407,6 +408,7 @@
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1337073862.1061923479" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1337073862"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1280992569.1159318779" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1280992569"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.61661602.125320038" name="Other flags" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.61661602"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.renesas.cdt.managedbuild.llvm.core.targetPlatform" isAbstract="false" osList="all" superClass="com.renesas.cdt.managedbuild.llvm.core.targetPlatform"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.972606659" name="SMS Assembler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.1514814688"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1971355871" name="Library Generator" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1924607012"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.303442489" name="Compiler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.290907277">
@@ -437,10 +439,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="SRC/API/EVK_PERIPHERALS|SRC/API/FELICA|SRC/API/FELICA_DTE|SRC/API/NATIVE_TAG/MFCC|SRC/API/NDEF/GENERIC|SRC/API/NDEF/RECORDS|SRC/API/NFC_FORUM_DTA|SRC/API/POS_DTE|SRC/API/PSL|SRC/API/RF_TEST|SRC/API/RUL_HCE|SRC/API/RUL_LLCP|SRC/API/RUL_SNEP|SRC/API/RUL_WLC|SRC/API/TRANSPARENT_MODE|SRC/COMPS/HAL/DRV/LIN|SRC/COMPS/HAL/DRV/MCU/RA2E2|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_I2C.c|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_UART.c|SRC/COMPS/HAL/DRV/WIN|SRC/COMPS/HAL/ptx_HAL_Interface_I2C.c|SRC/COMPS/HAL/ptx_HAL_Interface_I3C.c|SRC/COMPS/HAL/ptx_HAL_Interface_UART.c|SRC/COMPS/LOG/CONSOLE|SRC/COMPS/LOG/FILE|SRC/COMPS/LOG/SERIAL|SRC/COMPS/LOG/zf_log.c|SRC/COMPS/NSC/ptx_NSC_RfDiscover_Listen.c|SRC/COMPS/NSC/ptx_NSC_RfSetRoutingTable.c|SRC/COMPS/OSAL|SRC/EXAMPLES" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ptx_sdk"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra_gen"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="SRC/API/EVK_PERIPHERALS|SRC/API/FELICA|SRC/API/FELICA_DTE|SRC/API/NATIVE_TAG/MFCC|SRC/API/NDEF/GENERIC|SRC/API/NDEF/RECORDS|SRC/API/NFC_FORUM_DTA|SRC/API/POS_DTE|SRC/API/PSL|SRC/API/RF_TEST|SRC/API/RUL_HCE|SRC/API/RUL_LLCP|SRC/API/RUL_SNEP|SRC/API/RUL_WLC|SRC/API/TRANSPARENT_MODE|SRC/COMPS/HAL/DRV/LIN|SRC/COMPS/HAL/DRV/MCU/RA2E2|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_I2C.c|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_UART.c|SRC/COMPS/HAL/DRV/WIN|SRC/COMPS/HAL/ptx_HAL_Interface_I2C.c|SRC/COMPS/HAL/ptx_HAL_Interface_I3C.c|SRC/COMPS/HAL/ptx_HAL_Interface_UART.c|SRC/COMPS/LOG/CONSOLE|SRC/COMPS/LOG/FILE|SRC/COMPS/LOG/SERIAL|SRC/COMPS/LOG/zf_log.c|SRC/COMPS/NSC/ptx_NSC_RfDiscover_Listen.c|SRC/COMPS/NSC/ptx_NSC_RfSetRoutingTable.c|SRC/COMPS/OSAL|SRC/EXAMPLES" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/rs_nfc_card_reader/ptx205r/ptx_sdk"/>
+						<entry excluding="rs_nfc_card_reader/ptx205r/ptx_sdk" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -498,34 +500,34 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -577,34 +579,34 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/console_io}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/API/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NATIVE_TAG/T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/DEFINES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T2T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T3T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T4T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/NDEF/TAG_TYPES/NDEF_T5T}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/API/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HAL/DRV/MCU/RA4M2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/HIP/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/LOG/NONE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/RUL}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/NSC/UCODE}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/COMPS/UTILS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC/EXAMPLES/Utils}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/app}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
@@ -708,6 +710,7 @@
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1338073862.1496525076" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1338073862"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1281992569.1723831069" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1281992569"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.62661602.1272380348" name="Other flags" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.62661602"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.renesas.cdt.managedbuild.llvm.core.targetPlatform" isAbstract="false" osList="all" superClass="com.renesas.cdt.managedbuild.llvm.core.targetPlatform"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.1777614241" name="SMS Assembler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.1515814688"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.916662372" name="Library Generator" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1925607012"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.1441107829" name="Compiler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.291907277">
@@ -759,6 +762,7 @@
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1338073862.243171709" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.1338073862"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1281992569.2119890119" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1281992569"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.62661602.481563792" name="Other flags" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.otherFlags.62661602"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.renesas.cdt.managedbuild.llvm.core.targetPlatform" isAbstract="false" osList="all" superClass="com.renesas.cdt.managedbuild.llvm.core.targetPlatform"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.574734376" name="SMS Assembler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.1515814688"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1457761920" name="Library Generator" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1925607012"/>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.1737851370" name="Compiler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.291907277">
@@ -793,10 +797,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="SRC/API/EVK_PERIPHERALS|SRC/API/FELICA|SRC/API/FELICA_DTE|SRC/API/NATIVE_TAG/MFCC|SRC/API/NDEF/GENERIC|SRC/API/NDEF/RECORDS|SRC/API/NFC_FORUM_DTA|SRC/API/POS_DTE|SRC/API/PSL|SRC/API/RF_TEST|SRC/API/RUL_HCE|SRC/API/RUL_LLCP|SRC/API/RUL_SNEP|SRC/API/RUL_WLC|SRC/API/TRANSPARENT_MODE|SRC/COMPS/HAL/DRV/LIN|SRC/COMPS/HAL/DRV/MCU/RA2E2|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_I2C.c|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_UART.c|SRC/COMPS/HAL/DRV/WIN|SRC/COMPS/HAL/ptx_HAL_Interface_I2C.c|SRC/COMPS/HAL/ptx_HAL_Interface_I3C.c|SRC/COMPS/HAL/ptx_HAL_Interface_UART.c|SRC/COMPS/LOG/CONSOLE|SRC/COMPS/LOG/FILE|SRC/COMPS/LOG/SERIAL|SRC/COMPS/LOG/zf_log.c|SRC/COMPS/NSC/ptx_NSC_RfDiscover_Listen.c|SRC/COMPS/NSC/ptx_NSC_RfSetRoutingTable.c|SRC/COMPS/OSAL|SRC/EXAMPLES" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ptx_sdk"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra_gen"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="SRC/API/EVK_PERIPHERALS|SRC/API/FELICA|SRC/API/FELICA_DTE|SRC/API/NATIVE_TAG/MFCC|SRC/API/NDEF/GENERIC|SRC/API/NDEF/RECORDS|SRC/API/NFC_FORUM_DTA|SRC/API/POS_DTE|SRC/API/PSL|SRC/API/RF_TEST|SRC/API/RUL_HCE|SRC/API/RUL_LLCP|SRC/API/RUL_SNEP|SRC/API/RUL_WLC|SRC/API/TRANSPARENT_MODE|SRC/COMPS/HAL/DRV/LIN|SRC/COMPS/HAL/DRV/MCU/RA2E2|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_I2C.c|SRC/COMPS/HAL/DRV/MCU/RA4M2/ptx_HAL_DRV_Interface_UART.c|SRC/COMPS/HAL/DRV/WIN|SRC/COMPS/HAL/ptx_HAL_Interface_I2C.c|SRC/COMPS/HAL/ptx_HAL_Interface_I3C.c|SRC/COMPS/HAL/ptx_HAL_Interface_UART.c|SRC/COMPS/LOG/CONSOLE|SRC/COMPS/LOG/FILE|SRC/COMPS/LOG/SERIAL|SRC/COMPS/LOG/zf_log.c|SRC/COMPS/NSC/ptx_NSC_RfDiscover_Listen.c|SRC/COMPS/NSC/ptx_NSC_RfSetRoutingTable.c|SRC/COMPS/OSAL|SRC/EXAMPLES" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/rs_nfc_card_reader/ptx205r/ptx_sdk"/>
+						<entry excluding="rs_nfc_card_reader/ptx205r/ptx_sdk" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

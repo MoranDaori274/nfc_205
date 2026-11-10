@@ -178,7 +178,18 @@ target_include_directories(${PROJECT_NAME}.elf
 # routing table), WLC, LLCP/SNEP, EMV/FeliCa DTE, the I2C/UART host interfaces
 # and the SDK examples are left out. The same set is selected in .cproject.
 # Keep these lists and the PTX_* definitions below in sync with .cproject.
-set(PTX_SDK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../ptx_sdk/SRC)
+set(PTX_SDK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/rs_nfc_card_reader/ptx205r/ptx_sdk/SRC)
+
+# ptx_sdk now lives under src/, so the RASC-generated GeneratedSrc.cmake recursive
+# glob over src/*.c has already pulled the *entire* SDK (including the non-RA ports
+# and SDK examples) into the target. Drop all of it and rebuild the target from the
+# curated reader subset below, so the selection stays explicit and matches .cproject
+# regardless of the generated EXCLUDED_SOURCE_FILES handling.
+get_target_property(_elf_srcs ${PROJECT_NAME}.elf SOURCES)
+if(_elf_srcs)
+    list(FILTER _elf_srcs EXCLUDE REGEX "/ptx_sdk/")
+    set_target_properties(${PROJECT_NAME}.elf PROPERTIES SOURCES "${_elf_srcs}")
+endif()
 
 file(GLOB PTX_SDK_SOURCES
     ${PTX_SDK_DIR}/API/RUL/*.c
